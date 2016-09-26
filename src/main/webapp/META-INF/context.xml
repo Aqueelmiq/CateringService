@@ -1,0 +1,5 @@
+<Context>
+<ResourceLink name="jdbc/empDS"
+              global="jdbc_empDS"
+              type="javax.sql.DataSource"/>
+</Context>
