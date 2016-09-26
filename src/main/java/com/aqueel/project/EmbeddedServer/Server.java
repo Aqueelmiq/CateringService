@@ -27,7 +27,7 @@ public class Server {
             return "Hello World!";
         });
 
-        String dataSource = "jdbc:h2:~/app287.db";
+        String dataSource = "jdbc:h2:~/app290.db";
 
         String conString = dataSource + ";INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString, "", "");
@@ -41,8 +41,6 @@ public class Server {
         CustomerDao customerDao = new Sql2oCustomerDao(sql2o);
 
         Connection con = sql2o.open();
-        extrasDao.add("surcharge", 0);
-
 
         //GET MENU (ALL) works
         get("/menu", "application/json", (req, res) -> {
@@ -144,11 +142,13 @@ public class Server {
 
         //GET Surcharge
         get("/admin/surcharge", "application/json", (req, res) -> {
-
+            System.out.print("Hy");
             Map<String, Double> rValue = new HashMap();
+            System.out.print("Ho");
             double sur = extrasDao.get("surcharge");
-
+            System.out.print("Hi");
             rValue.put("surcharge", sur);
+            res.status(200);
             return rValue;
 
         }, gson::toJson);
@@ -159,7 +159,6 @@ public class Server {
             Map<String, Double> changes = gson.fromJson(req.body(), type);
             try {
                 extrasDao.update("surcharge", changes.get("surcharge"));
-                return changes;
 
             }catch (IllegalStateException ex) {
                 res.status(400);
@@ -168,9 +167,9 @@ public class Server {
                 res.status(404);
                 return 0;
             }catch (DaoException ex) {
-                res.status(200);
-                return extrasDao.add("surcharge", changes.get("surcharge"));
+                res.status(400);
             }
+            return changes;
 
         }, gson::toJson);
 
@@ -187,7 +186,6 @@ public class Server {
         get("/customer", "application/json", (req, res) -> {
 
             String query = req.queryParams("key");
-            System.out.print(query);
             if(query == null) {
                 res.status(200);
                 return customerDao.findAll();
@@ -284,7 +282,7 @@ public class Server {
             OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);
             Customer c = o.getCustomer();
             customerDao.add(c);
-            Order order = new Order(o, 0, 0, c.getId());
+            Order order = new Order(o, 0, extrasDao.get("surcharge"), c.getId());
             orderDao.add(order);
             Map<String, Double> amount = new HashMap<String, Double>();
             amount.put("total", (double) 0);
@@ -350,7 +348,6 @@ public class Server {
         get("/report/:rid", "application/json", (req, res) -> {
 
             int id = Integer.parseInt(req.params("rid"));
-            String[] query = req.queryParams();
             switch (id) {
                 case 801:
                     res.status(200);

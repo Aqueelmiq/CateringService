@@ -18,27 +18,6 @@ public class Sql2oExtrasDao implements ExtrasDao{
     }
 
     @Override
-    public int add(String name, double amt) throws DaoException {
-
-        String sql = "INSERT INTO EXTRAS (name, amount) VALUES (:name, :amount)";
-
-        try(Connection con = sql2o.open()) {
-
-            int id = (int) con.createQuery(sql)
-                    .addParameter("name", name)
-                    .addParameter("amount", amt)
-                    .executeUpdate()
-                    .getKey();
-
-            return id;
-
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Insert screwd up in Extras");
-        }
-
-    }
-
-    @Override
     public int update(String name, double amt) throws DaoException {
 
         try(Connection con = sql2o.open()) {

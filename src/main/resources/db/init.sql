@@ -59,3 +59,5 @@ CREATE TABLE IF NOT EXISTS ITEMS(
 
 );
 
+INSERT INTO EXTRAS (name, amount) VALUES ('surcharge', 0);
+

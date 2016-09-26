@@ -7,7 +7,6 @@ import com.aqueel.project.Exc.DaoException;
  */
 public interface ExtrasDao {
 
-    int add(String name, double amt) throws DaoException;
     int update(String name, double amt) throws DaoException;
     double get(String name) throws DaoException;
 
