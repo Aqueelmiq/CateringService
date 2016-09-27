@@ -12,6 +12,7 @@ public interface CustomerDao {
 
     List<Customer> findAll() throws DaoException;
     List<Customer> find(String query) throws DaoException;
+    Customer findByEmail(String email) throws DaoException;
     Customer find(int cid) throws DaoException;
     int add(Customer c) throws DaoException;
 

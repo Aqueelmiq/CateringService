@@ -47,6 +47,19 @@ public class Sql2oCustomerDao implements CustomerDao {
     }
 
     @Override
+    public Customer findByEmail(String email) throws DaoException {
+        try(Connection con = sql2o.open()) {
+
+            String sql = "SELECT * FROM CUSTOMERS WHERE email = :email";
+            return con.createQuery(sql)
+                    .addParameter("email", email)
+                    .executeAndFetchFirst(Customer.class);
+        } catch (Sql2oException ex) {
+            throw new DaoException(ex, "Return All Food Failed");
+        }
+    }
+
+    @Override
     public Customer find(int cid) throws DaoException {
         try(Connection con = sql2o.open()) {
 

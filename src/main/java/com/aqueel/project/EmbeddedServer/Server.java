@@ -28,7 +28,7 @@ public class Server {
             return "Hello World!";
         });
 
-        String dataSource = "jdbc:h2:~/app291.db";
+        String dataSource = "jdbc:h2:~/app295.db";
 
         String conString = dataSource + ";INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString, "", "");
@@ -265,11 +265,10 @@ public class Server {
                 Order order = orderDao.find(id);
                 Customer c = customerDao.find(order.getCustomer_id());
                 List<Item> parts = itemDao.find(order.getId());
-                System.out.print("Hi");
                 parts.forEach( part -> {
                     items.add(new ItemAdapter(part));
                 });
-                System.out.print("Hi");
+
                 orderAdapters.add(new FullOrderAdapter(order, c, items));
                 return orderAdapters;
 
@@ -291,9 +290,12 @@ public class Server {
         put("/order", "application/json", (req, res) -> {
 
             OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);
-            Customer c = o.getCustomer();
-            customerDao.add(c);
-            Order order = new Order(o, 0, extrasDao.get("surcharge"), c.getId());
+            Customer c = o.getCustomer(), d;
+            d = customerDao.findByEmail(c.getEmail());
+            if(d == null)
+                customerDao.add(c);
+            System.out.print("Yolo");
+            Order order = new Order(o, 0, extrasDao.get("surcharge"), d.getId());
             orderDao.add(order);
             Map<String, Double> amount = new HashMap<String, Double>();
             amount.put("total", (double) 0);
@@ -307,7 +309,6 @@ public class Server {
                 try {
                     amount.put("total", amount.get("total") + f.getPrice()*detail.getCount());
                     itemDao.add(new Item(detail, f, order.getId()));
-                    System.out.print(itemDao.find(order.getId()) + " yo " + order.getId());
                     res.status(200);
                 } catch (DaoException e) {
                     res.status(400);
