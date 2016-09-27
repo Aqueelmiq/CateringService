@@ -14,8 +14,8 @@ public interface OrderDao {
     List<Order> findAll() throws DaoException;
     int add(Order o) throws DaoException;
     Order find(int oid) throws DaoException;
-    List<Order> findByDate(Date date) throws DaoException;
-    List<Order> findBetween(Date start, Date end) throws DaoException;
+    List<Order> findByDate(String date) throws DaoException;
+    List<Order> findBetween(String start, String end) throws DaoException;
     List<Order> findByCustomer(int customer_id) throws DaoException;
 
     int update(int oid, double price) throws DaoException;

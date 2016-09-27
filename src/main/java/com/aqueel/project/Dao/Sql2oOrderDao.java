@@ -65,7 +65,7 @@ public class Sql2oOrderDao implements OrderDao{
     }
 
     @Override
-    public List<Order> findByDate(Date date) throws DaoException {
+    public List<Order> findByDate(String date) throws DaoException {
         try(Connection con = sql2o.open()) {
 
             String sql = "SELECT * FROM ORDERS WHERE delivery_date = :date";
@@ -78,7 +78,7 @@ public class Sql2oOrderDao implements OrderDao{
     }
 
     @Override
-    public List<Order> findBetween(Date start, Date end) throws DaoException {
+    public List<Order> findBetween(String start, String end) throws DaoException {
         try(Connection con = sql2o.open()) {
 
             String sql = "SELECT * FROM ORDERS WHERE delivery_date BETWEEN :start AND :end";

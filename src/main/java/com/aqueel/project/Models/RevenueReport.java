@@ -13,6 +13,8 @@ public class RevenueReport extends Report {
     double food_revenue;
     double surcharge_revenue;
 
+    public RevenueReport() {}
+
     public RevenueReport(int id, String name) {
         super(id, name);
     }

@@ -8,6 +8,9 @@ public class Report {
     int id;
     String name;
 
+    public Report() {
+    }
+
     public Report(int id, String name) {
         this.id = id;
         this.name = name;

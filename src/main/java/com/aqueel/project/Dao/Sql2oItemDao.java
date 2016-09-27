@@ -27,6 +27,7 @@ public class Sql2oItemDao implements ItemDao {
 
             String sql = "SELECT * FROM ITEMS WHERE order_id = :order_id";
             return con.createQuery(sql)
+                    .addParameter("order_id", oid)
                     .executeAndFetch(Item.class);
         } catch (Sql2oException ex) {
             throw new DaoException(ex, "Return Order Items Failed");

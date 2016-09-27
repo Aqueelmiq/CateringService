@@ -11,12 +11,15 @@ import java.util.List;
  */
 public class OrderAdapter {
 
+
     private String delivery_date;
     private Customer personal_info;
     private String delivery_address;
     private ArrayList<Detail> order_detail;
     private String note;
 
+    public OrderAdapter() {
+    }
 
     public OrderAdapter(String delivery_date, Customer customer, String delivery_address, ArrayList<Detail> order_detail, String note) {
         this.delivery_date = delivery_date;

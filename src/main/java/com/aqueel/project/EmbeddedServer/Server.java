@@ -1,6 +1,7 @@
 package com.aqueel.project.EmbeddedServer;
 
 import com.aqueel.project.Adapters.*;
+import com.aqueel.project.Builder.ReportBuilder;
 import com.aqueel.project.Dao.*;
 import com.aqueel.project.Exc.DaoException;
 import com.aqueel.project.Models.*;
@@ -27,7 +28,7 @@ public class Server {
             return "Hello World!";
         });
 
-        String dataSource = "jdbc:h2:~/app290.db";
+        String dataSource = "jdbc:h2:~/app291.db";
 
         String conString = dataSource + ";INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString, "", "");
@@ -238,9 +239,7 @@ public class Server {
                 return rValue;
             }
             else {
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-                Date date = formatter.parse(query);
-                orderDao.findByDate(date).forEach(order -> {
+                orderDao.findByDate(query).forEach(order -> {
                     try {
                         Customer c = customerDao.find(order.getCustomer_id());
                         rValue.add(new BasicOrderAdapter(order, c.getEmail()));
@@ -258,10 +257,22 @@ public class Server {
         //GEt Specific Order
         get("/order/:oid", "application/json", (req, res) -> {
 
+            ArrayList<FullOrderAdapter> orderAdapters = new ArrayList<FullOrderAdapter>();
+            ArrayList<ItemAdapter> items = new ArrayList<ItemAdapter>();
             int id = Integer.parseInt(req.params("oid"));
             try {
                 res.status(200);
-                return orderDao.find(id);
+                Order order = orderDao.find(id);
+                Customer c = customerDao.find(order.getCustomer_id());
+                List<Item> parts = itemDao.find(order.getId());
+                System.out.print("Hi");
+                parts.forEach( part -> {
+                    items.add(new ItemAdapter(part));
+                });
+                System.out.print("Hi");
+                orderAdapters.add(new FullOrderAdapter(order, c, items));
+                return orderAdapters;
+
             }catch (IllegalStateException ex) {
                 res.status(400);
                 return 0;
@@ -296,6 +307,7 @@ public class Server {
                 try {
                     amount.put("total", amount.get("total") + f.getPrice()*detail.getCount());
                     itemDao.add(new Item(detail, f, order.getId()));
+                    System.out.print(itemDao.find(order.getId()) + " yo " + order.getId());
                     res.status(200);
                 } catch (DaoException e) {
                     res.status(400);
@@ -348,30 +360,39 @@ public class Server {
         get("/report/:rid", "application/json", (req, res) -> {
 
             int id = Integer.parseInt(req.params("rid"));
+            ReportBuilder rb = new ReportBuilder();
+            Report report = null;
             switch (id) {
                 case 801:
+                    report = rb.deliveryToday()
+                            .onOrders(orderDao,itemDao,customerDao)
+                            .get();
                     res.status(200);
                     break;
                 case 802:
+                    report = rb.deliveryTomorrow()
+                            .onOrders(orderDao,itemDao,customerDao)
+                            .get();
                     res.status(200);
                     break;
                 case 803:
+                    report = rb.revenue()
+                            .onOrders(orderDao,itemDao,customerDao)
+                            .get();
                     res.status(200);
                     break;
                 case 804:
+                    report = rb.deliveryToday()
+                            .onOrders(orderDao,itemDao,customerDao)
+                            .get();
                     res.status(200);
                     break;
                 default:
                     res.status(404);
             }
-            return 0;
+            return report;
 
         }, gson::toJson);
-
-
-
-
-        //
 
         after((req, res) -> {
             res.type("application/json");
