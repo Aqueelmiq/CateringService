@@ -68,7 +68,7 @@ public class Sql2oOrderDao implements OrderDao{
     public List<Order> findByDate(String date) throws DaoException {
         try(Connection con = sql2o.open()) {
 
-            String sql = "SELECT * FROM ORDERS WHERE delivery_date = :date";
+            String sql = "SELECT * FROM ORDERS WHERE delivery_date = :date AND status = 'open'";
             return con.createQuery(sql)
                     .addParameter("date", date)
                     .executeAndFetch(Order.class);
@@ -79,9 +79,17 @@ public class Sql2oOrderDao implements OrderDao{
 
     @Override
     public List<Order> findBetween(String start, String end) throws DaoException {
+
+        String sql = "SELECT * FROM ORDERS WHERE delivery_date BETWEEN :start AND :end";
+        if(start == null && end == null)
+            return findAll();
+        else if(end == null)
+            sql = "SELECT * FROM ORDERS WHERE delivery_date > :start";
+        else if(start == null)
+            sql = "SELECT * FROM ORDERS WHERE delivery_date < :end";
+
         try(Connection con = sql2o.open()) {
 
-            String sql = "SELECT * FROM ORDERS WHERE delivery_date BETWEEN :start AND :end";
             return con.createQuery(sql)
                     .addParameter("start", start)
                     .addParameter("end", end)

@@ -60,6 +60,7 @@ public class ReportBuilder {
         Date today = new Date();
         Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+        System.out.print(df.format(today));
         List<Order> orders;
         ArrayList<ItemAdapter> items = new ArrayList<>();
 
@@ -67,14 +68,18 @@ public class ReportBuilder {
 
         switch(report.getId()) {
             case 801:
+                DateReport dReport = (DateReport) report;
                 String sToday = df.format(today);
                 orders = oDao.findByDate(sToday);
                 extractData(iDao, cDao, orders, items, orderAdapters);
+                dReport.setOrders(orderAdapters);
                 break;
             case 802:
+                DateReport dReport2 = (DateReport) report;
                 String sTomorrow = df.format(tomorrow);
                 orders = oDao.findByDate(sTomorrow);
                 extractData(iDao, cDao, orders, items, orderAdapters);
+                dReport2.setOrders(orderAdapters);
                 break;
             case 803:
                 double total = 0, tSur = 0;

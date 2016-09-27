@@ -1,36 +1,34 @@
 package com.aqueel.project.Models;
 
 import com.aqueel.project.Adapters.FullOrderAdapter;
-import com.aqueel.project.Adapters.OrderAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by aqueelmiqdad on 9/25/16.
  */
 public class DateReport extends Report {
 
-    ArrayList<FullOrderAdapter> orderAdapters;
+    ArrayList<FullOrderAdapter> orders;
 
     public DateReport() {
     }
 
     public DateReport(int id, String name) {
         super(id, name);
-        orderAdapters = new ArrayList<>();
+        orders = new ArrayList<>();
     }
 
     public DateReport(int id, String name, ArrayList<FullOrderAdapter> o) {
         super(id, name);
-        orderAdapters = o;
+        orders = o;
     }
 
-    public ArrayList<FullOrderAdapter> getOrderAdapters() {
-        return orderAdapters;
+    public ArrayList<FullOrderAdapter> getOrders() {
+        return orders;
     }
 
-    public void setOrderAdapters(ArrayList<FullOrderAdapter> orderAdapters) {
-        this.orderAdapters = orderAdapters;
+    public void setOrders(ArrayList<FullOrderAdapter> orders) {
+        this.orders = orders;
     }
 }
