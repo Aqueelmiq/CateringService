@@ -2,15 +2,12 @@ package com.aqueel.project.Builder;
 
 import com.aqueel.project.Adapters.FullOrderAdapter;
 import com.aqueel.project.Adapters.ItemAdapter;
-import com.aqueel.project.Adapters.OrderAdapter;
 import com.aqueel.project.Dao.CustomerDao;
-import com.aqueel.project.Dao.FoodDao;
 import com.aqueel.project.Dao.ItemDao;
 import com.aqueel.project.Dao.OrderDao;
 import com.aqueel.project.Exc.DaoException;
 import com.aqueel.project.Models.*;
 import com.aqueel.project.Models.Item;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -87,7 +84,6 @@ public class ReportBuilder {
                 int cancelled = 0, open = 0, delivered = 0;
                 RevenueReport rev = (RevenueReport)report;
                 orders = oDao.findBetween(rev.getStart_date(), rev.getEnd_date());
-                System.out.print(rev);
                 for(Order order: orders) {
                     tSur += order.getSurcharge();
                     total += order.getAmount();

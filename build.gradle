@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.5'
     }
+
 }
 apply plugin: 'java'
 apply plugin: 'war'
@@ -39,9 +40,15 @@ dependencies {
 }
 
 tomcatRun {
-    contextPath = ""
+    contextPath = "/delectable"
 }
 tomcatRunWar {
-    contextPath = ""
+    contextPath = "/delectable"
+}
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
 }
 

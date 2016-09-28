@@ -66,7 +66,7 @@ public class ServerClass {
     public static void getReports(Gson gson) {
         get("/report", "application/json", (req, res) -> {
 
-            ArrayList<Report> reports = new ArrayList();
+            ArrayList<Report> reports = new ArrayList<Report>();
             reports.add(new Report(801, "Orders to deliver today"));
             reports.add(new Report(802, "Orders to deliver tomorrow"));
             reports.add(new Report(803, "Revenue report"));
@@ -107,7 +107,7 @@ public class ServerClass {
     public static void putOrder(Gson gson, FoodDao foodDao, ExtrasDao extrasDao, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {
         put("/order", "application/json", (req, res) -> {
 
-            List<Item> items = new ArrayList();
+            List<Item> items = new ArrayList<Item>();
             OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);
             if(o.getOrder_detail().isEmpty()) {
                 res.status(501);
@@ -200,7 +200,7 @@ public class ServerClass {
     public static void getOrder(Gson gson, OrderDao orderDao, CustomerDao customerDao) {
         get("/order", "application/json", (req, res) -> {
             String query = req.queryParams("date");
-            ArrayList<BasicOrderAdapter> rValue = new ArrayList();
+            ArrayList<BasicOrderAdapter> rValue = new ArrayList<BasicOrderAdapter>();
             if(query == null) {
                 for(Order order: orderDao.findAll()){
                     retreiveOrder(customerDao, res, rValue, order);

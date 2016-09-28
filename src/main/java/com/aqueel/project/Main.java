@@ -20,7 +20,9 @@ public class Main implements SparkApplication {
     @Override
     public void init() {
 
-        get("/hello", (request, response) -> "Hello World!");
+        get("/", (request, response) -> "Aqueel Miqdad\n" +
+                "CS-445 Project\n" +
+                "Delectable");
 
         String dataSource = "jdbc:h2:~/app0003.db";
 
