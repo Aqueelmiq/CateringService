@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43baefd-6fb8-4e9a-b21d-e54098f77cfd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Adapters/ItemAdapter.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Adapters/ItemAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oCustomerDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oCustomerDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/DateReport.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/DateReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/Report.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/Report.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/RevenueReport.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/RevenueReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/BasicOrderAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/BasicOrderAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/Detail.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/Detail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FoodAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FoodAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FullOrderAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FullOrderAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/ItemAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/ItemAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Category.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Customer.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/DateReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/DateReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Food.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Food.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Order.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/PeriodFullReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/PeriodFullReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/PeriodReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/PeriodReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/RevenueReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/RevenueReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCategoryDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCategoryDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oExtrasDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oExtrasDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oFoodDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oFoodDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oItemDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oItemDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oOrderDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oOrderDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" />
     </list>
     <ignored path="Delect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -183,12 +154,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+            <state relative-caret-position="351">
+              <caret line="131" column="11" selection-start-line="27" selection-start-column="8" selection-end-line="131" selection-end-column="11" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -220,16 +203,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1845">
               <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReportBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="125" column="67" selection-start-line="125" selection-start-column="67" selection-end-line="125" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -686,7 +659,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/testing/ApiClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/CustomerAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/CategoryDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/OrderDao.java" />
@@ -721,6 +693,7 @@
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" />
       </list>
     </option>
   </component>
@@ -1538,7 +1511,7 @@
       <workItem from="1474951034327" duration="4004000" />
       <workItem from="1474989345505" duration="12630000" />
       <workItem from="1475032130165" duration="4000" />
-      <workItem from="1475073869040" duration="17051000" />
+      <workItem from="1475073869040" duration="17103000" />
     </task>
     <task id="LOCAL-00001" summary="Working Surcharge">
       <created>1474908596333</created>
@@ -1625,7 +1598,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76873000" />
+    <option name="totallyTimeSpent" value="76925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1788,13 +1761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -2104,9 +2070,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        <state relative-caret-position="351">
+          <caret line="131" column="11" selection-start-line="27" selection-start-column="8" selection-end-line="131" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,8 +7,6 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import spark.servlet.SparkApplication;
 
-
-
 import static com.aqueel.project.ServerClass.*;
 import static com.aqueel.project.ServerClass.getReports;
 import static com.aqueel.project.ServerClass.switchReport;
@@ -24,7 +22,7 @@ public class Main implements SparkApplication {
 
         get("/hello", (request, response) -> "Hello World!");
 
-        String dataSource = "jdbc:h2:~/app295.db";
+        String dataSource = "jdbc:h2:~/app0003.db";
 
         String conString = dataSource + ";INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString, "", "");
@@ -90,6 +88,7 @@ public class Main implements SparkApplication {
         *
         */
 
+
         //Get Order
         getOrder(gson, orderDao, customerDao);
 
@@ -118,15 +117,18 @@ public class Main implements SparkApplication {
 
         //Get Specific Report
         get("/report/:rid", "application/json", (req, res) -> {
-
             return switchReport(orderDao, itemDao, customerDao, req, res);
 
         }, gson::toJson);
 
+        get("/items", "application/json", (req, res) -> {
+            return itemDao.findAll();
+        }, gson::toJson);
+
+
         after((req, res) -> {
             res.type("application/json");
         });
-
     }
 
 
