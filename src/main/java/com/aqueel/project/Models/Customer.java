@@ -48,14 +48,4 @@ public class Customer {
         this.email = email;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

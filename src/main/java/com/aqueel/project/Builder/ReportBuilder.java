@@ -124,7 +124,6 @@ public class ReportBuilder {
             if(order.getStatus().equalsIgnoreCase("open")) {
                 try {
                     Customer c = cDao.find(order.getCustomer_id());
-                    System.out.print(order.getId());
                     List<Item> parts = iDao.find(order.getId());
                     parts.forEach(part -> {
                         items.add(new ItemAdapter(part, 0));

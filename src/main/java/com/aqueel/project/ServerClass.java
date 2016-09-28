@@ -181,16 +181,11 @@ public class ServerClass {
                     items.add(new ItemAdapter(part, 1));
                 });
                 orderAdapters.add(new FullOrderAdapter(order, c, items));
+
                 res.status(200);
                 return orderAdapters;
 
-            }catch (IllegalStateException ex) {
-                res.status(400);
-                return 0;
-            } catch (NullPointerException ec) {
-                res.status(404);
-                return 0;
-            }catch (DaoException ex) {
+            } catch (DaoException ex) {
                 res.status(501);
                 return 0;
             }
@@ -225,6 +220,10 @@ public class ServerClass {
 
             int id = Integer.parseInt(req.params("cid"));
             Customer customer = customerDao.find(id);
+            if(customer == null) {
+                res.status(404);
+                return null;
+            }
             ArrayList<BasicOrderAdapter> orderAdapters = new ArrayList<BasicOrderAdapter>();
             orderDao.findByCustomer(customer.getId()).forEach( order -> {
                 orderAdapters.add(new BasicOrderAdapter(order));
@@ -264,11 +263,8 @@ public class ServerClass {
 
     public static void getSurcharge(Gson gson, ExtrasDao extrasDao) {
         get("/admin/surcharge", "application/json", (req, res) -> {
-            System.out.print("Hy");
             Map<String, Double> rValue = new HashMap();
-            System.out.print("Ho");
             double sur = extrasDao.get("surcharge");
-            System.out.print("Hi");
             rValue.put("surcharge", sur);
             res.status(200);
             return rValue;

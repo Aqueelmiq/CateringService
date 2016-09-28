@@ -78,14 +78,4 @@ public class Item {
         this.amount = amount;
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", qty=" + qty +
-                ", food='" + food + '\'' +
-                ", order_id=" + order_id +
-                ", amount=" + amount +
-                '}';
-    }
 }

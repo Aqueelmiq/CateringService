@@ -22,11 +22,11 @@ public class Sql2oItemDaoTest {
 
     @Before
     public void setUp() throws Exception {
-        String conString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/init.sql'";
+        String conString = "jdbc:h2:mem:aTesting;INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString,"","");
         dao = new Sql2oItemDao(sql2o);
         oDao = new Sql2oOrderDao(sql2o);
-        //Keep connection open for testing
+        //Keep connection open for aTesting
         con = sql2o.open();
     }
 

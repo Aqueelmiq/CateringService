@@ -18,7 +18,7 @@ public class Server {
     public static void main(String[] args) throws DaoException {
 
         port(4567);
-        String dataSource = "jdbc:h2:~/app321.db";
+        String dataSource = "jdbc:h2:~/app325.db";
 
         if(args.length > 0) {
             port(Integer.parseInt(args[0]));

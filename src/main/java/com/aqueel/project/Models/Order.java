@@ -22,17 +22,6 @@ public class Order {
     private String delivery_address;
 
 
-    public Order(int customer_id, String note, double surcharge, String status, double amount, String order_date, String delivery_date, String delivery_address) {
-        this.customer_id = customer_id;
-        this.note = note;
-        this.surcharge = surcharge;
-        this.status = status;
-        this.amount = amount;
-        this.order_date = order_date;
-        this.delivery_date = delivery_date;
-        this.delivery_address = delivery_address;
-    }
-
     public Order(OrderAdapter o, double amount, double surcharge, int cid) {
         this.amount = amount;
         this.surcharge = surcharge;
@@ -135,12 +124,13 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", amount=" + amount +
+                ", customer_id=" + customer_id +
+                ", note='" + note + '\'' +
                 ", surcharge=" + surcharge +
                 ", status='" + status + '\'' +
-                ", order_date=" + order_date +
-                ", delivery_date=" + delivery_date +
-                ", customer_id=" + customer_id +
+                ", amount=" + amount +
+                ", order_date='" + order_date + '\'' +
+                ", delivery_date='" + delivery_date + '\'' +
                 ", delivery_address='" + delivery_address + '\'' +
                 '}';
     }

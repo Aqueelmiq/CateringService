@@ -42,5 +42,4 @@ public class BasicOrderAdapter {
         this.id = id;
     }
 
-
 }

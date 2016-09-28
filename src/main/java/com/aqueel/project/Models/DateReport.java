@@ -16,10 +16,6 @@ public class DateReport extends Report {
         orders = new ArrayList<>();
     }
 
-    public ArrayList<FullOrderAdapter> getOrders() {
-        return orders;
-    }
-
     public void setOrders(ArrayList<FullOrderAdapter> orders) {
         this.orders = orders;
     }

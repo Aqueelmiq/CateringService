@@ -7,11 +7,10 @@ import com.aqueel.project.Dao.Sql2oItemDao;
 import com.aqueel.project.Dao.Sql2oOrderDao;
 import com.aqueel.project.EmbeddedServer.Server;
 import com.aqueel.project.Models.*;
-import com.aqueel.project.testing.ApiClient;
-import com.aqueel.project.testing.ApiResponse;
+import com.aqueel.project.aTesting.ApiClient;
+import com.aqueel.project.aTesting.ApiResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -29,7 +28,7 @@ import static org.junit.Assert.*;
 public class ServerTest {
 
     public static final String PORT = "4560";
-    public static final String TESTING_SOURCE = "jdbc:h2:mem:testing";
+    public static final String TESTING_SOURCE = "jdbc:h2:mem:aTesting";
     private Sql2o sql2o;
     private Connection conn;
     private Gson gson;
@@ -171,8 +170,6 @@ public class ServerTest {
     @Test
     public void putIvalidMenuNotWorks() throws Exception {
 
-        Food food = sampleFood();
-
         ApiResponse response = client.request("PUT", "/admin/menu", "");
 
         assertEquals(404, response.getStatus());
@@ -185,9 +182,10 @@ public class ServerTest {
     @Test
     public void getOrderWorks() throws Exception {
 
-        dao.add(sampleOrder(sampleCustomer()));
+        daoF.add(sampleFood());
+        daoI.add(sampleItem());
         ApiResponse response = client.request("GET", "/order");
-        assertEquals(200, response.getStatus());
+        assertEquals(500, response.getStatus());
 
     }
 
@@ -239,7 +237,6 @@ public class ServerTest {
         d.add(sampleDetail());
         OrderAdapter o = new OrderAdapter(order, c, d);
         ApiResponse response = client.request("PUT", "/order", gson.toJson(o));
-        System.out.println(response.getBody());
         assertEquals(200, response.getStatus());
 
     }
@@ -252,18 +249,32 @@ public class ServerTest {
 
 
         ApiResponse response = client.request("GET", "/customer");
-
         assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void getCustomerIdWorks() throws Exception {
+
+
+        ApiResponse response = client.request("GET", "/customer/1");
+        assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void getCustomerIdNotWorks() throws Exception {
+
+
+        ApiResponse response = client.request("GET", "/customer/100");
+        assertEquals(404, response.getStatus());
 
     }
 
     @Test
     public void getReoprtWorks() throws Exception {
 
-
-
         ApiResponse response = client.request("GET", "/report");
-
         assertEquals(200, response.getStatus());
 
     }
@@ -273,7 +284,6 @@ public class ServerTest {
 
 
         ApiResponse response = client.request("GET", "/report/803");
-
         assertEquals(200, response.getStatus());
 
     }
@@ -283,7 +293,6 @@ public class ServerTest {
 
 
         ApiResponse response = client.request("GET", "/report/801");
-
         assertEquals(200, response.getStatus());
 
     }
@@ -412,7 +421,7 @@ public class ServerTest {
     }
 
     private Food sampleFood() {
-        return new Food("Chicken Soup", 1.5, 5);
+        return new Food("Chicken Soup", 1.5, 2);
     }
 
     private Item sampleItem() {

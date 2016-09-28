@@ -38,12 +38,4 @@ public class Category {
         this.food_id = food_id;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", food_id=" + food_id +
-                '}';
-    }
 }

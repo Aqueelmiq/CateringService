@@ -56,13 +56,4 @@ public class Food {
         this.min_qty = min_qty;
     }
 
-    @Override
-    public String toString() {
-        return "Food{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", min_qty=" + min_qty +
-                '}';
-    }
 }

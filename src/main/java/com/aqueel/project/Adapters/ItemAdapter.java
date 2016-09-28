@@ -11,18 +11,6 @@ public class ItemAdapter {
     private String name;
     private int count;
 
-    public ItemAdapter(int id, String name, int count) {
-        this.id = id;
-        this.name = name;
-        this.count = count;
-    }
-
-    public ItemAdapter(Item item) {
-        this.id = item.getOrder_id();
-        this.count = item.getQty();
-        this.name = item.getFood();
-    }
-
     public ItemAdapter(Item item, int id) {
         this.id = item.getFood_id();
         this.count = item.getQty();

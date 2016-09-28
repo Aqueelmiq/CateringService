@@ -24,12 +24,7 @@ public class FoodAdapter {
         this.categories = c;
     }
 
-    public FoodAdapter(String name, double price_per_person, int minimum_order, ArrayList<CategoryAdapter> categories) {
-        this.name = name;
-        this.price_per_person = price_per_person;
-        this.minimum_order = minimum_order;
-        this.categories = categories;
-    }
+
 
     public String getName() {
         return name;
@@ -41,10 +36,6 @@ public class FoodAdapter {
 
     public double getPrice_per_person() {
         return price_per_person;
-    }
-
-    public void setPrice_per_person(double price_per_person) {
-        this.price_per_person = price_per_person;
     }
 
     public int getMinimum_order() {

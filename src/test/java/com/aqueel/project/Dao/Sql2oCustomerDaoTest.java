@@ -21,10 +21,10 @@ public class Sql2oCustomerDaoTest {
 
     @Before
     public void setUp() throws Exception {
-        String conString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/init.sql'";
+        String conString = "jdbc:h2:mem:aTesting;INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString,"","");
         dao = new Sql2oCustomerDao(sql2o);
-        //Keep connection open for testing
+        //Keep connection open for aTesting
         con = sql2o.open();
     }
 
