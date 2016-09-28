@@ -185,7 +185,7 @@ public class ServerTest {
         daoF.add(sampleFood());
         daoI.add(sampleItem());
         ApiResponse response = client.request("GET", "/order");
-        assertEquals(500, response.getStatus());
+        assertEquals(200, response.getStatus());
 
     }
 
@@ -223,7 +223,7 @@ public class ServerTest {
 
         ApiResponse response = client.request("PUT", "/order", gson.toJson(order));
 
-        assertEquals(500, response.getStatus());
+        assertEquals(501, response.getStatus());
 
     }
 
@@ -378,6 +378,16 @@ public class ServerTest {
 
     }
 
+    @Test
+    public void CustomerNameNotWorks() throws Exception {
+
+
+        ApiResponse response = client.request("GET", "/customer?key=Blah");
+
+        assertNotEquals(200, response.getStatus());
+
+    }
+
     //Reports
     @Test
     public void Report801Works() throws Exception {
@@ -404,6 +414,55 @@ public class ServerTest {
     public void Report804Works() throws Exception {
 
         ApiResponse response = client.request("GET", "/report/804");
+        assertEquals(200, response.getStatus());
+
+    }
+
+
+    @Test
+    public void Report804DateWorks() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/804?start_date=20160929");
+        assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void Report804DatetoDateWorks() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/804?start_date=20160929&end_date=20160929");
+        assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void Report803toDateWorks() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/803?end_date=20160929");
+        assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void Report803DateWorks() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/803?start_date=20160929");
+        assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void Report803DatetoDateWorks() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/803?start_date=20160929&end_date=20160929");
+        assertEquals(200, response.getStatus());
+
+    }
+
+    @Test
+    public void Report804toDateWorks() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/804?end_date=20160929");
         assertEquals(200, response.getStatus());
 
     }

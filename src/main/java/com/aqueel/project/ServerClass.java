@@ -81,6 +81,10 @@ public class ServerClass {
     public static void cancelOrder(Gson gson, OrderDao orderDao) {
         post("/order/cancel/:oid", "application/json", (req, res) -> {
 
+            if (req.body().isEmpty()) {
+                res.status(204);
+                return "";
+            }
             int id = Integer.parseInt(req.params("oid"));
             Order order = orderDao.find(id);
             SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
@@ -95,8 +99,8 @@ public class ServerClass {
     public static void deliverOrder(Gson gson, OrderDao orderDao) {
         post("/admin/deliver/:oid", "application/json", (req, res) -> {
             int id = Integer.parseInt(req.params("oid"));
-            orderDao.deliver(id);
-            return "Delivered";
+            int i = orderDao.deliver(id);
+            return "";
         }, gson::toJson);
     }
 
@@ -106,8 +110,8 @@ public class ServerClass {
             List<Item> items = new ArrayList();
             OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);
             if(o.getOrder_detail().isEmpty()) {
-                res.status(500);
-                return "Invalid order";
+                res.status(501);
+                return "";
             }
             Map<String, Double> amount = new HashMap();
             Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());
@@ -186,8 +190,8 @@ public class ServerClass {
                 return orderAdapters;
 
             } catch (DaoException ex) {
-                res.status(501);
-                return 0;
+                res.status(404);
+                return "";
             }
 
         }, gson::toJson);
@@ -222,7 +226,7 @@ public class ServerClass {
             Customer customer = customerDao.find(id);
             if(customer == null) {
                 res.status(404);
-                return null;
+                return "";
             }
             ArrayList<BasicOrderAdapter> orderAdapters = new ArrayList<BasicOrderAdapter>();
             orderDao.findByCustomer(customer.getId()).forEach( order -> {
@@ -243,8 +247,13 @@ public class ServerClass {
                 return customerDao.findAll();
             }
             else {
-                res.status(200);
-                return customerDao.find(query);
+
+                List<Customer> customers = customerDao.find(query);
+                if(customers.isEmpty()) {
+                    res.status(404);
+                    return "No such Customer Found";
+                }
+                return customers;
             }
 
         }, gson::toJson);

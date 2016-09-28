@@ -60,6 +60,14 @@ public class Sql2oCustomerDaoTest {
 
     }
 
+    @Test
+    public void findByEmailNull() throws Exception {
+        Customer customer = new Customer("Hello", "hello@hello.com", "321321321");
+        dao.add(customer);
+        Customer customer1 = dao.findByEmail("");
+        assertNull(customer1);
+
+    }
 
     @Test
     public void add() throws Exception {
@@ -68,13 +76,12 @@ public class Sql2oCustomerDaoTest {
         assertEquals(1, customer.getId());
     }
 
-
     @Test
-    public void findQuery() throws Exception {
+    public void findQueryNull() throws Exception {
         Customer customer = new Customer("Hello", "hello@hello.com", "321321321");
         dao.add(customer);
-        List<Customer> customer1 = dao.find("ell");
-        assertEquals(1, customer1.size());
+        List<Customer> customer1 = dao.find("ellsdh");
+        assertEquals(0, customer1.size());
     }
 
 }

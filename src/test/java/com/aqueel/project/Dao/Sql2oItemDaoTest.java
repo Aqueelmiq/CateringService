@@ -1,5 +1,6 @@
 package com.aqueel.project.Dao;
 
+import com.aqueel.project.Exc.DaoException;
 import com.aqueel.project.Models.Customer;
 import com.aqueel.project.Models.Item;
 import com.aqueel.project.Models.Order;
@@ -41,9 +42,13 @@ public class Sql2oItemDaoTest {
         oDao.add(sampleOrder(sampleCustomer()));
         Item item = sampleItem();
         dao.add(item);
-
         assertEquals(item.getId(), dao.find(item.getOrder_id()).get(0).getId());
 
+    }
+
+    @Test
+    public void findEmpty() throws Exception {
+        assertEquals(0, dao.find(1).size());
     }
 
     @Test
@@ -52,6 +57,15 @@ public class Sql2oItemDaoTest {
         Item item = sampleItem();
         dao.add(item);
         assertEquals(1, item.getId());
+    }
+
+    @Test(expected = DaoException.class)
+    public void addNotWorks() throws Exception {
+        oDao.add(sampleOrder(sampleCustomer()));
+        Item item = sampleItem();
+        item.setOrder_id(400);
+        dao.add(item);
+        assertNotEquals(1, item.getId());
     }
 
     @Test

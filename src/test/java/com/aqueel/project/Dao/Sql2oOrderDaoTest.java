@@ -1,5 +1,6 @@
 package com.aqueel.project.Dao;
 
+import com.aqueel.project.Exc.DaoException;
 import com.aqueel.project.Models.Customer;
 import com.aqueel.project.Models.Item;
 import com.aqueel.project.Models.Order;
