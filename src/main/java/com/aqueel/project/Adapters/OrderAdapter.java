@@ -1,6 +1,7 @@
 package com.aqueel.project.Adapters;
 
 import com.aqueel.project.Models.Customer;
+import com.aqueel.project.Models.Order;
 
 import java.util.ArrayList;
 import java.sql.Date;
@@ -18,7 +19,13 @@ public class OrderAdapter {
     private ArrayList<Detail> order_detail;
     private String note;
 
-    public OrderAdapter() {
+    public OrderAdapter(Order order, Customer customer, ArrayList<Detail> details) {
+
+        this.delivery_date = order.getDelivery_date();
+        this.personal_info = customer;
+        this.delivery_address = order.getDelivery_address();
+        this.order_detail = details;
+        this.note = order.getNote();
     }
 
     public OrderAdapter(String delivery_date, Customer customer, String delivery_address, ArrayList<Detail> order_detail, String note) {

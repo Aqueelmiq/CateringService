@@ -1,6 +1,6 @@
 package com.aqueel.project;
 
-import com.aqueel.project.Adapters.CategoryAdapter;
+import com.aqueel.project.Adapters.*;
 import com.aqueel.project.Dao.Sql2oCustomerDao;
 import com.aqueel.project.Dao.Sql2oFoodDao;
 import com.aqueel.project.Dao.Sql2oItemDao;
@@ -226,34 +226,21 @@ public class ServerTest {
 
     }
 
+    @Test
     public void putOrderWorks() throws Exception {
 
-        Customer info = new Customer("Aqueel", "a@a.com", "3125369986");
-        List<Item> items = new ArrayList();
-
-        String order = "{\n" +
-                "  \t\"delivery_date\": \"20160301\",\n" +
-                "  \t\"delivery_address\": \"10 West 31st ST, Chicago IL 60616\",\n" +
-                "  \t\"personal_info\": {\n" +
-                "  \t\t\"name\": \"Virgil B\",\n" +
-                "  \t\t\"email\": \"virgil@example.com\",\n" +
-                "  \t\t\"phone\": \"312-456-7890\"\n" +
-                "  \t},\n" +
-                "  \t\"note\": \"Room SB-214\",\n" +
-                "  \t\"order_detail\": [{\n" +
-                "  \t\t\"id\": 123,\n" +
-                "  \t\t\"count\": 8\n" +
-                "  \t}, {\n" +
-                "  \t\t\"id\": 124,\n" +
-                "  \t\t\"count\": 24\n" +
-                "  \t}]\n" +
-                "  }\n";
-
-        ApiResponse response = client.request("PUT", "/order", order);
-
+        Customer c = sampleCustomer();
+        Order order = sampleOrder(c);
+        order.setNote("Hello Brah");
+        ArrayList<Detail> d = new ArrayList();
+        d.add(sampleDetail());
+        OrderAdapter o = new OrderAdapter(order, c, d);
+        ApiResponse response = client.request("PUT", "/order", gson.toJson(o));
+        System.out.println(response.getBody());
         assertEquals(200, response.getStatus());
 
     }
+
 
     //Customer
 
@@ -380,7 +367,7 @@ public class ServerTest {
     }
 
     private Order sampleOrder(Customer cust) {
-        return new Order(cust, 2, 3, 4, "Hello Guys!", "Helo St 2140");
+        return new Order(cust, 2, 3, 4, "20160929", "Helo St 2140");
     }
 
     private Item sampleItem(Food food, Order order) {
@@ -392,7 +379,15 @@ public class ServerTest {
     }
 
     private Food sampleFood() {
-        return new Food("Chicken Soup", 1.5, 35);
+        return new Food("Chicken Soup", 1.5, 5);
+    }
+
+    private Item sampleItem() {
+        return new Item(1, "Hello", 1, 23);
+    }
+
+    private Detail sampleDetail() {
+        return new Detail(1, 20);
     }
 
 }

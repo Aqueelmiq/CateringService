@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43baefd-6fb8-4e9a-b21d-e54098f77cfd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Adapters/FullOrderAdapter.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Adapters/FullOrderAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Adapters/ItemAdapter.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Adapters/ItemAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Builder/ReportBuilder.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Builder/ReportBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/ItemDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/ItemDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oItemDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oItemDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oOrderDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oOrderDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/EmbeddedServer/Server.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/EmbeddedServer/Server.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/Item.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Models/Item.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/ItemAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/ItemAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/db/init.sql" afterPath="$PROJECT_DIR$/src/main/resources/db/init.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/db/init.sql" afterPath="$PROJECT_DIR$/build/resources/main/db/init.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" />
     </list>
     <ignored path="Delect.iws" />
@@ -53,7 +41,7 @@
     <SUITE FILE_PATH="coverage/Delectable$Sql2oExtrasDaoTest.coverage" NAME="Sql2oExtrasDaoTest Coverage Results" MODIFIED="1474954864543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.aqueel.project.Dao.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Delectable$com_aqueel_project_in_Delectable_test.coverage" NAME="com.aqueel.project in Delectable_test Coverage Results" MODIFIED="1475087612548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Delectable$com_aqueel_project_in_Delectable_test.coverage" NAME="com.aqueel.project in Delectable_test Coverage Results" MODIFIED="1475096176661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.aqueel.project.*</FILTER>
     </SUITE>
   </component>
@@ -169,23 +157,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ServerClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+            <state relative-caret-position="639">
+              <caret line="144" column="10" selection-start-line="144" selection-start-column="10" selection-end-line="144" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -196,8 +172,23 @@
       <file leaf-file-name="ServerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-308">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="381" column="46" selection-start-line="381" selection-start-column="46" selection-end-line="381" selection-end-column="46" />
+              <folding>
+                <element signature="e#9537#9538#0" expanded="true" />
+                <element signature="e#9587#9588#0" expanded="true" />
+                <element signature="e#9624#9625#0" expanded="true" />
+                <element signature="e#9664#9665#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -213,11 +204,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerAdapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CustomerAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/CustomerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
               <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FullOrderAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FullOrderAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="e#2154#2155#0" expanded="true" />
+                <element signature="e#2186#2187#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sql2oOrderDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Detail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/Detail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -229,31 +263,6 @@
             <state relative-caret-position="225">
               <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sql2oOrderDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-              <folding>
-                <element signature="e#742#743#0" expanded="true" />
-                <element signature="e#772#773#0" expanded="true" />
-                <element signature="e#815#816#0" expanded="true" />
-                <element signature="e#853#854#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -671,7 +680,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/OrderDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/Detail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/DateReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/PeriodFullReport.java" />
@@ -689,6 +697,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java" />
       </list>
     </option>
   </component>
@@ -896,6 +905,96 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Adapters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -930,7 +1029,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Delectable_test">
+  <component name="RunManager" selected="JUnit.com.aqueel.project in Delectable_test">
     <configuration default="false" name="Delect [tomcatRunWar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -1465,8 +1564,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Delectable_test" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.com.aqueel.project in Delectable_test" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.com.aqueel.project in Delectable_test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Delectable_test" />
         <item index="2" class="java.lang.String" itemvalue="Application.Server" />
         <item index="3" class="java.lang.String" itemvalue="Gradle.Delect [tomcatRunWar]" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ServerTest" />
@@ -1492,7 +1591,7 @@
       <workItem from="1474951034327" duration="4004000" />
       <workItem from="1474989345505" duration="12630000" />
       <workItem from="1475032130165" duration="4000" />
-      <workItem from="1475073869040" duration="10293000" />
+      <workItem from="1475073869040" duration="11945000" />
     </task>
     <task id="LOCAL-00001" summary="Working Surcharge">
       <created>1474908596333</created>
@@ -1522,43 +1621,50 @@
       <option name="project" value="LOCAL" />
       <updated>1475082568043</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fully Working">
+      <created>1475088153436</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1475088153436</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Delectable_test - 2016.09.28 at 13h 34m 46s.xml">
-      <configuration name="All in Delectable_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Delectable_test - 2016.09.28 at 13h 35m 35s.xml">
-      <configuration name="All in Delectable_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Delectable_test - 2016.09.28 at 13h 38m 26s.xml">
-      <configuration name="All in Delectable_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Delectable_test - 2016.09.28 at 13h 39m 55s.xml">
-      <configuration name="All in Delectable_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Delectable_test - 2016.09.28 at 13h 40m 21s.xml">
-      <configuration name="All in Delectable_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Delectable_test - 2016.09.28 at 13h 40m 30s.xml">
-      <configuration name="All in Delectable_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.27 at 12h 58m 42s.xml">
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 13h 43m 43s.xml">
       <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.27 at 13h 00m 04s.xml">
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 13h 44m 50s.xml">
       <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.27 at 13h 01m 56s.xml">
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 14h 46m 45s.xml">
       <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 13h 33m 37s.xml">
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 14h 47m 52s.xml">
+      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 15h 47m 46s.xml">
+      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 15h 54m 42s.xml">
+      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 15h 54m 56s.xml">
+      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 15h 55m 19s.xml">
+      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 15h 56m 07s.xml">
+      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 15h 56m 21s.xml">
       <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70115000" />
+    <option name="totallyTimeSpent" value="71767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1641,7 +1747,8 @@
     <MESSAGE value="Working Surcharge" />
     <MESSAGE value="Working Report 1 &amp; 2" />
     <MESSAGE value="Fixed issues&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues&#10;" />
+    <MESSAGE value="Fully Working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1821,29 +1928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
-          <folding>
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#930#931#0" expanded="true" />
-            <element signature="e#1323#1324#0" expanded="true" />
-            <element signature="e#1371#1372#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1479#1480#0" expanded="true" />
-            <element signature="e#1521#1522#0" expanded="true" />
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#1859#1860#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/DateReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1905,22 +1989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/Detail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FullOrderAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/FoodDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1971,19 +2039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
@@ -1995,14 +2050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/EmbeddedServer/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120">
@@ -2010,24 +2057,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-308">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2052,6 +2081,72 @@
         <state relative-caret-position="66">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/FullOrderAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="144" column="10" selection-start-line="144" selection-start-column="10" selection-end-line="144" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/Detail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="381" column="46" selection-start-line="381" selection-start-column="46" selection-end-line="381" selection-end-column="46" />
+          <folding>
+            <element signature="e#9537#9538#0" expanded="true" />
+            <element signature="e#9587#9588#0" expanded="true" />
+            <element signature="e#9624#9625#0" expanded="true" />
+            <element signature="e#9664#9665#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#2154#2155#0" expanded="true" />
+            <element signature="e#2186#2187#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
