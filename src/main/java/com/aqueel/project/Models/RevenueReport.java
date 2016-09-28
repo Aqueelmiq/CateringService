@@ -24,6 +24,18 @@ public class RevenueReport extends PeriodReport {
         this.surcharge_revenue = surcharge_revenue;
     }
 
+    @Override
+    public String toString() {
+        return "RevenueReport{"
+                +super.toString() + " " +
+                "orders_placed=" + orders_placed +
+                ", orders_cancelled=" + orders_cancelled +
+                ", orders_open=" + orders_open +
+                ", food_revenue=" + food_revenue +
+                ", surcharge_revenue=" + surcharge_revenue +
+                '}';
+    }
+
     public int getOrders_placed() {
         return orders_placed;
     }

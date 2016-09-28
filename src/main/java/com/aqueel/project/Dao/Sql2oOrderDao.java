@@ -80,20 +80,36 @@ public class Sql2oOrderDao implements OrderDao{
     @Override
     public List<Order> findBetween(String start, String end) throws DaoException {
 
-        String sql = "SELECT * FROM ORDERS WHERE delivery_date BETWEEN :start AND :end";
-        if(start == null && end == null)
+        String sql = "SELECT * FROM ORDERS WHERE delivery_date > :start AND delivery_date < :end";
+        if(start == null && end == null) {
             return findAll();
-        else if(end == null)
-            sql = "SELECT * FROM ORDERS WHERE delivery_date > :start";
-        else if(start == null)
-            sql = "SELECT * FROM ORDERS WHERE delivery_date < :end";
+        }
 
         try(Connection con = sql2o.open()) {
 
-            return con.createQuery(sql)
-                    .addParameter("start", start)
-                    .addParameter("end", end)
-                    .executeAndFetch(Order.class);
+
+            if(end == null) {
+                sql = "SELECT * FROM ORDERS WHERE delivery_date > :start";
+                return con.createQuery(sql)
+                        .addParameter("start", start)
+                        .executeAndFetch(Order.class);
+            }
+            else if(start == null) {
+                sql = "SELECT * FROM ORDERS WHERE delivery_date < :end";
+                return con.createQuery(sql)
+                        .addParameter("end", end)
+                        .executeAndFetch(Order.class);
+
+            }
+            else {
+                return con.createQuery(sql)
+                        .addParameter("start", start)
+                        .addParameter("end", end)
+                        .executeAndFetch(Order.class);
+
+            }
+
+
         } catch (Sql2oException ex) {
             throw new DaoException(ex, "Return Specific Orders Failed");
         }

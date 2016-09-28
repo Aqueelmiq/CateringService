@@ -11,6 +11,7 @@ public class Item {
     private int qty;
     private String food;
     private int order_id;
+    private int food_id;
     private double amount;
 
     public Item(int qty, String food, int order_id, double amount) {

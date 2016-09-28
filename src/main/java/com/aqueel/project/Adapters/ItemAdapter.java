@@ -18,7 +18,13 @@ public class ItemAdapter {
     }
 
     public ItemAdapter(Item item) {
-        this.id = item.getId();
+        this.id = item.getOrder_id();
+        this.count = item.getQty();
+        this.name = item.getFood();
+    }
+
+    public ItemAdapter(Item item, int id) {
+        this.id = id;
         this.count = item.getQty();
         this.name = item.getFood();
     }
@@ -45,5 +51,14 @@ public class ItemAdapter {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemAdapter{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", count=" + count +
+                '}';
     }
 }

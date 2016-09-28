@@ -13,5 +13,6 @@ public interface ItemDao {
 
     List<Item> find(int oid) throws DaoException;
     int add(Item i) throws DaoException;
+    List<Item> findAll() throws DaoException;
 
 }

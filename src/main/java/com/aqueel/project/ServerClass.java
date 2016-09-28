@@ -103,7 +103,6 @@ public class ServerClass {
             Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());
             Order order = new Order(o, 0, extrasDao.get("surcharge"), 0);
             amount.put("total", (double) 0);
-            orderDao.add(order);
             for(Detail detail: o.getOrder_detail()) {
                 Food f = null;
                 try {
@@ -117,8 +116,9 @@ public class ServerClass {
                 }
 
                 amount.put("total", amount.get("total") + f.getPrice()*detail.getCount());
-                items.add(new Item(detail, f, order.getId()));
+                items.add(new Item(detail, f, -1));
             }
+            orderDao.add(order);
             if(d == null) {
                 customerDao.add(c);
                 d = c;
@@ -127,11 +127,9 @@ public class ServerClass {
             order.setAmount(amount.get("total"));
             orderDao.update(order.getId(), amount.get("total"));
             orderDao.update(order.getId(), d.getId());
-            System.out.println(order);
-
             for (Item item: items) {
                 try {
-                    System.out.print(item);
+                    item.setOrder_id(order.getId());
                     itemDao.add(item);
                 } catch (DaoException e) {
                     e.printStackTrace();
@@ -147,7 +145,7 @@ public class ServerClass {
         }, gson::toJson);
     }
 
-    public static void GetOrderId(Gson gson, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {
+    public static void GetOrderId(Gson gson, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao, FoodDao foodDao) {
         get("/order/:oid", "application/json", (req, res) -> {
 
             ArrayList<FullOrderAdapter> orderAdapters = new ArrayList<FullOrderAdapter>();
@@ -163,7 +161,7 @@ public class ServerClass {
                 Customer c = customerDao.find(order.getCustomer_id());
                 List<Item> parts = itemDao.find(order.getId());
                 parts.forEach( part -> {
-                    items.add(new ItemAdapter(part));
+                    items.add(new ItemAdapter(part, foodDao.));
                 });
                 orderAdapters.add(new FullOrderAdapter(order, c, items));
                 res.status(200);
@@ -311,6 +309,8 @@ public class ServerClass {
 
     public static Object switchReport(OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao, Request req, Response res) throws DaoException {
         int id = Integer.parseInt(req.params("rid"));
+        String start = req.queryParams("start_date");
+        String end = req.queryParams("end_date");
         ReportBuilder rb = new ReportBuilder();
         Report report = null;
         switch (id) {
@@ -328,13 +328,17 @@ public class ServerClass {
                 break;
             case 803:
                 report = rb.revenue()
+                        .withStart(start)
+                        .withEnd(end)
                         .onOrders(orderDao,itemDao,customerDao)
                         .get();
                 res.status(200);
                 break;
             case 804:
-                report = rb.deliveryToday()
+                report = rb.delivery()
                         .onOrders(orderDao,itemDao,customerDao)
+                        .withStart(start)
+                        .withEnd(end)
                         .get();
                 res.status(200);
                 break;

@@ -18,7 +18,7 @@ public class Server {
     public static void main(String[] args) throws DaoException {
 
         port(4567);
-        String dataSource = "jdbc:h2:~/app306.db";
+        String dataSource = "jdbc:h2:~/app308.db";
 
         if(args.length > 0) {
             port(Integer.parseInt(args[0]));
@@ -118,10 +118,14 @@ public class Server {
 
         //Get Specific Report
         get("/report/:rid", "application/json", (req, res) -> {
-
             return switchReport(orderDao, itemDao, customerDao, req, res);
 
         }, gson::toJson);
+
+        get("/items", "application/json", (req, res) -> {
+            return itemDao.findAll();
+        }, gson::toJson);
+
 
         after((req, res) -> {
             res.type("application/json");

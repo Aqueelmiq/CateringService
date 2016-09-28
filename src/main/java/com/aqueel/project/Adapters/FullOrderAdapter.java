@@ -36,4 +36,20 @@ public class FullOrderAdapter {
         this.id = o.getId();
 
     }
+
+    @Override
+    public String toString() {
+        return "FullOrderAdapter{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", surcharge=" + surcharge +
+                ", status='" + status + '\'' +
+                ", note='" + note + '\'' +
+                ", order_date='" + order_date + '\'' +
+                ", delivery_date='" + delivery_date + '\'' +
+                ", ordered_by=" + ordered_by +
+                ", delivery_address='" + delivery_address + '\'' +
+                ", order_detail=" + order_detail +
+                '}';
+    }
 }

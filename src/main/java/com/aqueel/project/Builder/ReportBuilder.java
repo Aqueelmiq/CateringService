@@ -10,6 +10,7 @@ import com.aqueel.project.Dao.OrderDao;
 import com.aqueel.project.Exc.DaoException;
 import com.aqueel.project.Models.*;
 import com.aqueel.project.Models.Item;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,18 +42,18 @@ public class ReportBuilder {
     }
 
     public ReportBuilder delivery() {
-        this.report = new RevenueReport(804, "Orders delivery report");
+        this.report = new PeriodFullReport(804, "Orders delivery report");
         return this;
     }
 
 
     public ReportBuilder withStart(String start) {
-        ((RevenueReport)report).setStart_date(start);
+        ((PeriodReport)report).setStart_date(start);
         return this;
     }
 
     public ReportBuilder withEnd(String end) {
-        ((RevenueReport)report).setStart_date(end);
+        ((PeriodReport)report).setEnd_date(end);
         return this;
     }
 
@@ -61,7 +62,6 @@ public class ReportBuilder {
         Date today = new Date();
         Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-        System.out.print(df.format(today));
         List<Order> orders;
         ArrayList<ItemAdapter> items = new ArrayList<>();
 
@@ -72,14 +72,14 @@ public class ReportBuilder {
                 DateReport dReport = (DateReport) report;
                 String sToday = df.format(today);
                 orders = oDao.findByDate(sToday);
-                extractData(iDao, cDao, orders, items, orderAdapters);
+                extractData(iDao, cDao, orders, orderAdapters);
                 dReport.setOrders(orderAdapters);
                 break;
             case 802:
                 DateReport dReport2 = (DateReport) report;
                 String sTomorrow = df.format(tomorrow);
                 orders = oDao.findByDate(sTomorrow);
-                extractData(iDao, cDao, orders, items, orderAdapters);
+                extractData(iDao, cDao, orders, orderAdapters);
                 dReport2.setOrders(orderAdapters);
                 break;
             case 803:
@@ -87,6 +87,7 @@ public class ReportBuilder {
                 int cancelled = 0, open = 0, delivered = 0;
                 RevenueReport rev = (RevenueReport)report;
                 orders = oDao.findBetween(rev.getStart_date(), rev.getEnd_date());
+                System.out.print(rev);
                 for(Order order: orders) {
                     tSur += order.getSurcharge();
                     total += order.getAmount();
@@ -107,9 +108,9 @@ public class ReportBuilder {
                 }
                 break;
             case 804:
-                DateReport dReport3 = (DateReport) report;
-                orders = oDao.findByDate(date);
-                extractData(iDao, cDao, orders, items, orderAdapters);
+                PeriodFullReport dReport3 = (PeriodFullReport) report;
+                orders = oDao.findBetween(dReport3.getStart_date(), dReport3.getEnd_date());
+                extractData(iDao, cDao, orders, orderAdapters);
                 dReport3.setOrders(orderAdapters);
                 break;
         }
@@ -117,10 +118,12 @@ public class ReportBuilder {
         return this;
     }
 
-    private void extractData(ItemDao iDao, CustomerDao cDao, List<Order> orders, ArrayList<ItemAdapter> items, ArrayList<FullOrderAdapter> orderAdapters) {
-        orders.forEach(order -> {
+    private void extractData(ItemDao iDao, CustomerDao cDao, List<Order> orders, ArrayList<FullOrderAdapter> orderAdapters) {
+        ArrayList<ItemAdapter> items = new ArrayList<>();
+        for(Order order: orders) {
             try {
                 Customer c = cDao.find(order.getCustomer_id());
+                System.out.print(order.getId());
                 List<Item> parts = iDao.find(order.getId());
                 parts.forEach( part -> {
                     items.add(new ItemAdapter(part));
@@ -129,11 +132,7 @@ public class ReportBuilder {
             } catch (DaoException e) {
                 e.printStackTrace();
             }
-        });
-    }
-
-    private void getOrders(Report report) {
-
+        }
     }
 
     public Report get() {

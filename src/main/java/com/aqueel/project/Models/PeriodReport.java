@@ -35,4 +35,12 @@ public class PeriodReport extends Report {
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
+
+    @Override
+    public String toString() {
+        return "PeriodReport{" +
+                "start_date='" + start_date + '\'' +
+                ", end_date='" + end_date + '\'' +
+                '}';
+    }
 }

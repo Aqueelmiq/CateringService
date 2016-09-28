@@ -49,4 +49,16 @@ public class Sql2oItemDao implements ItemDao {
         }
         return -1;
     }
+
+    @Override
+    public List<Item> findAll() throws DaoException {
+        try(Connection con = sql2o.open()) {
+
+            String sql = "SELECT * FROM ITEMS";
+            return con.createQuery(sql)
+                    .executeAndFetch(Item.class);
+        } catch (Sql2oException ex) {
+            throw new DaoException(ex, "Return Order Items Failed");
+        }
+    }
 }
