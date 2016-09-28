@@ -183,9 +183,7 @@ public class ServerTest {
     @Test
     public void getOrderWorks() throws Exception {
 
-
         ApiResponse response = client.request("GET", "/order");
-
         assertEquals(200, response.getStatus());
 
     }
@@ -195,6 +193,15 @@ public class ServerTest {
 
         ApiResponse response = client.request("GET", "/order/5");
         assertEquals(404, response.getStatus());
+
+    }
+
+    @Test
+    public void getOrderIDFoundWorks() throws Exception {
+
+        dao.add(sampleOrder(sampleCustomer()));
+        ApiResponse response = client.request("GET", "/order/1");
+        assertEquals(200, response.getStatus());
 
     }
 
@@ -219,11 +226,31 @@ public class ServerTest {
 
     }
 
-    @Test
-    public void getOrderIDFoundWorks() throws Exception {
+    public void putOrderWorks() throws Exception {
 
-        dao.add(sampleOrder(sampleCustomer()));
-        ApiResponse response = client.request("GET", "/order/1");
+        Customer info = new Customer("Aqueel", "a@a.com", "3125369986");
+        List<Item> items = new ArrayList();
+
+        String order = "{\n" +
+                "  \t\"delivery_date\": \"20160301\",\n" +
+                "  \t\"delivery_address\": \"10 West 31st ST, Chicago IL 60616\",\n" +
+                "  \t\"personal_info\": {\n" +
+                "  \t\t\"name\": \"Virgil B\",\n" +
+                "  \t\t\"email\": \"virgil@example.com\",\n" +
+                "  \t\t\"phone\": \"312-456-7890\"\n" +
+                "  \t},\n" +
+                "  \t\"note\": \"Room SB-214\",\n" +
+                "  \t\"order_detail\": [{\n" +
+                "  \t\t\"id\": 123,\n" +
+                "  \t\t\"count\": 8\n" +
+                "  \t}, {\n" +
+                "  \t\t\"id\": 124,\n" +
+                "  \t\t\"count\": 24\n" +
+                "  \t}]\n" +
+                "  }\n";
+
+        ApiResponse response = client.request("PUT", "/order", order);
+
         assertEquals(200, response.getStatus());
 
     }

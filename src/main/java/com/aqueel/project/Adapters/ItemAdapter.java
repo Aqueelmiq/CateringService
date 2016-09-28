@@ -24,7 +24,7 @@ public class ItemAdapter {
     }
 
     public ItemAdapter(Item item, int id) {
-        this.id = id;
+        this.id = item.getFood_id();
         this.count = item.getQty();
         this.name = item.getFood();
     }

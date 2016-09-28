@@ -36,7 +36,7 @@ public class Sql2oItemDao implements ItemDao {
 
     @Override
     public int add(Item i) throws DaoException {
-        String sql = "INSERT INTO ITEMS (food, qty, amount, order_id) VALUES (:food, :qty, :amount, :order_id)";
+        String sql = "INSERT INTO ITEMS (food_id, food, qty, amount, order_id) VALUES (:food_id, :food, :qty, :amount, :order_id)";
         try(Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(i)

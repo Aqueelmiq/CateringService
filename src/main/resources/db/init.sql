@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS ITEMS(
 
   id int PRIMARY KEY auto_increment,
   order_id int,
+  food_id int,
   food VARCHAR,
   qty int,
   amount double,

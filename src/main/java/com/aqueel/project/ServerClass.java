@@ -11,10 +11,8 @@ import spark.Request;
 import spark.Response;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -82,15 +80,23 @@ public class ServerClass {
 
     public static void cancelOrder(Gson gson, OrderDao orderDao) {
         post("/order/cancel/:oid", "application/json", (req, res) -> {
+
             int id = Integer.parseInt(req.params("oid"));
-            return orderDao.cancel(id);
+            Order order = orderDao.find(id);
+            SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+            if(df.format(new Date()).equalsIgnoreCase(order.getDelivery_date())) {
+                return "Cannot cancel today's order!";
+            }
+            orderDao.cancel(id);
+            return "Cancelled";
         }, gson::toJson);
     }
 
     public static void deliverOrder(Gson gson, OrderDao orderDao) {
         post("/admin/deliver/:oid", "application/json", (req, res) -> {
             int id = Integer.parseInt(req.params("oid"));
-            return orderDao.deliver(id);
+            orderDao.deliver(id);
+            return "Delivered";
         }, gson::toJson);
     }
 
@@ -99,9 +105,20 @@ public class ServerClass {
 
             List<Item> items = new ArrayList();
             OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);
+            if(o.getOrder_detail().isEmpty()) {
+                res.status(500);
+                return "Invalid order";
+            }
             Map<String, Double> amount = new HashMap();
             Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());
-            Order order = new Order(o, 0, extrasDao.get("surcharge"), 0);
+            Calendar calendar = new GregorianCalendar();
+            SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+            calendar.setTime(df.parse(o.getDelivery_date()));
+            Order order;
+            if(calendar.DAY_OF_WEEK == Calendar.SATURDAY || calendar.DAY_OF_WEEK == Calendar.SUNDAY)
+                 order = new Order(o, 0, extrasDao.get("surcharge"), 0);
+            else
+                order = new Order(o, 0, 0, 0);
             amount.put("total", (double) 0);
             for(Detail detail: o.getOrder_detail()) {
                 Food f = null;
@@ -145,7 +162,7 @@ public class ServerClass {
         }, gson::toJson);
     }
 
-    public static void GetOrderId(Gson gson, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao, FoodDao foodDao) {
+    public static void GetOrderId(Gson gson, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {
         get("/order/:oid", "application/json", (req, res) -> {
 
             ArrayList<FullOrderAdapter> orderAdapters = new ArrayList<FullOrderAdapter>();
@@ -161,7 +178,7 @@ public class ServerClass {
                 Customer c = customerDao.find(order.getCustomer_id());
                 List<Item> parts = itemDao.find(order.getId());
                 parts.forEach( part -> {
-                    items.add(new ItemAdapter(part, foodDao.));
+                    items.add(new ItemAdapter(part, 1));
                 });
                 orderAdapters.add(new FullOrderAdapter(order, c, items));
                 res.status(200);
@@ -336,9 +353,9 @@ public class ServerClass {
                 break;
             case 804:
                 report = rb.delivery()
-                        .onOrders(orderDao,itemDao,customerDao)
                         .withStart(start)
                         .withEnd(end)
+                        .onOrders(orderDao,itemDao,customerDao)
                         .get();
                 res.status(200);
                 break;

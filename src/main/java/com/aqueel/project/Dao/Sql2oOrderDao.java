@@ -80,7 +80,7 @@ public class Sql2oOrderDao implements OrderDao{
     @Override
     public List<Order> findBetween(String start, String end) throws DaoException {
 
-        String sql = "SELECT * FROM ORDERS WHERE delivery_date > :start AND delivery_date < :end";
+        String sql = "SELECT * FROM ORDERS WHERE delivery_date >= :start AND delivery_date <= :end";
         if(start == null && end == null) {
             return findAll();
         }
@@ -89,13 +89,13 @@ public class Sql2oOrderDao implements OrderDao{
 
 
             if(end == null) {
-                sql = "SELECT * FROM ORDERS WHERE delivery_date > :start";
+                sql = "SELECT * FROM ORDERS WHERE delivery_date >= :start";
                 return con.createQuery(sql)
                         .addParameter("start", start)
                         .executeAndFetch(Order.class);
             }
             else if(start == null) {
-                sql = "SELECT * FROM ORDERS WHERE delivery_date < :end";
+                sql = "SELECT * FROM ORDERS WHERE delivery_date <= :end";
                 return con.createQuery(sql)
                         .addParameter("end", end)
                         .executeAndFetch(Order.class);

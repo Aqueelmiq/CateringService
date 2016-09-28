@@ -26,8 +26,17 @@ public class Item {
         this.amount = f.getPrice()*d.getCount();
         this.food = f.getName();
         this.order_id = oid;
+        this.food_id = f.getId();
     }
 
+
+    public int getFood_id() {
+        return food_id;
+    }
+
+    public void setFood_id(int food_id) {
+        this.food_id = food_id;
+    }
 
     public int getId() {
         return id;
