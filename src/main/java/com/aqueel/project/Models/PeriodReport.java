@@ -14,11 +14,6 @@ public class PeriodReport extends Report {
         super(id, name);
     }
 
-    public PeriodReport(int id, String name, String start_date, String end_date) {
-        super(id, name);
-        this.start_date = start_date;
-        this.end_date = end_date;
-    }
 
     public String getStart_date() {
         return start_date;

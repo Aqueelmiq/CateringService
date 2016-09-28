@@ -20,7 +20,6 @@ public class Sql2oCustomerDao implements CustomerDao {
         this.sql2o = sql2o;
     }
 
-
     @Override
     public List<Customer> findAll() throws DaoException {
         try(Connection con = sql2o.open()) {

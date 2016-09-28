@@ -11,6 +11,7 @@ import com.aqueel.project.testing.ApiClient;
 import com.aqueel.project.testing.ApiResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -42,6 +43,7 @@ public class ServerTest {
     public static void startServer() throws Exception {
         String[] args = {PORT, TESTING_SOURCE};
         Server.main(args);
+        sleep(200);
     }
 
     @Before
@@ -183,6 +185,7 @@ public class ServerTest {
     @Test
     public void getOrderWorks() throws Exception {
 
+        dao.add(sampleOrder(sampleCustomer()));
         ApiResponse response = client.request("GET", "/order");
         assertEquals(200, response.getStatus());
 
@@ -191,7 +194,7 @@ public class ServerTest {
     @Test
     public void getOrderIDNotFoundWorks() throws Exception {
 
-        ApiResponse response = client.request("GET", "/order/5");
+        ApiResponse response = client.request("GET", "/order/500");
         assertEquals(404, response.getStatus());
 
     }
@@ -362,6 +365,36 @@ public class ServerTest {
 
         ApiResponse response = client.request("GET", "/customer?key=Jordan");
 
+        assertEquals(200, response.getStatus());
+
+    }
+
+    //Reports
+    @Test
+    public void Report801Works() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/801");
+        assertEquals(200, response.getStatus());
+
+    }
+    @Test
+    public void Report802Works() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/802");
+        assertEquals(200, response.getStatus());
+
+    }
+    @Test
+    public void Report803Works() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/803");
+        assertEquals(200, response.getStatus());
+
+    }
+    @Test
+    public void Report804Works() throws Exception {
+
+        ApiResponse response = client.request("GET", "/report/804");
         assertEquals(200, response.getStatus());
 
     }

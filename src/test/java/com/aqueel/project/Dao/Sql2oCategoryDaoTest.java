@@ -1,5 +1,6 @@
 package com.aqueel.project.Dao;
 
+import com.aqueel.project.Exc.DaoException;
 import com.aqueel.project.Models.Category;
 import com.aqueel.project.Models.Food;
 import org.junit.After;
@@ -52,6 +53,14 @@ public class Sql2oCategoryDaoTest {
         Category category = new Category("Test Category", 1);
         dao.add(category);
         assertEquals(1, category.getId());
+    }
+
+    @Test(expected= DaoException.class)
+    public void addNotWorks() throws Exception {
+
+        Category category = new Category("Test Category", 1);
+        dao.add(category);
+        assertNull(dao.find(1));
     }
 
 }

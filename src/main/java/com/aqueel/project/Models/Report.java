@@ -8,9 +8,6 @@ public class Report {
     int id;
     String name;
 
-    public Report() {
-    }
-
     public Report(int id, String name) {
         this.id = id;
         this.name = name;
@@ -18,10 +15,6 @@ public class Report {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

@@ -29,11 +29,4 @@ public class Detail {
         this.count = count;
     }
 
-    @Override
-    public String toString() {
-        return "Detail{" +
-                "id=" + id +
-                ", count=" + count +
-                '}';
-    }
 }

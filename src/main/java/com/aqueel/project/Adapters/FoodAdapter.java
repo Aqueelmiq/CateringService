@@ -55,16 +55,6 @@ public class FoodAdapter {
         return categories;
     }
 
-
-    @Override
-    public String toString() {
-        return "FoodAdapter{" +
-                "name='" + name + '\'' +
-                ", price_per_person=" + price_per_person +
-                ", minimum_order=" + minimum_order +
-                ", categories=" + categories.toString() +
-                '}';
-    }
 }
 
 

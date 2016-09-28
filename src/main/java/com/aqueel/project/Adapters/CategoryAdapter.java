@@ -18,10 +18,4 @@ public class CategoryAdapter {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "CategoryAdapter{" +
-                "name='" + name + '\'' +
-                '}';
-    }
 }

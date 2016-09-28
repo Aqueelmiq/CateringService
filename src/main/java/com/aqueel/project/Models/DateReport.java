@@ -11,17 +11,9 @@ public class DateReport extends Report {
 
     ArrayList<FullOrderAdapter> orders;
 
-    public DateReport() {
-    }
-
     public DateReport(int id, String name) {
         super(id, name);
         orders = new ArrayList<>();
-    }
-
-    public DateReport(int id, String name, ArrayList<FullOrderAdapter> o) {
-        super(id, name);
-        orders = o;
     }
 
     public ArrayList<FullOrderAdapter> getOrders() {
