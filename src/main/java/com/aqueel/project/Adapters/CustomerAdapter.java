@@ -40,27 +40,4 @@ public class CustomerAdapter {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public ArrayList<BasicOrderAdapter> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(ArrayList<BasicOrderAdapter> orders) {
-        this.orders = orders;
-    }
 }

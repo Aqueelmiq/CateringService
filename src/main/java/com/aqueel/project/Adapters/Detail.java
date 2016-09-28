@@ -28,4 +28,12 @@ public class Detail {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "id=" + id +
+                ", count=" + count +
+                '}';
+    }
 }

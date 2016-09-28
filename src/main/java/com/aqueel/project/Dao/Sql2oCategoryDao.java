@@ -33,6 +33,8 @@ public class Sql2oCategoryDao implements CategoryDao {
         }
     }
 
+
+
     @Override
     public int add(Category c) throws DaoException {
         String sql = "INSERT INTO CATEGORIES (name, food_id) VALUES (:name, :food_id)";

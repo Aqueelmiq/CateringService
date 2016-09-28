@@ -51,17 +51,10 @@ public class FoodAdapter {
         return minimum_order;
     }
 
-    public void setMinimum_order(int minimum_order) {
-        this.minimum_order = minimum_order;
-    }
-
     public List<CategoryAdapter> getCategories() {
         return categories;
     }
 
-    public void setCategories(ArrayList<CategoryAdapter> categories) {
-        this.categories = categories;
-    }
 
     @Override
     public String toString() {

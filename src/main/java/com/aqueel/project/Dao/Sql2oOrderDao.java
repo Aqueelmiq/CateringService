@@ -113,6 +113,21 @@ public class Sql2oOrderDao implements OrderDao{
     }
 
     @Override
+    public int update(int oid, int cid) throws DaoException {
+        try (Connection con = sql2o.open()) {
+
+            String sql = "UPDATE ORDERS SET customer_id = :cid WHERE id = :id";
+            return con.createQuery(sql)
+                    .addParameter("id", oid)
+                    .addParameter("cid", cid)
+                    .executeUpdate()
+                    .getResult();
+        } catch (Sql2oException ex) {
+            throw new DaoException(ex, "Order Update failed");
+        }
+    }
+
+    @Override
     public int update(int oid, double price) throws DaoException {
         try (Connection con = sql2o.open()) {
 
@@ -123,7 +138,7 @@ public class Sql2oOrderDao implements OrderDao{
                     .executeUpdate()
                     .getResult();
         } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Order Delivery failed");
+            throw new DaoException(ex, "Order Update failed");
         }
     }
 

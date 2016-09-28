@@ -18,6 +18,7 @@ public interface OrderDao {
     List<Order> findBetween(String start, String end) throws DaoException;
     List<Order> findByCustomer(int customer_id) throws DaoException;
 
+    int update(int oid, int cid) throws DaoException;
     int update(int oid, double price) throws DaoException;
     int deliver(int oid) throws DaoException;
     int cancel(int oid) throws DaoException;

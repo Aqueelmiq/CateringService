@@ -33,12 +33,8 @@ public class OrderAdapter {
         return note;
     }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public void setDelivery_date(String delivery_date) {
-        this.delivery_date = delivery_date;
+    public ArrayList<Detail> getOrder_detail() {
+        return order_detail;
     }
 
     public String getDelivery_date() {
@@ -57,8 +53,12 @@ public class OrderAdapter {
         return delivery_address;
     }
 
-    public void setDelivery_address(String delivery_address) {
-        this.delivery_address = delivery_address;
+    public void setOrder_detail(ArrayList<Detail> order_detail) {
+        this.order_detail = order_detail;
+    }
+
+    public void setDelivery_date(String delivery_date) {
+        this.delivery_date = delivery_date;
     }
 
     public Customer getPersonal_info() {
@@ -69,13 +69,15 @@ public class OrderAdapter {
         this.personal_info = personal_info;
     }
 
-    public List<Detail> getOrder_detail() {
-        return order_detail;
+    public void setDelivery_address(String delivery_address) {
+        this.delivery_address = delivery_address;
     }
 
-    public void setOrder_detail(ArrayList<Detail> order_detail) {
-        this.order_detail = order_detail;
+    public void setNote(String note) {
+        this.note = note;
     }
+
+
 
     @Override
     public String toString() {

@@ -3,47 +3,25 @@ package com.aqueel.project.Models;
 /**
  * Created by aqueelmiqdad on 9/25/16.
  */
-public class RevenueReport extends Report {
+public class RevenueReport extends PeriodReport {
 
-    String start_date;
-    String end_date;
     int orders_placed;
     int orders_cancelled;
     int orders_open;
     double food_revenue;
     double surcharge_revenue;
 
-    public RevenueReport() {}
-
     public RevenueReport(int id, String name) {
         super(id, name);
     }
 
     public RevenueReport(int id, String name, String start_date, String end_date, int orders_placed, int orders_cancelled, int orders_open, double food_revenue, double surcharge_revenue) {
-        super(id, name);
-        this.start_date = start_date;
-        this.end_date = end_date;
+        super(id, name, start_date, end_date);
         this.orders_placed = orders_placed;
         this.orders_cancelled = orders_cancelled;
         this.orders_open = orders_open;
         this.food_revenue = food_revenue;
         this.surcharge_revenue = surcharge_revenue;
-    }
-
-    public String getStart_date() {
-        return start_date;
-    }
-
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
-    }
-
-    public String getEnd_date() {
-        return end_date;
-    }
-
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
     }
 
     public int getOrders_placed() {

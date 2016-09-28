@@ -42,51 +42,5 @@ public class BasicOrderAdapter {
         this.id = id;
     }
 
-    public String getOrder_date() {
-        return order_date;
-    }
 
-    public void setOrder_date(String order_date) {
-        this.order_date = order_date;
-    }
-
-    public String getDelivery_date() {
-        return delivery_date;
-    }
-
-    public void setDelivery_date(String delivery_date) {
-        this.delivery_date = delivery_date;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public double getSurcharge() {
-        return surcharge;
-    }
-
-    public void setSurcharge(double surcharge) {
-        this.surcharge = surcharge;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getOrdered_by() {
-        return ordered_by;
-    }
-
-    public void setOrdered_by(String ordered_by) {
-        this.ordered_by = ordered_by;
-    }
 }

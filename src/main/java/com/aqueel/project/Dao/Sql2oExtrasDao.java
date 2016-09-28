@@ -22,10 +22,10 @@ public class Sql2oExtrasDao implements ExtrasDao{
 
         try(Connection con = sql2o.open()) {
 
-            String sql = "UPDATE MENU SET amount = :amount WHERE id = :id";
+            String sql = "UPDATE EXTRAS SET amount = :amount WHERE id = :id";
 
             int x = con.createQuery(sql)
-                    .addParameter("id", 2)
+                    .addParameter("id", 1)
                     .addParameter("amount", amt)
                     .executeUpdate()
                     .getResult();

@@ -41,9 +41,10 @@ public class ReportBuilder {
     }
 
     public ReportBuilder delivery() {
-        this.report = new RevenueReport(803, "Orders delivery report");
+        this.report = new RevenueReport(804, "Orders delivery report");
         return this;
     }
+
 
     public ReportBuilder withStart(String start) {
         ((RevenueReport)report).setStart_date(start);
@@ -93,8 +94,11 @@ public class ReportBuilder {
                         open++;
                     else if(order.getStatus().equalsIgnoreCase("delivered"))
                         delivered++;
-                    else
+                    else {
                         cancelled++;
+                        tSur -= order.getSurcharge();
+                        total -= order.getAmount();
+                    }
                     rev.setFood_revenue(total);
                     rev.setOrders_cancelled(cancelled);
                     rev.setSurcharge_revenue(tSur);
@@ -103,6 +107,10 @@ public class ReportBuilder {
                 }
                 break;
             case 804:
+                DateReport dReport3 = (DateReport) report;
+                orders = oDao.findByDate(date);
+                extractData(iDao, cDao, orders, items, orderAdapters);
+                dReport3.setOrders(orderAdapters);
                 break;
         }
 
@@ -122,6 +130,10 @@ public class ReportBuilder {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void getOrders(Report report) {
+
     }
 
     public Report get() {

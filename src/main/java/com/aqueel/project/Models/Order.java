@@ -2,6 +2,7 @@ package com.aqueel.project.Models;
 
 import com.aqueel.project.Adapters.OrderAdapter;
 
+import java.security.PolicySpi;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -44,6 +45,19 @@ public class Order {
         this.delivery_address = o.getDelivery_address();
     }
 
+    public Order(Customer customer, double amount, double surcharge, int cid, String delivery, String addr) {
+        this.amount = amount;
+        this.surcharge = surcharge;
+        this.status = "open";
+        SimpleDateFormat s = new SimpleDateFormat("yyyyMMdd");
+        this.order_date = s.format(new Date());
+        delivery_date = delivery;
+        this.note = "none";
+        this.customer_id = customer.getId();
+        this.delivery_address = addr;
+
+    }
+
     public String getNote() {
         return note;
     }
@@ -83,6 +97,7 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+
 
     public String getOrder_date() {
         return order_date;

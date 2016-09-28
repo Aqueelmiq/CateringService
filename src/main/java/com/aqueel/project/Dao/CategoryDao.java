@@ -13,5 +13,4 @@ public interface CategoryDao {
     List<Category> find(int food_id) throws DaoException;
     int add(Category c) throws DaoException;
 
-
 }
