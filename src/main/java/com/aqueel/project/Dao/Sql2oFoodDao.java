@@ -6,6 +6,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,7 +52,7 @@ public class Sql2oFoodDao implements FoodDao {
     @Override
     public int add(Food f) throws DaoException {
 
-        String sql = "INSERT INTO MENU (name, price, min_qty) VALUES (:name, :price, :min_qty)";
+        String sql = "INSERT INTO MENU (name, price, min_qty, create_date, last_modified_date) VALUES (:name, :price, :min_qty, :create_date, :last_modified_date)";
         try(Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(f)
@@ -70,6 +72,13 @@ public class Sql2oFoodDao implements FoodDao {
         try (Connection con = sql2o.open()) {
 
             String sql = "UPDATE MENU SET price = :price WHERE id = :id";
+            String sql2 = "UPDATE MENU SET last_modified_date = :date";
+            SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+
+            con.createQuery(sql2).
+                    addParameter("date", df.format(new Date()))
+                    .executeUpdate();
+
             return con.createQuery(sql)
                     .addParameter("id", fid)
                     .addParameter("price", price)

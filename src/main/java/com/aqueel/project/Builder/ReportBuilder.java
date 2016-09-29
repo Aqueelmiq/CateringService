@@ -115,15 +115,17 @@ public class ReportBuilder {
     }
 
     private void extractData(ItemDao iDao, CustomerDao cDao, List<Order> orders, ArrayList<FullOrderAdapter> orderAdapters) {
-        ArrayList<ItemAdapter> items = new ArrayList<>();
+
         for(Order order: orders) {
+            ArrayList<ItemAdapter> items = new ArrayList<>();
             if(order.getStatus().equalsIgnoreCase("open")) {
                 try {
                     Customer c = cDao.find(order.getCustomer_id());
                     List<Item> parts = iDao.find(order.getId());
-                    parts.forEach(part -> {
+                    System.out.println(parts.size());
+                    for(Item part: parts) {
                         items.add(new ItemAdapter(part, 0));
-                    });
+                    }
                     orderAdapters.add(new FullOrderAdapter(order, c, items));
                 } catch (DaoException e) {
                     e.printStackTrace();

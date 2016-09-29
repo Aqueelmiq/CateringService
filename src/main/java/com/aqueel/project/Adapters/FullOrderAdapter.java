@@ -36,4 +36,5 @@ public class FullOrderAdapter {
         this.id = o.getId();
 
     }
+
 }

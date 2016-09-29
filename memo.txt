@@ -1,0 +1,7 @@
+Code Repo - https://github.com/aqueelmiq/CateringService.git
+Lines of Code: (Project: 668), (With tests and utils: 1980)
+Unit Test Coverage measured on IntelliJ Idea Coverage Runner: 84% lines 86% methods 90% classes
+Number of hours: 45hrs
+Number of hours preparing submission 7hrs
+Challenges: Creating build script, Creating executable, Unit Test Based Coding
+Solution Found: Gradle tomcat and war plugins, Practice.

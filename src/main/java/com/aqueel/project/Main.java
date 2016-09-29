@@ -24,7 +24,7 @@ public class Main implements SparkApplication {
                 "CS-445 Project\n" +
                 "Delectable");
 
-        String dataSource = "jdbc:h2:~/app0003.db";
+        String dataSource = "jdbc:h2:~/app0004.db";
 
         String conString = dataSource + ";INIT=RUNSCRIPT from 'classpath:db/init.sql'";
         Sql2o sql2o = new Sql2o(conString, "", "");

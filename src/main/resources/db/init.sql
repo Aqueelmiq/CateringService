@@ -3,7 +3,9 @@ CREATE TABLE IF NOT EXISTS MENU(
   id int PRIMARY KEY auto_increment,
   name VARCHAR,
   price double,
-  min_qty int
+  min_qty int,
+  create_date VARCHAR,
+  last_modified_date VARCHAR
 
 );
 

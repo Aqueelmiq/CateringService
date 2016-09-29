@@ -12,19 +12,19 @@ import java.util.Map;
  */
 public class FoodAdapter {
 
+    private int id;
     private String name;
     private double price_per_person;
     private int minimum_order;
     private List<CategoryAdapter> categories;
 
     public FoodAdapter(Food f, List<CategoryAdapter> c) {
+        this.id = f.getId();
         this.name = f.getName();
         this.price_per_person = f.getPrice();
         this.minimum_order = f.getMin_qty();
         this.categories = c;
     }
-
-
 
     public String getName() {
         return name;

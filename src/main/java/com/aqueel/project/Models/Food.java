@@ -11,6 +11,8 @@ public class Food {
     private String name;
     private double price;
     private int min_qty;
+    private String create_date;
+    private String last_modified_date;
 
     public Food(FoodAdapter adp) {
         this.name = adp.getName();
@@ -22,6 +24,22 @@ public class Food {
         this.name = name;
         this.price = price;
         this.min_qty = min_qty;
+    }
+
+    public String getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(String create_date) {
+        this.create_date = create_date;
+    }
+
+    public String getLast_modified_date() {
+        return last_modified_date;
+    }
+
+    public void setLast_modified_date(String last_modified_date) {
+        this.last_modified_date = last_modified_date;
     }
 
     public int getId() {

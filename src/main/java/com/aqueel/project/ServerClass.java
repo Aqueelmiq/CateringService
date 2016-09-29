@@ -23,6 +23,8 @@ import static spark.Spark.put;
  */
 public class ServerClass {
 
+    private static SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+
     public static void getMenu(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
         get("/menu", "application/json", (req, res) -> {
             res.status(200);
@@ -58,7 +60,7 @@ public class ServerClass {
             categories.forEach( cat -> {
                 c.add(new CategoryAdapter(cat.getName()));
             });
-            FoodAdapter rValue = new FoodAdapter(f, c);
+            FullFoodAdapter rValue = new FullFoodAdapter(f, c);
             return rValue;
         }, gson::toJson);
     }
@@ -87,18 +89,21 @@ public class ServerClass {
             }
             int id = Integer.parseInt(req.params("oid"));
             Order order = orderDao.find(id);
-            SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
             if(df.format(new Date()).equalsIgnoreCase(order.getDelivery_date())) {
                 return "Cannot cancel today's order!";
             }
             orderDao.cancel(id);
-            return "Cancelled";
+            return " ";
         }, gson::toJson);
     }
 
     public static void deliverOrder(Gson gson, OrderDao orderDao) {
         post("/admin/deliver/:oid", "application/json", (req, res) -> {
             int id = Integer.parseInt(req.params("oid"));
+            if (req.body().isEmpty()) {
+                res.status(204);
+                return "";
+            }
             int i = orderDao.deliver(id);
             return "";
         }, gson::toJson);
@@ -116,7 +121,6 @@ public class ServerClass {
             Map<String, Double> amount = new HashMap();
             Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());
             Calendar calendar = new GregorianCalendar();
-            SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
             calendar.setTime(df.parse(o.getDelivery_date()));
             Order order;
             if(calendar.DAY_OF_WEEK == Calendar.SATURDAY || calendar.DAY_OF_WEEK == Calendar.SUNDAY)
@@ -160,7 +164,7 @@ public class ServerClass {
             rValue.put("id", "" + order.getId());
             rValue.put("cancel_url", "http://localhost:4567/order/cancel/" + order.getId());
 
-            res.status(200);
+            res.status(201);
             return rValue;
 
         }, gson::toJson);
@@ -289,7 +293,7 @@ public class ServerClass {
             int status = foodDao.update(id, changes.get("price_per_person"));
             if(status > 0) {
                 res.status(200);
-                return foodDao.findById(id);
+                return "";
             }
             else
                 res.status(404);
@@ -302,6 +306,8 @@ public class ServerClass {
             try {
                 FoodAdapter adp = gson.fromJson(req.body(), FoodAdapter.class);
                 Food food = new Food(adp);
+                food.setCreate_date(df.format(new Date()));
+                food.setLast_modified_date(df.format(new Date()));
                 foodDao.add(food);
                 List<CategoryAdapter> categories = adp.getCategories();
                 categories.forEach((category) -> {
@@ -312,7 +318,6 @@ public class ServerClass {
                         e.printStackTrace();
                     }
                 });
-
                 Map<String, Integer> idMap = new HashMap();
                 idMap.put("id", food.getId());
                 res.status(200);
