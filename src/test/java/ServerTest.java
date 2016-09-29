@@ -376,16 +376,6 @@ public class ServerTest {
 
     }
 
-    @Test
-    public void CustomerNameNotWorks() throws Exception {
-
-
-        ApiResponse response = client.request("GET", "/customer?key=Blah");
-
-        assertNotEquals(200, response.getStatus());
-
-    }
-
     //Reports
     @Test
     public void Report801Works() throws Exception {
