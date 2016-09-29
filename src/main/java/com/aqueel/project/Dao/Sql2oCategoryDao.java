@@ -28,8 +28,6 @@ public class Sql2oCategoryDao implements CategoryDao {
             return con.createQuery(sql)
                     .addParameter("food_id", food_id)
                     .executeAndFetch(Category.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Category Failed");
         }
     }
 

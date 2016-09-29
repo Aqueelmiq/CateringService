@@ -11,50 +11,68 @@ public class Food {
     private String name;
     private double price;
     private int min_qty;
+    private String create_date;
+    private String last_modified_date;
 
-<span class="fc" id="L15">    public Food(FoodAdapter adp) {</span>
-<span class="fc" id="L16">        this.name = adp.getName();</span>
-<span class="fc" id="L17">        this.price = adp.getPrice_per_person();</span>
-<span class="fc" id="L18">        this.min_qty = adp.getMinimum_order();</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L17">    public Food(FoodAdapter adp) {</span>
+<span class="fc" id="L18">        this.name = adp.getName();</span>
+<span class="fc" id="L19">        this.price = adp.getPrice_per_person();</span>
+<span class="fc" id="L20">        this.min_qty = adp.getMinimum_order();</span>
+<span class="fc" id="L21">    }</span>
 
-<span class="fc" id="L21">    public Food(String name, double price, int min_qty) {</span>
-<span class="fc" id="L22">        this.name = name;</span>
-<span class="fc" id="L23">        this.price = price;</span>
-<span class="fc" id="L24">        this.min_qty = min_qty;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L23">    public Food(String name, double price, int min_qty) {</span>
+<span class="fc" id="L24">        this.name = name;</span>
+<span class="fc" id="L25">        this.price = price;</span>
+<span class="fc" id="L26">        this.min_qty = min_qty;</span>
+<span class="fc" id="L27">    }</span>
+
+    public String getCreate_date() {
+<span class="fc" id="L30">        return create_date;</span>
+    }
+
+    public void setCreate_date(String create_date) {
+<span class="fc" id="L34">        this.create_date = create_date;</span>
+<span class="fc" id="L35">    }</span>
+
+    public String getLast_modified_date() {
+<span class="fc" id="L38">        return last_modified_date;</span>
+    }
+
+    public void setLast_modified_date(String last_modified_date) {
+<span class="fc" id="L42">        this.last_modified_date = last_modified_date;</span>
+<span class="fc" id="L43">    }</span>
 
     public int getId() {
-<span class="fc" id="L28">        return id;</span>
+<span class="fc" id="L46">        return id;</span>
     }
 
     public void setId(int id) {
-<span class="fc" id="L32">        this.id = id;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L50">        this.id = id;</span>
+<span class="fc" id="L51">    }</span>
 
     public String getName() {
-<span class="fc" id="L36">        return name;</span>
+<span class="fc" id="L54">        return name;</span>
     }
 
     public void setName(String name) {
-<span class="fc" id="L40">        this.name = name;</span>
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L58">        this.name = name;</span>
+<span class="fc" id="L59">    }</span>
 
     public double getPrice() {
-<span class="fc" id="L44">        return price;</span>
+<span class="fc" id="L62">        return price;</span>
     }
 
     public void setPrice(double price) {
-<span class="fc" id="L48">        this.price = price;</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L66">        this.price = price;</span>
+<span class="fc" id="L67">    }</span>
 
     public int getMin_qty() {
-<span class="fc" id="L52">        return min_qty;</span>
+<span class="fc" id="L70">        return min_qty;</span>
     }
 
     public void setMin_qty(int min_qty) {
-<span class="fc" id="L56">        this.min_qty = min_qty;</span>
-<span class="fc" id="L57">    }</span>
+<span class="fc" id="L74">        this.min_qty = min_qty;</span>
+<span class="fc" id="L75">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

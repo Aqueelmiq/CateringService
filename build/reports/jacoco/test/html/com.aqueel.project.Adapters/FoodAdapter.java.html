@@ -12,19 +12,19 @@ import java.util.Map;
  */
 public class FoodAdapter {
 
+    private int id;
     private String name;
     private double price_per_person;
     private int minimum_order;
     private List&lt;CategoryAdapter&gt; categories;
 
-<span class="fc" id="L20">    public FoodAdapter(Food f, List&lt;CategoryAdapter&gt; c) {</span>
-<span class="fc" id="L21">        this.name = f.getName();</span>
-<span class="fc" id="L22">        this.price_per_person = f.getPrice();</span>
-<span class="fc" id="L23">        this.minimum_order = f.getMin_qty();</span>
-<span class="fc" id="L24">        this.categories = c;</span>
-<span class="fc" id="L25">    }</span>
-
-
+<span class="fc" id="L21">    public FoodAdapter(Food f, List&lt;CategoryAdapter&gt; c) {</span>
+<span class="fc" id="L22">        this.id = f.getId();</span>
+<span class="fc" id="L23">        this.name = f.getName();</span>
+<span class="fc" id="L24">        this.price_per_person = f.getPrice();</span>
+<span class="fc" id="L25">        this.minimum_order = f.getMin_qty();</span>
+<span class="fc" id="L26">        this.categories = c;</span>
+<span class="fc" id="L27">    }</span>
 
     public String getName() {
 <span class="fc" id="L30">        return name;</span>

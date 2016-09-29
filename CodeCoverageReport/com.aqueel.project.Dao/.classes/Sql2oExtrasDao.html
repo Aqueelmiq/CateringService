@@ -86,41 +86,41 @@
 <i>12</i>&nbsp;
 <i>13</i>&nbsp;    private final Sql2o sql2o;
 <i>14</i>&nbsp;
-<i>15</i>&nbsp;    public Sql2oExtrasDao(Sql2o sql2o) {
+<b class="fc"><i>15</i>&nbsp;    public Sql2oExtrasDao(Sql2o sql2o) {</b>
 <b class="fc"><i>16</i>&nbsp;        this.sql2o = sql2o;</b>
 <b class="fc"><i>17</i>&nbsp;    }</b>
-<b class="fc"><i>18</i>&nbsp;</b>
+<i>18</i>&nbsp;
 <i>19</i>&nbsp;    @Override
 <i>20</i>&nbsp;    public int update(String name, double amt) throws DaoException {
 <i>21</i>&nbsp;
-<i>22</i>&nbsp;        try(Connection con = sql2o.open()) {
-<b class="fc"><i>23</i>&nbsp;</b>
-<i>24</i>&nbsp;            String sql = &quot;UPDATE EXTRAS SET amount = :amount WHERE id = :id&quot;;
-<b class="fc"><i>25</i>&nbsp;</b>
-<i>26</i>&nbsp;            int x = con.createQuery(sql)
+<b class="fc"><i>22</i>&nbsp;        try(Connection con = sql2o.open()) {</b>
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;            String sql = &quot;UPDATE EXTRAS SET amount = :amount WHERE id = :id&quot;;</b>
+<i>25</i>&nbsp;
+<b class="fc"><i>26</i>&nbsp;            int x = con.createQuery(sql)</b>
 <b class="fc"><i>27</i>&nbsp;                    .addParameter(&quot;id&quot;, 1)</b>
 <b class="fc"><i>28</i>&nbsp;                    .addParameter(&quot;amount&quot;, amt)</b>
 <b class="fc"><i>29</i>&nbsp;                    .executeUpdate()</b>
 <b class="fc"><i>30</i>&nbsp;                    .getResult();</b>
-<b class="fc"><i>31</i>&nbsp;</b>
-<i>32</i>&nbsp;            return x;
-<b class="fc"><i>33</i>&nbsp;</b>
-<i>34</i>&nbsp;        } catch (Sql2oException ex) {
-<b class="fc"><i>35</i>&nbsp;            throw new DaoException(ex, &quot;Update extras failed&quot;);</b>
-<b class="nc"><i>36</i>&nbsp;        }</b>
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;            return x;</b>
+<i>33</i>&nbsp;
+<b class="fc"><i>34</i>&nbsp;        } catch (Sql2oException ex) {</b>
+<b class="nc"><i>35</i>&nbsp;            throw new DaoException(ex, &quot;Update extras failed&quot;);</b>
+<i>36</i>&nbsp;        }
 <i>37</i>&nbsp;    }
 <i>38</i>&nbsp;
 <i>39</i>&nbsp;    @Override
 <i>40</i>&nbsp;    public double get(String name) throws DaoException {
-<i>41</i>&nbsp;        try(Connection con = sql2o.open()) {
-<b class="fc"><i>42</i>&nbsp;</b>
-<i>43</i>&nbsp;            String sql = &quot;SELECT amount FROM EXTRAS WHERE id = :id&quot;;
+<b class="fc"><i>41</i>&nbsp;        try(Connection con = sql2o.open()) {</b>
+<i>42</i>&nbsp;
+<b class="fc"><i>43</i>&nbsp;            String sql = &quot;SELECT amount FROM EXTRAS WHERE id = :id&quot;;</b>
 <b class="fc"><i>44</i>&nbsp;            return con.createQuery(sql)</b>
 <b class="fc"><i>45</i>&nbsp;                    .addParameter(&quot;id&quot;, 1)</b>
 <b class="fc"><i>46</i>&nbsp;                    .executeAndFetchFirst(Double.class);</b>
 <b class="fc"><i>47</i>&nbsp;        } catch (Sql2oException ex) {</b>
-<b class="fc"><i>48</i>&nbsp;            throw new DaoException(ex, &quot;Return Extras Failed&quot;);</b>
-<b class="nc"><i>49</i>&nbsp;        }</b>
+<b class="nc"><i>48</i>&nbsp;            throw new DaoException(ex, &quot;Return Extras Failed&quot;);</b>
+<i>49</i>&nbsp;        }
 <i>50</i>&nbsp;    }
 <i>51</i>&nbsp;}
 </div>
@@ -128,7 +128,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2016-09-28 20:04</div>
+    <div style="float:right;">generated on 2016-09-29 02:12</div>
 </div>
 </body>
 </html>

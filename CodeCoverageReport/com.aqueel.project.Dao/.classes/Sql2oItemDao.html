@@ -58,10 +58,10 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    88.9%
+    92.6%
   </span>
   <span class="absValue">
-    (24/ 27)
+    (25/ 27)
   </span>
 </td>
 </tr>
@@ -89,57 +89,57 @@
 <i>15</i>&nbsp;
 <i>16</i>&nbsp;    private final Sql2o sql2o;
 <i>17</i>&nbsp;
-<i>18</i>&nbsp;    public Sql2oItemDao(Sql2o sql2o) {
-<i>19</i>&nbsp;        this.sql2o = sql2o;
+<b class="fc"><i>18</i>&nbsp;    public Sql2oItemDao(Sql2o sql2o) {</b>
+<b class="fc"><i>19</i>&nbsp;        this.sql2o = sql2o;</b>
 <b class="fc"><i>20</i>&nbsp;    }</b>
-<b class="fc"><i>21</i>&nbsp;</b>
-<b class="fc"><i>22</i>&nbsp;    @Override</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Override
 <i>23</i>&nbsp;    public List&lt;Item&gt; find(int oid) throws DaoException {
-<i>24</i>&nbsp;        try(Connection con = sql2o.open()) {
+<b class="fc"><i>24</i>&nbsp;        try(Connection con = sql2o.open()) {</b>
 <i>25</i>&nbsp;
 <b class="fc"><i>26</i>&nbsp;            String sql = &quot;SELECT * FROM ITEMS WHERE order_id = :order_id&quot;;</b>
-<i>27</i>&nbsp;            return con.createQuery(sql)
+<b class="fc"><i>27</i>&nbsp;            return con.createQuery(sql)</b>
 <b class="fc"><i>28</i>&nbsp;                    .addParameter(&quot;order_id&quot;, oid)</b>
 <b class="fc"><i>29</i>&nbsp;                    .executeAndFetch(Item.class);</b>
 <b class="fc"><i>30</i>&nbsp;        } catch (Sql2oException ex) {</b>
-<b class="fc"><i>31</i>&nbsp;            throw new DaoException(ex, &quot;Return Order Items Failed&quot;);</b>
-<b class="fc"><i>32</i>&nbsp;        }</b>
-<b class="nc"><i>33</i>&nbsp;    }</b>
+<b class="nc"><i>31</i>&nbsp;            throw new DaoException(ex, &quot;Return Order Items Failed&quot;);</b>
+<i>32</i>&nbsp;        }
+<i>33</i>&nbsp;    }
 <i>34</i>&nbsp;
 <i>35</i>&nbsp;    @Override
 <i>36</i>&nbsp;    public int add(Item i) throws DaoException {
-<i>37</i>&nbsp;        String sql = &quot;INSERT INTO ITEMS (food_id, food, qty, amount, order_id) VALUES (:food_id, :food, :qty, :amount, :order_id)&quot;;
-<i>38</i>&nbsp;        try(Connection con = sql2o.open()) {
+<b class="fc"><i>37</i>&nbsp;        String sql = &quot;INSERT INTO ITEMS (food_id, food, qty, amount, order_id) VALUES (:food_id, :food, :qty, :amount, :order_id)&quot;;</b>
+<b class="fc"><i>38</i>&nbsp;        try(Connection con = sql2o.open()) {</b>
 <b class="fc"><i>39</i>&nbsp;            int id = (int) con.createQuery(sql)</b>
 <b class="fc"><i>40</i>&nbsp;                    .bind(i)</b>
 <b class="fc"><i>41</i>&nbsp;                    .executeUpdate()</b>
 <b class="fc"><i>42</i>&nbsp;                    .getKey();</b>
 <b class="fc"><i>43</i>&nbsp;            i.setId(id);</b>
-<b class="fc"><i>44</i>&nbsp;</b>
+<i>44</i>&nbsp;
 <b class="fc"><i>45</i>&nbsp;        } catch (Sql2oException ex) {</b>
-<i>46</i>&nbsp;            throw new DaoException(ex, &quot;Insert screwd up in Items&quot;);
+<b class="fc"><i>46</i>&nbsp;            throw new DaoException(ex, &quot;Insert screwd up in Items&quot;);</b>
 <b class="fc"><i>47</i>&nbsp;        }</b>
-<b class="nc"><i>48</i>&nbsp;        return -1;</b>
-<b class="fc"><i>49</i>&nbsp;    }</b>
-<b class="fc"><i>50</i>&nbsp;</b>
+<b class="fc"><i>48</i>&nbsp;        return -1;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
 <i>51</i>&nbsp;    @Override
 <i>52</i>&nbsp;    public List&lt;Item&gt; findAll() throws DaoException {
-<i>53</i>&nbsp;        try(Connection con = sql2o.open()) {
+<b class="fc"><i>53</i>&nbsp;        try(Connection con = sql2o.open()) {</b>
 <i>54</i>&nbsp;
 <b class="fc"><i>55</i>&nbsp;            String sql = &quot;SELECT * FROM ITEMS&quot;;</b>
-<i>56</i>&nbsp;            return con.createQuery(sql)
+<b class="fc"><i>56</i>&nbsp;            return con.createQuery(sql)</b>
 <b class="fc"><i>57</i>&nbsp;                    .executeAndFetch(Item.class);</b>
 <b class="fc"><i>58</i>&nbsp;        } catch (Sql2oException ex) {</b>
-<b class="fc"><i>59</i>&nbsp;            throw new DaoException(ex, &quot;Return Order Items Failed&quot;);</b>
-<b class="fc"><i>60</i>&nbsp;        }</b>
-<b class="nc"><i>61</i>&nbsp;    }</b>
+<b class="nc"><i>59</i>&nbsp;            throw new DaoException(ex, &quot;Return Order Items Failed&quot;);</b>
+<i>60</i>&nbsp;        }
+<i>61</i>&nbsp;    }
 <i>62</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2016-09-28 20:04</div>
+    <div style="float:right;">generated on 2016-09-29 02:12</div>
 </div>
 </body>
 </html>

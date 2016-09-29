@@ -30,8 +30,6 @@ public class Sql2oFoodDao implements FoodDao {
             String sql = "SELECT * FROM MENU";
             return con.createQuery(sql)
                     .executeAndFetch(Food.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return All Food Failed");
         }
 
     }
@@ -44,8 +42,6 @@ public class Sql2oFoodDao implements FoodDao {
             return con.createQuery(sql)
                     .addParameter("id", id)
                     .executeAndFetchFirst(Food.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Food Failed");
         }
     }
 
@@ -60,8 +56,6 @@ public class Sql2oFoodDao implements FoodDao {
                     .getKey();
             f.setId(id);
 
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Insert screwd up in Food");
         }
         return -1;
     }
@@ -84,8 +78,6 @@ public class Sql2oFoodDao implements FoodDao {
                     .addParameter("price", price)
                     .executeUpdate()
                     .getResult();
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Update price_per_person Food Failed");
         }
 
     }

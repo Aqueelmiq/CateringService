@@ -23,7 +23,7 @@ the war file is in build/libs
 
 If errors are encountered, please make sure you have:
 
-Java Oracle 8 (JDK 8):
+Grade 3 or above and Java Oracle 8 (JDK 8):
 sudo apt-get update
 sudo apt-get install default-jre
 sudo apt-get install default-jdk

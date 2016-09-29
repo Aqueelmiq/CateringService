@@ -26,8 +26,6 @@ public class Sql2oOrderDao implements OrderDao{
             String sql = "SELECT * FROM ORDERS";
             return con.createQuery(sql)
                     .executeAndFetch(Order.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return All Orders Failed");
         }
 
     }
@@ -43,10 +41,8 @@ public class Sql2oOrderDao implements OrderDao{
                     .getKey();
             o.setId(id);
 
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Insert screwd up in Orders");
         }
-        return -1;
+        return 0;
     }
 
     @Override
@@ -57,8 +53,6 @@ public class Sql2oOrderDao implements OrderDao{
             return con.createQuery(sql)
                     .addParameter("id", oid)
                     .executeAndFetchFirst(Order.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Specific Orders Failed");
         }
     }
 
@@ -70,8 +64,6 @@ public class Sql2oOrderDao implements OrderDao{
             return con.createQuery(sql)
                     .addParameter("date", date)
                     .executeAndFetch(Order.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Specific Orders Failed");
         }
     }
 
@@ -108,8 +100,6 @@ public class Sql2oOrderDao implements OrderDao{
             }
 
 
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Specific Orders Failed");
         }
     }
 
@@ -121,8 +111,6 @@ public class Sql2oOrderDao implements OrderDao{
             return con.createQuery(sql)
                     .addParameter("id", customer_id)
                     .executeAndFetch(Order.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Specific Orders Failed");
         }
     }
 
@@ -136,8 +124,6 @@ public class Sql2oOrderDao implements OrderDao{
                     .addParameter("cid", cid)
                     .executeUpdate()
                     .getResult();
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Order Update failed");
         }
     }
 
@@ -151,8 +137,6 @@ public class Sql2oOrderDao implements OrderDao{
                     .addParameter("amount", price)
                     .executeUpdate()
                     .getResult();
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Order Update failed");
         }
     }
 
@@ -166,8 +150,6 @@ public class Sql2oOrderDao implements OrderDao{
                     .addParameter("status", "delivered")
                     .executeUpdate()
                     .getResult();
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Order Delivery failed");
         }
     }
 
@@ -181,8 +163,6 @@ public class Sql2oOrderDao implements OrderDao{
                     .addParameter("status", "cancelled")
                     .executeUpdate()
                     .getResult();
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Order Cancellation failed");
         }
     }
 

@@ -26,8 +26,6 @@ public class Sql2oCustomerDao implements CustomerDao {
             String sql = "SELECT * FROM CUSTOMERS";
             return con.createQuery(sql)
                     .executeAndFetch(Customer.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return All customers Failed");
         }
     }
 
@@ -52,8 +50,6 @@ public class Sql2oCustomerDao implements CustomerDao {
             return con.createQuery(sql)
                     .addParameter("email", email)
                     .executeAndFetchFirst(Customer.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return All Food Failed");
         }
     }
 
@@ -65,8 +61,6 @@ public class Sql2oCustomerDao implements CustomerDao {
             return con.createQuery(sql)
                     .addParameter("id", cid)
                     .executeAndFetchFirst(Customer.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return All Food Failed");
         }
     }
 
@@ -80,9 +74,7 @@ public class Sql2oCustomerDao implements CustomerDao {
                     .getKey();
             c.setId(id);
 
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Insert screwd up in Food");
         }
-        return -1;
+        return 0;
     }
 }

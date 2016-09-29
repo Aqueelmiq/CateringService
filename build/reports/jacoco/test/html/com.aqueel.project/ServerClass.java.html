@@ -23,364 +23,369 @@ import static spark.Spark.put;
  */
 <span class="nc" id="L24">public class ServerClass {</span>
 
+<span class="fc" id="L26">    private static SimpleDateFormat df = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span>
+
     public static void getMenu(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
-<span class="fc" id="L27">        get(&quot;/menu&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="fc" id="L28">            res.status(200);</span>
-<span class="fc" id="L29">            List&lt;Food&gt; f = foodDao.findAll();</span>
-<span class="fc" id="L30">            List&lt;FoodAdapter&gt; foodAdapters = new ArrayList&lt;FoodAdapter&gt;();</span>
-<span class="fc" id="L31">            f.forEach( food -&gt; {</span>
-<span class="fc" id="L32">                List&lt;Category&gt; cat = new ArrayList&lt;Category&gt;();</span>
+<span class="fc" id="L29">        get(&quot;/menu&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L30">            res.status(200);</span>
+<span class="fc" id="L31">            List&lt;Food&gt; f = foodDao.findAll();</span>
+<span class="fc" id="L32">            List&lt;FoodAdapter&gt; foodAdapters = new ArrayList&lt;FoodAdapter&gt;();</span>
+<span class="fc" id="L33">            f.forEach( food -&gt; {</span>
+<span class="fc" id="L34">                List&lt;Category&gt; cat = new ArrayList&lt;Category&gt;();</span>
                 try {
-<span class="fc" id="L34">                    cat = categoryDao.find(food.getId());</span>
-<span class="nc" id="L35">                } catch (DaoException e) {</span>
-<span class="nc" id="L36">                    e.printStackTrace();</span>
-<span class="fc" id="L37">                }</span>
-<span class="fc" id="L38">                List&lt;CategoryAdapter&gt; categoryAdapters = new ArrayList&lt;CategoryAdapter&gt;();</span>
-<span class="fc" id="L39">                cat.forEach( cats -&gt; {</span>
-<span class="nc" id="L40">                    categoryAdapters.add(new CategoryAdapter(cats.getName()));</span>
-<span class="nc" id="L41">                });</span>
-<span class="fc" id="L42">                foodAdapters.add(new FoodAdapter(food, categoryAdapters));</span>
-<span class="fc" id="L43">            });</span>
-<span class="fc" id="L44">            return foodAdapters;</span>
+<span class="fc" id="L36">                    cat = categoryDao.find(food.getId());</span>
+<span class="nc" id="L37">                } catch (DaoException e) {</span>
+<span class="nc" id="L38">                    e.printStackTrace();</span>
+<span class="fc" id="L39">                }</span>
+<span class="fc" id="L40">                List&lt;CategoryAdapter&gt; categoryAdapters = new ArrayList&lt;CategoryAdapter&gt;();</span>
+<span class="fc" id="L41">                cat.forEach( cats -&gt; {</span>
+<span class="nc" id="L42">                    categoryAdapters.add(new CategoryAdapter(cats.getName()));</span>
+<span class="nc" id="L43">                });</span>
+<span class="fc" id="L44">                foodAdapters.add(new FoodAdapter(food, categoryAdapters));</span>
+<span class="fc" id="L45">            });</span>
+<span class="fc" id="L46">            return foodAdapters;</span>
         }, gson::toJson);
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L48">    }</span>
 
     public static void getMenuId(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
-<span class="fc" id="L49">        get(&quot;/menu/:id&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="fc" id="L50">            int id = Integer.parseInt(req.params(&quot;id&quot;));</span>
-<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            if(foodDao.findById(id) == null)</span>
-<span class="nc" id="L52">                res.status(404);</span>
+<span class="fc" id="L51">        get(&quot;/menu/:id&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L52">            int id = Integer.parseInt(req.params(&quot;id&quot;));</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">            if(foodDao.findById(id) == null)</span>
+<span class="nc" id="L54">                res.status(404);</span>
             else
-<span class="fc" id="L54">                res.status(200);</span>
-<span class="fc" id="L55">            Food f = foodDao.findById(id);</span>
-<span class="fc" id="L56">            List&lt;Category&gt; categories = categoryDao.find(f.getId());</span>
-<span class="fc" id="L57">            List&lt;CategoryAdapter&gt; c = new ArrayList&lt;CategoryAdapter&gt;();</span>
-<span class="fc" id="L58">            categories.forEach( cat -&gt; {</span>
-<span class="nc" id="L59">                c.add(new CategoryAdapter(cat.getName()));</span>
-<span class="nc" id="L60">            });</span>
-<span class="fc" id="L61">            FoodAdapter rValue = new FoodAdapter(f, c);</span>
-<span class="fc" id="L62">            return rValue;</span>
+<span class="fc" id="L56">                res.status(200);</span>
+<span class="fc" id="L57">            Food f = foodDao.findById(id);</span>
+<span class="fc" id="L58">            List&lt;Category&gt; categories = categoryDao.find(f.getId());</span>
+<span class="fc" id="L59">            List&lt;CategoryAdapter&gt; c = new ArrayList&lt;CategoryAdapter&gt;();</span>
+<span class="fc" id="L60">            categories.forEach( cat -&gt; {</span>
+<span class="nc" id="L61">                c.add(new CategoryAdapter(cat.getName()));</span>
+<span class="nc" id="L62">            });</span>
+<span class="fc" id="L63">            FullFoodAdapter rValue = new FullFoodAdapter(f, c);</span>
+<span class="fc" id="L64">            return rValue;</span>
         }, gson::toJson);
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L66">    }</span>
 
     public static void getReports(Gson gson) {
-<span class="fc" id="L67">        get(&quot;/report&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L69">        get(&quot;/report&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
 
-<span class="fc" id="L69">            ArrayList&lt;Report&gt; reports = new ArrayList&lt;Report&gt;();</span>
-<span class="fc" id="L70">            reports.add(new Report(801, &quot;Orders to deliver today&quot;));</span>
-<span class="fc" id="L71">            reports.add(new Report(802, &quot;Orders to deliver tomorrow&quot;));</span>
-<span class="fc" id="L72">            reports.add(new Report(803, &quot;Revenue report&quot;));</span>
-<span class="fc" id="L73">            reports.add(new Report(804, &quot;Orders delivery report&quot;));</span>
+<span class="fc" id="L71">            ArrayList&lt;Report&gt; reports = new ArrayList&lt;Report&gt;();</span>
+<span class="fc" id="L72">            reports.add(new Report(801, &quot;Orders to deliver today&quot;));</span>
+<span class="fc" id="L73">            reports.add(new Report(802, &quot;Orders to deliver tomorrow&quot;));</span>
+<span class="fc" id="L74">            reports.add(new Report(803, &quot;Revenue report&quot;));</span>
+<span class="fc" id="L75">            reports.add(new Report(804, &quot;Orders delivery report&quot;));</span>
 
-<span class="fc" id="L75">            res.status(200);</span>
-<span class="fc" id="L76">            return reports;</span>
+<span class="fc" id="L77">            res.status(200);</span>
+<span class="fc" id="L78">            return reports;</span>
 
         }, gson::toJson);
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L81">    }</span>
 
     public static void cancelOrder(Gson gson, OrderDao orderDao) {
-<span class="fc" id="L82">        post(&quot;/order/cancel/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L84">        post(&quot;/order/cancel/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
 
-<span class="nc bnc" id="L84" title="All 2 branches missed.">            if (req.body().isEmpty()) {</span>
-<span class="nc" id="L85">                res.status(204);</span>
-<span class="nc" id="L86">                return &quot;&quot;;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (req.body().isEmpty()) {</span>
+<span class="nc" id="L87">                res.status(204);</span>
+<span class="nc" id="L88">                return &quot;&quot;;</span>
             }
-<span class="nc" id="L88">            int id = Integer.parseInt(req.params(&quot;oid&quot;));</span>
-<span class="nc" id="L89">            Order order = orderDao.find(id);</span>
-<span class="nc" id="L90">            SimpleDateFormat df = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span>
-<span class="nc bnc" id="L91" title="All 2 branches missed.">            if(df.format(new Date()).equalsIgnoreCase(order.getDelivery_date())) {</span>
-<span class="nc" id="L92">                return &quot;Cannot cancel today's order!&quot;;</span>
+<span class="nc" id="L90">            int id = Integer.parseInt(req.params(&quot;oid&quot;));</span>
+<span class="nc" id="L91">            Order order = orderDao.find(id);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if(df.format(new Date()).equalsIgnoreCase(order.getDelivery_date())) {</span>
+<span class="nc" id="L93">                return &quot;Cannot cancel today's order!&quot;;</span>
             }
-<span class="nc" id="L94">            orderDao.cancel(id);</span>
-<span class="nc" id="L95">            return &quot;Cancelled&quot;;</span>
+<span class="nc" id="L95">            orderDao.cancel(id);</span>
+<span class="nc" id="L96">            return &quot; &quot;;</span>
         }, gson::toJson);
-<span class="fc" id="L97">    }</span>
+<span class="fc" id="L98">    }</span>
 
     public static void deliverOrder(Gson gson, OrderDao orderDao) {
-<span class="fc" id="L100">        post(&quot;/admin/deliver/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="nc" id="L101">            int id = Integer.parseInt(req.params(&quot;oid&quot;));</span>
-<span class="nc" id="L102">            int i = orderDao.deliver(id);</span>
-<span class="nc" id="L103">            return &quot;&quot;;</span>
+<span class="fc" id="L101">        post(&quot;/admin/deliver/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="nc" id="L102">            int id = Integer.parseInt(req.params(&quot;oid&quot;));</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            if (req.body().isEmpty()) {</span>
+<span class="nc" id="L104">                res.status(204);</span>
+<span class="nc" id="L105">                return &quot;&quot;;</span>
+            }
+<span class="nc" id="L107">            int i = orderDao.deliver(id);</span>
+<span class="nc" id="L108">            return &quot;&quot;;</span>
         }, gson::toJson);
-<span class="fc" id="L105">    }</span>
+<span class="fc" id="L110">    }</span>
 
     public static void putOrder(Gson gson, FoodDao foodDao, ExtrasDao extrasDao, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {
-<span class="fc" id="L108">        put(&quot;/order&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L113">        put(&quot;/order&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
 
-<span class="fc" id="L110">            List&lt;Item&gt; items = new ArrayList&lt;Item&gt;();</span>
-<span class="fc" id="L111">            OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);</span>
-<span class="fc bfc" id="L112" title="All 2 branches covered.">            if(o.getOrder_detail().isEmpty()) {</span>
-<span class="fc" id="L113">                res.status(501);</span>
-<span class="fc" id="L114">                return &quot;&quot;;</span>
+<span class="fc" id="L115">            List&lt;Item&gt; items = new ArrayList&lt;Item&gt;();</span>
+<span class="fc" id="L116">            OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">            if(o.getOrder_detail().isEmpty()) {</span>
+<span class="fc" id="L118">                res.status(501);</span>
+<span class="fc" id="L119">                return &quot;&quot;;</span>
             }
-<span class="fc" id="L116">            Map&lt;String, Double&gt; amount = new HashMap();</span>
-<span class="fc" id="L117">            Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());</span>
-<span class="fc" id="L118">            Calendar calendar = new GregorianCalendar();</span>
-<span class="fc" id="L119">            SimpleDateFormat df = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span>
-<span class="fc" id="L120">            calendar.setTime(df.parse(o.getDelivery_date()));</span>
+<span class="fc" id="L121">            Map&lt;String, Double&gt; amount = new HashMap();</span>
+<span class="fc" id="L122">            Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());</span>
+<span class="fc" id="L123">            Calendar calendar = new GregorianCalendar();</span>
+<span class="fc" id="L124">            calendar.setTime(df.parse(o.getDelivery_date()));</span>
             Order order;
-<span class="pc bpc" id="L122" title="3 of 4 branches missed.">            if(calendar.DAY_OF_WEEK == Calendar.SATURDAY || calendar.DAY_OF_WEEK == Calendar.SUNDAY)</span>
-<span class="fc" id="L123">                 order = new Order(o, 0, extrasDao.get(&quot;surcharge&quot;), 0);</span>
+<span class="pc bpc" id="L126" title="3 of 4 branches missed.">            if(calendar.DAY_OF_WEEK == Calendar.SATURDAY || calendar.DAY_OF_WEEK == Calendar.SUNDAY)</span>
+<span class="fc" id="L127">                 order = new Order(o, 0, extrasDao.get(&quot;surcharge&quot;), 0);</span>
             else
-<span class="nc" id="L125">                order = new Order(o, 0, 0, 0);</span>
-<span class="fc" id="L126">            amount.put(&quot;total&quot;, (double) 0);</span>
-<span class="fc bfc" id="L127" title="All 2 branches covered.">            for(Detail detail: o.getOrder_detail()) {</span>
-<span class="fc" id="L128">                Food f = null;</span>
+<span class="nc" id="L129">                order = new Order(o, 0, 0, 0);</span>
+<span class="fc" id="L130">            amount.put(&quot;total&quot;, (double) 0);</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">            for(Detail detail: o.getOrder_detail()) {</span>
+<span class="fc" id="L132">                Food f = null;</span>
                 try {
-<span class="fc" id="L130">                    f = foodDao.findById(detail.getId());</span>
-<span class="pc bpc" id="L131" title="1 of 2 branches missed.">                    if(f.getMin_qty() &gt; detail.getCount()) {</span>
-<span class="nc" id="L132">                        res.status(400);</span>
-<span class="nc" id="L133">                        return 0;</span>
+<span class="fc" id="L134">                    f = foodDao.findById(detail.getId());</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">                    if(f.getMin_qty() &gt; detail.getCount()) {</span>
+<span class="nc" id="L136">                        res.status(400);</span>
+<span class="nc" id="L137">                        return 0;</span>
                     }
-<span class="nc" id="L135">                } catch (DaoException e) {</span>
-<span class="nc" id="L136">                    e.printStackTrace();</span>
-<span class="fc" id="L137">                }</span>
+<span class="nc" id="L139">                } catch (DaoException e) {</span>
+<span class="nc" id="L140">                    e.printStackTrace();</span>
+<span class="fc" id="L141">                }</span>
 
-<span class="fc" id="L139">                amount.put(&quot;total&quot;, amount.get(&quot;total&quot;) + f.getPrice()*detail.getCount());</span>
-<span class="fc" id="L140">                items.add(new Item(detail, f, -1));</span>
-<span class="fc" id="L141">            }</span>
-<span class="fc" id="L142">            orderDao.add(order);</span>
-<span class="pc bpc" id="L143" title="1 of 2 branches missed.">            if(d == null) {</span>
-<span class="nc" id="L144">                customerDao.add(c);</span>
-<span class="nc" id="L145">                d = c;</span>
+<span class="fc" id="L143">                amount.put(&quot;total&quot;, amount.get(&quot;total&quot;) + f.getPrice()*detail.getCount());</span>
+<span class="fc" id="L144">                items.add(new Item(detail, f, -1));</span>
+<span class="fc" id="L145">            }</span>
+<span class="fc" id="L146">            orderDao.add(order);</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">            if(d == null) {</span>
+<span class="nc" id="L148">                customerDao.add(c);</span>
+<span class="nc" id="L149">                d = c;</span>
             }
-<span class="fc" id="L147">            order.setCustomer_id(d.getId());</span>
-<span class="fc" id="L148">            order.setAmount(amount.get(&quot;total&quot;));</span>
-<span class="fc" id="L149">            orderDao.update(order.getId(), amount.get(&quot;total&quot;));</span>
-<span class="fc" id="L150">            orderDao.update(order.getId(), d.getId());</span>
-<span class="fc bfc" id="L151" title="All 2 branches covered.">            for (Item item: items) {</span>
+<span class="fc" id="L151">            order.setCustomer_id(d.getId());</span>
+<span class="fc" id="L152">            order.setAmount(amount.get(&quot;total&quot;));</span>
+<span class="fc" id="L153">            orderDao.update(order.getId(), amount.get(&quot;total&quot;));</span>
+<span class="fc" id="L154">            orderDao.update(order.getId(), d.getId());</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">            for (Item item: items) {</span>
                 try {
-<span class="fc" id="L153">                    item.setOrder_id(order.getId());</span>
-<span class="fc" id="L154">                    itemDao.add(item);</span>
-<span class="nc" id="L155">                } catch (DaoException e) {</span>
-<span class="nc" id="L156">                    e.printStackTrace();</span>
-<span class="fc" id="L157">                }</span>
-<span class="fc" id="L158">            }</span>
-<span class="fc" id="L159">            Map&lt;String, String&gt; rValue = new HashMap();</span>
-<span class="fc" id="L160">            rValue.put(&quot;id&quot;, &quot;&quot; + order.getId());</span>
-<span class="fc" id="L161">            rValue.put(&quot;cancel_url&quot;, &quot;http://localhost:4567/order/cancel/&quot; + order.getId());</span>
+<span class="fc" id="L157">                    item.setOrder_id(order.getId());</span>
+<span class="fc" id="L158">                    itemDao.add(item);</span>
+<span class="nc" id="L159">                } catch (DaoException e) {</span>
+<span class="nc" id="L160">                    e.printStackTrace();</span>
+<span class="fc" id="L161">                }</span>
+<span class="fc" id="L162">            }</span>
+<span class="fc" id="L163">            Map&lt;String, String&gt; rValue = new HashMap();</span>
+<span class="fc" id="L164">            rValue.put(&quot;id&quot;, &quot;&quot; + order.getId());</span>
+<span class="fc" id="L165">            rValue.put(&quot;cancel_url&quot;, &quot;http://localhost:4567/order/cancel/&quot; + order.getId());</span>
 
-<span class="fc" id="L163">            res.status(200);</span>
-<span class="fc" id="L164">            return rValue;</span>
+<span class="fc" id="L167">            res.status(201);</span>
+<span class="fc" id="L168">            return rValue;</span>
 
         }, gson::toJson);
-<span class="fc" id="L167">    }</span>
+<span class="fc" id="L171">    }</span>
 
     public static void GetOrderId(Gson gson, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {
-<span class="fc" id="L170">        get(&quot;/order/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L174">        get(&quot;/order/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
 
-<span class="fc" id="L172">            ArrayList&lt;FullOrderAdapter&gt; orderAdapters = new ArrayList&lt;FullOrderAdapter&gt;();</span>
-<span class="fc" id="L173">            ArrayList&lt;ItemAdapter&gt; items = new ArrayList&lt;ItemAdapter&gt;();</span>
-<span class="fc" id="L174">            int id = Integer.parseInt(req.params(&quot;oid&quot;));</span>
+<span class="fc" id="L176">            ArrayList&lt;FullOrderAdapter&gt; orderAdapters = new ArrayList&lt;FullOrderAdapter&gt;();</span>
+<span class="fc" id="L177">            ArrayList&lt;ItemAdapter&gt; items = new ArrayList&lt;ItemAdapter&gt;();</span>
+<span class="fc" id="L178">            int id = Integer.parseInt(req.params(&quot;oid&quot;));</span>
             try {
 
-<span class="fc" id="L177">                Order order = orderDao.find(id);</span>
-<span class="fc bfc" id="L178" title="All 2 branches covered.">                if (order == null) {</span>
-<span class="fc" id="L179">                    res.status(404);</span>
-<span class="fc" id="L180">                    return null;</span>
+<span class="fc" id="L181">                Order order = orderDao.find(id);</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">                if (order == null) {</span>
+<span class="fc" id="L183">                    res.status(404);</span>
+<span class="fc" id="L184">                    return null;</span>
                 }
-<span class="fc" id="L182">                Customer c = customerDao.find(order.getCustomer_id());</span>
-<span class="fc" id="L183">                List&lt;Item&gt; parts = itemDao.find(order.getId());</span>
-<span class="fc" id="L184">                parts.forEach( part -&gt; {</span>
-<span class="fc" id="L185">                    items.add(new ItemAdapter(part, 1));</span>
-<span class="fc" id="L186">                });</span>
-<span class="fc" id="L187">                orderAdapters.add(new FullOrderAdapter(order, c, items));</span>
+<span class="fc" id="L186">                Customer c = customerDao.find(order.getCustomer_id());</span>
+<span class="fc" id="L187">                List&lt;Item&gt; parts = itemDao.find(order.getId());</span>
+<span class="fc" id="L188">                parts.forEach( part -&gt; {</span>
+<span class="fc" id="L189">                    items.add(new ItemAdapter(part, 1));</span>
+<span class="fc" id="L190">                });</span>
+<span class="fc" id="L191">                orderAdapters.add(new FullOrderAdapter(order, c, items));</span>
 
-<span class="fc" id="L189">                res.status(200);</span>
-<span class="fc" id="L190">                return orderAdapters;</span>
+<span class="fc" id="L193">                res.status(200);</span>
+<span class="fc" id="L194">                return orderAdapters;</span>
 
-<span class="nc" id="L192">            } catch (DaoException ex) {</span>
-<span class="nc" id="L193">                res.status(404);</span>
-<span class="nc" id="L194">                return &quot;&quot;;</span>
+<span class="nc" id="L196">            } catch (DaoException ex) {</span>
+<span class="nc" id="L197">                res.status(404);</span>
+<span class="nc" id="L198">                return &quot;&quot;;</span>
             }
 
         }, gson::toJson);
-<span class="fc" id="L198">    }</span>
+<span class="fc" id="L202">    }</span>
 
     public static void getOrder(Gson gson, OrderDao orderDao, CustomerDao customerDao) {
-<span class="fc" id="L201">        get(&quot;/order&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="fc" id="L202">            String query = req.queryParams(&quot;date&quot;);</span>
-<span class="fc" id="L203">            ArrayList&lt;BasicOrderAdapter&gt; rValue = new ArrayList&lt;BasicOrderAdapter&gt;();</span>
-<span class="pc bpc" id="L204" title="1 of 2 branches missed.">            if(query == null) {</span>
-<span class="fc bfc" id="L205" title="All 2 branches covered.">                for(Order order: orderDao.findAll()){</span>
-<span class="fc" id="L206">                    retreiveOrder(customerDao, res, rValue, order);</span>
-<span class="fc" id="L207">                }</span>
-<span class="fc" id="L208">                res.status(200);</span>
-<span class="fc" id="L209">                return rValue;</span>
+<span class="fc" id="L205">        get(&quot;/order&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L206">            String query = req.queryParams(&quot;date&quot;);</span>
+<span class="fc" id="L207">            ArrayList&lt;BasicOrderAdapter&gt; rValue = new ArrayList&lt;BasicOrderAdapter&gt;();</span>
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">            if(query == null) {</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">                for(Order order: orderDao.findAll()){</span>
+<span class="fc" id="L210">                    retreiveOrder(customerDao, res, rValue, order);</span>
+<span class="fc" id="L211">                }</span>
+<span class="fc" id="L212">                res.status(200);</span>
+<span class="fc" id="L213">                return rValue;</span>
             }
             else {
-<span class="nc bnc" id="L212" title="All 2 branches missed.">                for(Order order: orderDao.findByDate(query)){</span>
-<span class="nc" id="L213">                    retreiveOrder(customerDao, res, rValue, order);</span>
-<span class="nc" id="L214">                }</span>
-<span class="nc" id="L215">                res.status(200);</span>
-<span class="nc" id="L216">                return rValue;</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">                for(Order order: orderDao.findByDate(query)){</span>
+<span class="nc" id="L217">                    retreiveOrder(customerDao, res, rValue, order);</span>
+<span class="nc" id="L218">                }</span>
+<span class="nc" id="L219">                res.status(200);</span>
+<span class="nc" id="L220">                return rValue;</span>
             }
 
         }, gson::toJson);
-<span class="fc" id="L220">    }</span>
+<span class="fc" id="L224">    }</span>
 
     public static void getCustomerId(Gson gson, OrderDao orderDao, CustomerDao customerDao) {
-<span class="fc" id="L223">        get(&quot;/customer/:cid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L227">        get(&quot;/customer/:cid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
 
-<span class="fc" id="L225">            int id = Integer.parseInt(req.params(&quot;cid&quot;));</span>
-<span class="fc" id="L226">            Customer customer = customerDao.find(id);</span>
-<span class="fc bfc" id="L227" title="All 2 branches covered.">            if(customer == null) {</span>
-<span class="fc" id="L228">                res.status(404);</span>
-<span class="fc" id="L229">                return &quot;&quot;;</span>
+<span class="fc" id="L229">            int id = Integer.parseInt(req.params(&quot;cid&quot;));</span>
+<span class="fc" id="L230">            Customer customer = customerDao.find(id);</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">            if(customer == null) {</span>
+<span class="fc" id="L232">                res.status(404);</span>
+<span class="fc" id="L233">                return &quot;&quot;;</span>
             }
-<span class="fc" id="L231">            ArrayList&lt;BasicOrderAdapter&gt; orderAdapters = new ArrayList&lt;BasicOrderAdapter&gt;();</span>
-<span class="fc" id="L232">            orderDao.findByCustomer(customer.getId()).forEach( order -&gt; {</span>
-<span class="fc" id="L233">                orderAdapters.add(new BasicOrderAdapter(order));</span>
-<span class="fc" id="L234">            });</span>
-<span class="fc" id="L235">            CustomerAdapter rValue = new CustomerAdapter(customer, orderAdapters);</span>
-<span class="fc" id="L236">            res.status(200);</span>
-<span class="fc" id="L237">            return rValue;</span>
+<span class="fc" id="L235">            ArrayList&lt;BasicOrderAdapter&gt; orderAdapters = new ArrayList&lt;BasicOrderAdapter&gt;();</span>
+<span class="fc" id="L236">            orderDao.findByCustomer(customer.getId()).forEach( order -&gt; {</span>
+<span class="fc" id="L237">                orderAdapters.add(new BasicOrderAdapter(order));</span>
+<span class="fc" id="L238">            });</span>
+<span class="fc" id="L239">            CustomerAdapter rValue = new CustomerAdapter(customer, orderAdapters);</span>
+<span class="fc" id="L240">            res.status(200);</span>
+<span class="fc" id="L241">            return rValue;</span>
 
         }, gson::toJson);
-<span class="fc" id="L240">    }</span>
+<span class="fc" id="L244">    }</span>
 
     public static void getCustomers(Gson gson, CustomerDao customerDao) {
-<span class="fc" id="L243">        get(&quot;/customer&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="fc" id="L244">            String query = req.queryParams(&quot;key&quot;);</span>
-<span class="fc bfc" id="L245" title="All 2 branches covered.">            if(query == null) {</span>
-<span class="fc" id="L246">                res.status(200);</span>
-<span class="fc" id="L247">                return customerDao.findAll();</span>
+<span class="fc" id="L247">        get(&quot;/customer&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L248">            String query = req.queryParams(&quot;key&quot;);</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">            if(query == null) {</span>
+<span class="fc" id="L250">                res.status(200);</span>
+<span class="fc" id="L251">                return customerDao.findAll();</span>
             }
             else {
 
-<span class="fc" id="L251">                List&lt;Customer&gt; customers = customerDao.find(query);</span>
-<span class="fc bfc" id="L252" title="All 2 branches covered.">                if(customers.isEmpty()) {</span>
-<span class="fc" id="L253">                    res.status(404);</span>
-<span class="fc" id="L254">                    return &quot;No such Customer Found&quot;;</span>
+<span class="fc" id="L255">                List&lt;Customer&gt; customers = customerDao.find(query);</span>
+<span class="fc bfc" id="L256" title="All 2 branches covered.">                if(customers.isEmpty()) {</span>
+<span class="fc" id="L257">                    res.status(404);</span>
+<span class="fc" id="L258">                    return &quot;No such Customer Found&quot;;</span>
                 }
-<span class="fc" id="L256">                return customers;</span>
+<span class="fc" id="L260">                return customers;</span>
             }
 
         }, gson::toJson);
-<span class="fc" id="L260">    }</span>
+<span class="fc" id="L264">    }</span>
 
     public static void setSurcharge(Gson gson, ExtrasDao extrasDao) {
-<span class="fc" id="L263">        post(&quot;/admin/surcharge&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L267">        post(&quot;/admin/surcharge&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
 
-<span class="fc" id="L265">            Type type = new TypeToken&lt;Map&lt;String, Double&gt;&gt;(){}.getType();</span>
-<span class="fc" id="L266">            Map&lt;String, Double&gt; changes = gson.fromJson(req.body(), type);</span>
-<span class="fc" id="L267">            extrasDao.update(&quot;surcharge&quot;, changes.get(&quot;surcharge&quot;));</span>
-<span class="fc" id="L268">            return changes;</span>
+<span class="fc" id="L269">            Type type = new TypeToken&lt;Map&lt;String, Double&gt;&gt;(){}.getType();</span>
+<span class="fc" id="L270">            Map&lt;String, Double&gt; changes = gson.fromJson(req.body(), type);</span>
+<span class="fc" id="L271">            extrasDao.update(&quot;surcharge&quot;, changes.get(&quot;surcharge&quot;));</span>
+<span class="fc" id="L272">            return changes;</span>
 
         }, gson::toJson);
-<span class="fc" id="L271">    }</span>
+<span class="fc" id="L275">    }</span>
 
     public static void getSurcharge(Gson gson, ExtrasDao extrasDao) {
-<span class="fc" id="L274">        get(&quot;/admin/surcharge&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="fc" id="L275">            Map&lt;String, Double&gt; rValue = new HashMap();</span>
-<span class="fc" id="L276">            double sur = extrasDao.get(&quot;surcharge&quot;);</span>
-<span class="fc" id="L277">            rValue.put(&quot;surcharge&quot;, sur);</span>
-<span class="fc" id="L278">            res.status(200);</span>
-<span class="fc" id="L279">            return rValue;</span>
+<span class="fc" id="L278">        get(&quot;/admin/surcharge&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L279">            Map&lt;String, Double&gt; rValue = new HashMap();</span>
+<span class="fc" id="L280">            double sur = extrasDao.get(&quot;surcharge&quot;);</span>
+<span class="fc" id="L281">            rValue.put(&quot;surcharge&quot;, sur);</span>
+<span class="fc" id="L282">            res.status(200);</span>
+<span class="fc" id="L283">            return rValue;</span>
 
         }, gson::toJson);
-<span class="fc" id="L282">    }</span>
+<span class="fc" id="L286">    }</span>
 
     public static void updateMenu(Gson gson, FoodDao foodDao) {
-<span class="fc" id="L285">        post(&quot;/admin/menu/:mid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
-<span class="fc" id="L286">            int id = Integer.parseInt(req.params(&quot;mid&quot;));</span>
-<span class="fc" id="L287">            Type type = new TypeToken&lt;Map&lt;String, Double&gt;&gt;() {}.getType();</span>
-<span class="fc" id="L288">            Map&lt;String, Double&gt; changes = gson.fromJson(req.body(), type);</span>
-<span class="fc" id="L289">            int status = foodDao.update(id, changes.get(&quot;price_per_person&quot;));</span>
-<span class="fc bfc" id="L290" title="All 2 branches covered.">            if(status &gt; 0) {</span>
-<span class="fc" id="L291">                res.status(200);</span>
-<span class="fc" id="L292">                return foodDao.findById(id);</span>
+<span class="fc" id="L289">        post(&quot;/admin/menu/:mid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L290">            int id = Integer.parseInt(req.params(&quot;mid&quot;));</span>
+<span class="fc" id="L291">            Type type = new TypeToken&lt;Map&lt;String, Double&gt;&gt;() {}.getType();</span>
+<span class="fc" id="L292">            Map&lt;String, Double&gt; changes = gson.fromJson(req.body(), type);</span>
+<span class="fc" id="L293">            int status = foodDao.update(id, changes.get(&quot;price_per_person&quot;));</span>
+<span class="fc bfc" id="L294" title="All 2 branches covered.">            if(status &gt; 0) {</span>
+<span class="fc" id="L295">                res.status(200);</span>
+<span class="fc" id="L296">                return &quot;&quot;;</span>
             }
             else
-<span class="fc" id="L295">                res.status(404);</span>
-<span class="fc" id="L296">            return 0;</span>
+<span class="fc" id="L299">                res.status(404);</span>
+<span class="fc" id="L300">            return 0;</span>
         }, gson::toJson);
-<span class="fc" id="L298">    }</span>
+<span class="fc" id="L302">    }</span>
 
     public static void putMenu(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
-<span class="fc" id="L301">        put(&quot;/admin/menu&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="fc" id="L305">        put(&quot;/admin/menu&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
             try {
-<span class="fc" id="L303">                FoodAdapter adp = gson.fromJson(req.body(), FoodAdapter.class);</span>
-<span class="fc" id="L304">                Food food = new Food(adp);</span>
-<span class="fc" id="L305">                foodDao.add(food);</span>
-<span class="fc" id="L306">                List&lt;CategoryAdapter&gt; categories = adp.getCategories();</span>
-<span class="fc" id="L307">                categories.forEach((category) -&gt; {</span>
-<span class="fc" id="L308">                    Category c = new Category(category.getName(), food.getId());</span>
+<span class="fc" id="L307">                FoodAdapter adp = gson.fromJson(req.body(), FoodAdapter.class);</span>
+<span class="fc" id="L308">                Food food = new Food(adp);</span>
+<span class="fc" id="L309">                food.setCreate_date(df.format(new Date()));</span>
+<span class="fc" id="L310">                food.setLast_modified_date(df.format(new Date()));</span>
+<span class="fc" id="L311">                foodDao.add(food);</span>
+<span class="fc" id="L312">                List&lt;CategoryAdapter&gt; categories = adp.getCategories();</span>
+<span class="fc" id="L313">                categories.forEach((category) -&gt; {</span>
+<span class="fc" id="L314">                    Category c = new Category(category.getName(), food.getId());</span>
                     try {
-<span class="fc" id="L310">                        categoryDao.add(c);</span>
-<span class="nc" id="L311">                    } catch (DaoException e) {</span>
-<span class="nc" id="L312">                        e.printStackTrace();</span>
-<span class="fc" id="L313">                    }</span>
-<span class="fc" id="L314">                });</span>
+<span class="fc" id="L316">                        categoryDao.add(c);</span>
+<span class="nc" id="L317">                    } catch (DaoException e) {</span>
+<span class="nc" id="L318">                        e.printStackTrace();</span>
+<span class="fc" id="L319">                    }</span>
+<span class="fc" id="L320">                });</span>
+<span class="fc" id="L321">                Map&lt;String, Integer&gt; idMap = new HashMap();</span>
+<span class="fc" id="L322">                idMap.put(&quot;id&quot;, food.getId());</span>
+<span class="fc" id="L323">                res.status(200);</span>
+<span class="fc" id="L324">                return idMap;</span>
 
-<span class="fc" id="L316">                Map&lt;String, Integer&gt; idMap = new HashMap();</span>
-<span class="fc" id="L317">                idMap.put(&quot;id&quot;, food.getId());</span>
-<span class="fc" id="L318">                res.status(200);</span>
-<span class="fc" id="L319">                return idMap;</span>
-
-<span class="nc" id="L321">            }catch (IllegalStateException ex) {</span>
-<span class="nc" id="L322">                res.status(400);</span>
-<span class="nc" id="L323">                return 0;</span>
-<span class="fc" id="L324">            } catch (NullPointerException ec) {</span>
-<span class="fc" id="L325">                res.status(404);</span>
-<span class="fc" id="L326">                return 0;</span>
+<span class="nc" id="L326">            }catch (IllegalStateException ex) {</span>
+<span class="nc" id="L327">                res.status(400);</span>
+<span class="nc" id="L328">                return 0;</span>
+<span class="fc" id="L329">            } catch (NullPointerException ec) {</span>
+<span class="fc" id="L330">                res.status(404);</span>
+<span class="fc" id="L331">                return 0;</span>
             }
 
         }, gson::toJson);
-<span class="fc" id="L330">    }</span>
+<span class="fc" id="L335">    }</span>
 
     public static Object switchReport(OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao, Request req, Response res) throws DaoException {
-<span class="fc" id="L333">        int id = Integer.parseInt(req.params(&quot;rid&quot;));</span>
-<span class="fc" id="L334">        String start = req.queryParams(&quot;start_date&quot;);</span>
-<span class="fc" id="L335">        String end = req.queryParams(&quot;end_date&quot;);</span>
-<span class="fc" id="L336">        ReportBuilder rb = new ReportBuilder();</span>
-<span class="fc" id="L337">        Report report = null;</span>
-<span class="pc bpc" id="L338" title="1 of 5 branches missed.">        switch (id) {</span>
+<span class="fc" id="L338">        int id = Integer.parseInt(req.params(&quot;rid&quot;));</span>
+<span class="fc" id="L339">        String start = req.queryParams(&quot;start_date&quot;);</span>
+<span class="fc" id="L340">        String end = req.queryParams(&quot;end_date&quot;);</span>
+<span class="fc" id="L341">        ReportBuilder rb = new ReportBuilder();</span>
+<span class="fc" id="L342">        Report report = null;</span>
+<span class="pc bpc" id="L343" title="1 of 5 branches missed.">        switch (id) {</span>
             case 801:
-<span class="fc" id="L340">                report = rb.deliveryToday()</span>
-<span class="fc" id="L341">                        .onOrders(orderDao,itemDao,customerDao)</span>
-<span class="fc" id="L342">                        .get();</span>
-<span class="fc" id="L343">                res.status(200);</span>
-<span class="fc" id="L344">                break;</span>
+<span class="fc" id="L345">                report = rb.deliveryToday()</span>
+<span class="fc" id="L346">                        .onOrders(orderDao,itemDao,customerDao)</span>
+<span class="fc" id="L347">                        .get();</span>
+<span class="fc" id="L348">                res.status(200);</span>
+<span class="fc" id="L349">                break;</span>
             case 802:
-<span class="fc" id="L346">                report = rb.deliveryTomorrow()</span>
-<span class="fc" id="L347">                        .onOrders(orderDao,itemDao,customerDao)</span>
-<span class="fc" id="L348">                        .get();</span>
-<span class="fc" id="L349">                res.status(200);</span>
-<span class="fc" id="L350">                break;</span>
+<span class="fc" id="L351">                report = rb.deliveryTomorrow()</span>
+<span class="fc" id="L352">                        .onOrders(orderDao,itemDao,customerDao)</span>
+<span class="fc" id="L353">                        .get();</span>
+<span class="fc" id="L354">                res.status(200);</span>
+<span class="fc" id="L355">                break;</span>
             case 803:
-<span class="fc" id="L352">                report = rb.revenue()</span>
-<span class="fc" id="L353">                        .withStart(start)</span>
-<span class="fc" id="L354">                        .withEnd(end)</span>
-<span class="fc" id="L355">                        .onOrders(orderDao,itemDao,customerDao)</span>
-<span class="fc" id="L356">                        .get();</span>
-<span class="fc" id="L357">                res.status(200);</span>
-<span class="fc" id="L358">                break;</span>
+<span class="fc" id="L357">                report = rb.revenue()</span>
+<span class="fc" id="L358">                        .withStart(start)</span>
+<span class="fc" id="L359">                        .withEnd(end)</span>
+<span class="fc" id="L360">                        .onOrders(orderDao,itemDao,customerDao)</span>
+<span class="fc" id="L361">                        .get();</span>
+<span class="fc" id="L362">                res.status(200);</span>
+<span class="fc" id="L363">                break;</span>
             case 804:
-<span class="fc" id="L360">                report = rb.delivery()</span>
-<span class="fc" id="L361">                        .withStart(start)</span>
-<span class="fc" id="L362">                        .withEnd(end)</span>
-<span class="fc" id="L363">                        .onOrders(orderDao,itemDao,customerDao)</span>
-<span class="fc" id="L364">                        .get();</span>
-<span class="fc" id="L365">                res.status(200);</span>
-<span class="fc" id="L366">                break;</span>
+<span class="fc" id="L365">                report = rb.delivery()</span>
+<span class="fc" id="L366">                        .withStart(start)</span>
+<span class="fc" id="L367">                        .withEnd(end)</span>
+<span class="fc" id="L368">                        .onOrders(orderDao,itemDao,customerDao)</span>
+<span class="fc" id="L369">                        .get();</span>
+<span class="fc" id="L370">                res.status(200);</span>
+<span class="fc" id="L371">                break;</span>
             default:
-<span class="nc" id="L368">                res.status(404);</span>
+<span class="nc" id="L373">                res.status(404);</span>
         }
-<span class="fc" id="L370">        return report;</span>
+<span class="fc" id="L375">        return report;</span>
     }
 
     //Utility Methods
 
     public static void retreiveOrder(CustomerDao customerDao, Response res, ArrayList&lt;BasicOrderAdapter&gt; rValue, Order order) {
         try {
-<span class="fc" id="L377">            Customer c = customerDao.find(order.getCustomer_id());</span>
-<span class="fc" id="L378">            rValue.add(new BasicOrderAdapter(order, c.getEmail()));</span>
-<span class="nc" id="L379">        } catch (DaoException e) {</span>
-<span class="nc" id="L380">            res.status(404);</span>
-<span class="nc" id="L381">            e.printStackTrace();</span>
-<span class="fc" id="L382">        }</span>
-<span class="fc" id="L383">    }</span>
+<span class="fc" id="L382">            Customer c = customerDao.find(order.getCustomer_id());</span>
+<span class="fc" id="L383">            rValue.add(new BasicOrderAdapter(order, c.getEmail()));</span>
+<span class="nc" id="L384">        } catch (DaoException e) {</span>
+<span class="nc" id="L385">            res.status(404);</span>
+<span class="nc" id="L386">            e.printStackTrace();</span>
+<span class="fc" id="L387">        }</span>
+<span class="fc" id="L388">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

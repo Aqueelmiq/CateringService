@@ -27,8 +27,6 @@ public class Sql2oItemDao implements ItemDao {
             return con.createQuery(sql)
                     .addParameter("order_id", oid)
                     .executeAndFetch(Item.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Order Items Failed");
         }
     }
 
@@ -41,11 +39,10 @@ public class Sql2oItemDao implements ItemDao {
                     .executeUpdate()
                     .getKey();
             i.setId(id);
-
         } catch (Sql2oException ex) {
             throw new DaoException(ex, "Insert screwd up in Items");
         }
-        return -1;
+        return 0;
     }
 
     @Override
@@ -55,8 +52,6 @@ public class Sql2oItemDao implements ItemDao {
             String sql = "SELECT * FROM ITEMS";
             return con.createQuery(sql)
                     .executeAndFetch(Item.class);
-        } catch (Sql2oException ex) {
-            throw new DaoException(ex, "Return Order Items Failed");
         }
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FullFoodAdapter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Delectable</a> &gt; <a href="index.source.html" class="el_package">com.aqueel.project.Adapters</a> &gt; <span class="el_source">FullFoodAdapter.java</span></div><h1>FullFoodAdapter.java</h1><pre class="source lang-java linenums">package com.aqueel.project.Adapters;
+
+import com.aqueel.project.Models.Food;
+
+import java.util.List;
+
+/**
+ * Created by aqueelmiqdad on 9/29/16.
+ */
+public class FullFoodAdapter {
+
+    private  int id;
+    private String name;
+    private double price_per_person;
+    private int minimum_order;
+    private List&lt;CategoryAdapter&gt; categories;
+    private String create_date;
+    private String last_modified_date;
+
+<span class="nc" id="L20">    public FullFoodAdapter(int id, String name, double price_per_person, int minimum_order, List&lt;CategoryAdapter&gt; categories, String create_date, String last_modified_date) {</span>
+<span class="nc" id="L21">        this.id = id;</span>
+<span class="nc" id="L22">        this.name = name;</span>
+<span class="nc" id="L23">        this.price_per_person = price_per_person;</span>
+<span class="nc" id="L24">        this.minimum_order = minimum_order;</span>
+<span class="nc" id="L25">        this.categories = categories;</span>
+<span class="nc" id="L26">        this.create_date = create_date;</span>
+<span class="nc" id="L27">        this.last_modified_date = last_modified_date;</span>
+<span class="nc" id="L28">    }</span>
+
+<span class="fc" id="L30">    public FullFoodAdapter(Food f, List&lt;CategoryAdapter&gt; c) {</span>
+<span class="fc" id="L31">        this.id = f.getId();</span>
+<span class="fc" id="L32">        this.name = f.getName();</span>
+<span class="fc" id="L33">        this.price_per_person = f.getPrice();</span>
+<span class="fc" id="L34">        this.minimum_order = f.getMin_qty();</span>
+<span class="fc" id="L35">        this.categories = c;</span>
+<span class="fc" id="L36">        this.create_date = f.getCreate_date();</span>
+<span class="fc" id="L37">        this.last_modified_date = f.getLast_modified_date();</span>
+<span class="fc" id="L38">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,53 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ServerTest" tests="38" skipped="0" failures="0" errors="0" timestamp="2016-09-29T01:06:59" hostname="dhcp30.merunorth107.iit.edu" time="5.023">
+<testsuite name="ServerTest" tests="38" skipped="0" failures="0" errors="0" timestamp="2016-09-29T07:43:28" hostname="dhcp30.merunorth107.iit.edu" time="4.86">
   <properties/>
-  <testcase name="CustomerNameNotWorks" classname="ServerTest" time="0.406"/>
-  <testcase name="postMenuPriceWorks" classname="ServerTest" time="0.169"/>
-  <testcase name="getTomorrowReportFoundWorks" classname="ServerTest" time="0.15"/>
-  <testcase name="getCustomersWorks" classname="ServerTest" time="0.127"/>
-  <testcase name="getCustomerIdWorks" classname="ServerTest" time="0.128"/>
-  <testcase name="getReoprtWorks" classname="ServerTest" time="0.125"/>
-  <testcase name="getMenuWorks" classname="ServerTest" time="0.132"/>
-  <testcase name="Report804DateWorks" classname="ServerTest" time="0.125"/>
-  <testcase name="Report803DateWorks" classname="ServerTest" time="0.124"/>
-  <testcase name="getCustomerIdNotWorks" classname="ServerTest" time="0.122"/>
+  <testcase name="CustomerNameNotWorks" classname="ServerTest" time="0.342"/>
+  <testcase name="postMenuPriceWorks" classname="ServerTest" time="0.156"/>
+  <testcase name="getTomorrowReportFoundWorks" classname="ServerTest" time="0.138"/>
+  <testcase name="getCustomersWorks" classname="ServerTest" time="0.123"/>
+  <testcase name="getCustomerIdWorks" classname="ServerTest" time="0.124"/>
+  <testcase name="getReoprtWorks" classname="ServerTest" time="0.122"/>
+  <testcase name="getMenuWorks" classname="ServerTest" time="0.129"/>
+  <testcase name="Report804DateWorks" classname="ServerTest" time="0.129"/>
+  <testcase name="Report803DateWorks" classname="ServerTest" time="0.126"/>
+  <testcase name="getCustomerIdNotWorks" classname="ServerTest" time="0.121"/>
   <testcase name="getDateReportFoundWorks" classname="ServerTest" time="0.121"/>
-  <testcase name="CustomerOrderWorks" classname="ServerTest" time="0.126"/>
-  <testcase name="getOrderIDNotFoundWorks" classname="ServerTest" time="0.124"/>
-  <testcase name="getTomorrowReportWorks" classname="ServerTest" time="0.123"/>
-  <testcase name="getOrderIDFoundWorks" classname="ServerTest" time="0.125"/>
-  <testcase name="Report803toDateWorks" classname="ServerTest" time="0.125"/>
+  <testcase name="CustomerOrderWorks" classname="ServerTest" time="0.12"/>
+  <testcase name="getOrderIDNotFoundWorks" classname="ServerTest" time="0.119"/>
+  <testcase name="getTomorrowReportWorks" classname="ServerTest" time="0.117"/>
+  <testcase name="getOrderIDFoundWorks" classname="ServerTest" time="0.124"/>
+  <testcase name="Report803toDateWorks" classname="ServerTest" time="0.115"/>
   <testcase name="Report804DatetoDateWorks" classname="ServerTest" time="0.12"/>
   <testcase name="Report804toDateWorks" classname="ServerTest" time="0.123"/>
-  <testcase name="putOrderWorks" classname="ServerTest" time="0.14"/>
-  <testcase name="putSurchargeWorks" classname="ServerTest" time="0.121"/>
-  <testcase name="getSurchargeWorks" classname="ServerTest" time="0.127"/>
-  <testcase name="Report803DatetoDateWorks" classname="ServerTest" time="0.12"/>
-  <testcase name="putOrderNotWorks" classname="ServerTest" time="0.118"/>
+  <testcase name="putOrderWorks" classname="ServerTest" time="0.128"/>
+  <testcase name="putSurchargeWorks" classname="ServerTest" time="0.117"/>
+  <testcase name="getSurchargeWorks" classname="ServerTest" time="0.125"/>
+  <testcase name="Report803DatetoDateWorks" classname="ServerTest" time="0.116"/>
+  <testcase name="putOrderNotWorks" classname="ServerTest" time="0.117"/>
   <testcase name="getOrderWorks" classname="ServerTest" time="0.121"/>
-  <testcase name="getRevenueReoprtWorks" classname="ServerTest" time="0.117"/>
-  <testcase name="postMenuPriceWorksWell" classname="ServerTest" time="0.115"/>
-  <testcase name="putIvalidMenuNotWorks" classname="ServerTest" time="0.122"/>
+  <testcase name="getRevenueReoprtWorks" classname="ServerTest" time="0.118"/>
+  <testcase name="postMenuPriceWorksWell" classname="ServerTest" time="0.121"/>
+  <testcase name="putIvalidMenuNotWorks" classname="ServerTest" time="0.118"/>
   <testcase name="putMenuWorks" classname="ServerTest" time="0.122"/>
-  <testcase name="getCustomerWorks" classname="ServerTest" time="0.116"/>
+  <testcase name="getCustomerWorks" classname="ServerTest" time="0.119"/>
   <testcase name="Report801Works" classname="ServerTest" time="0.12"/>
-  <testcase name="Report802Works" classname="ServerTest" time="0.117"/>
-  <testcase name="Report803Works" classname="ServerTest" time="0.12"/>
-  <testcase name="Report804Works" classname="ServerTest" time="0.122"/>
-  <testcase name="getMenuIDWorks" classname="ServerTest" time="0.118"/>
+  <testcase name="Report802Works" classname="ServerTest" time="0.119"/>
+  <testcase name="Report803Works" classname="ServerTest" time="0.118"/>
+  <testcase name="Report804Works" classname="ServerTest" time="0.116"/>
+  <testcase name="getMenuIDWorks" classname="ServerTest" time="0.122"/>
   <testcase name="getTodayReportWorks" classname="ServerTest" time="0.12"/>
-  <testcase name="CustomernameWorks" classname="ServerTest" time="0.12"/>
-  <testcase name="getRevReportFoundWorks" classname="ServerTest" time="0.124"/>
-  <testcase name="getDeliveryReportWorks" classname="ServerTest" time="0.118"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[606 [Thread-6] INFO org.eclipse.jetty.util.log - Logging initialized @1338ms
-685 [Thread-6] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
-685 [Thread-6] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4560
-689 [Thread-6] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
-736 [Thread-6] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@1149b35a{HTTP/1.1,[http/1.1]}{0.0.0.0:4560}
-736 [Thread-6] INFO org.eclipse.jetty.server.Server - Started @1472ms
-5812 [Test worker] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
-5818 [Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@1149b35a{HTTP/1.1,[http/1.1]}{0.0.0.0:4560}
-5818 [Test worker] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+  <testcase name="CustomernameWorks" classname="ServerTest" time="0.115"/>
+  <testcase name="getRevReportFoundWorks" classname="ServerTest" time="0.116"/>
+  <testcase name="getDeliveryReportWorks" classname="ServerTest" time="0.114"/>
+  <system-out><![CDATA[1
+1
+1
+1
+1
+1
+1
+1
+]]></system-out>
+  <system-err><![CDATA[574 [Thread-6] INFO org.eclipse.jetty.util.log - Logging initialized @1263ms
+650 [Thread-6] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+650 [Thread-6] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4560
+654 [Thread-6] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+697 [Thread-6] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@5db07249{HTTP/1.1,[http/1.1]}{0.0.0.0:4560}
+697 [Thread-6] INFO org.eclipse.jetty.server.Server - Started @1387ms
+5612 [Test worker] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+5620 [Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@5db07249{HTTP/1.1,[http/1.1]}{0.0.0.0:4560}
+5621 [Test worker] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
 ]]></system-err>
 </testsuite>
