@@ -19,6 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Delectable_integrationTest" target="1.8" />
       <module name="Delectable_main" target="1.8" />
       <module name="Delectable_test" target="1.8" />
     </bytecodeTargetLevel>

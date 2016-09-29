@@ -1,7 +1,6 @@
 package com.aqueel.project.Dao;
 
 import com.aqueel.project.Exc.DaoException;
-import com.aqueel.project.Models.Category;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aqueel.project.ServerTest" tests="38" skipped="0" failures="0" errors="0" timestamp="2016-09-29T00:59:41" hostname="dhcp30.merunorth107.iit.edu" time="4.951">
+  <properties/>
+  <testcase name="CustomerNameNotWorks" classname="com.aqueel.project.ServerTest" time="0.377"/>
+  <testcase name="postMenuPriceWorks" classname="com.aqueel.project.ServerTest" time="0.158"/>
+  <testcase name="getTomorrowReportFoundWorks" classname="com.aqueel.project.ServerTest" time="0.144"/>
+  <testcase name="getCustomersWorks" classname="com.aqueel.project.ServerTest" time="0.129"/>
+  <testcase name="getCustomerIdWorks" classname="com.aqueel.project.ServerTest" time="0.129"/>
+  <testcase name="getReoprtWorks" classname="com.aqueel.project.ServerTest" time="0.122"/>
+  <testcase name="getMenuWorks" classname="com.aqueel.project.ServerTest" time="0.136"/>
+  <testcase name="Report804DateWorks" classname="com.aqueel.project.ServerTest" time="0.127"/>
+  <testcase name="Report803DateWorks" classname="com.aqueel.project.ServerTest" time="0.127"/>
+  <testcase name="getCustomerIdNotWorks" classname="com.aqueel.project.ServerTest" time="0.122"/>
+  <testcase name="getDateReportFoundWorks" classname="com.aqueel.project.ServerTest" time="0.121"/>
+  <testcase name="CustomerOrderWorks" classname="com.aqueel.project.ServerTest" time="0.122"/>
+  <testcase name="getOrderIDNotFoundWorks" classname="com.aqueel.project.ServerTest" time="0.122"/>
+  <testcase name="getTomorrowReportWorks" classname="com.aqueel.project.ServerTest" time="0.12"/>
+  <testcase name="getOrderIDFoundWorks" classname="com.aqueel.project.ServerTest" time="0.126"/>
+  <testcase name="Report803toDateWorks" classname="com.aqueel.project.ServerTest" time="0.119"/>
+  <testcase name="Report804DatetoDateWorks" classname="com.aqueel.project.ServerTest" time="0.119"/>
+  <testcase name="Report804toDateWorks" classname="com.aqueel.project.ServerTest" time="0.12"/>
+  <testcase name="putOrderWorks" classname="com.aqueel.project.ServerTest" time="0.13"/>
+  <testcase name="putSurchargeWorks" classname="com.aqueel.project.ServerTest" time="0.122"/>
+  <testcase name="getSurchargeWorks" classname="com.aqueel.project.ServerTest" time="0.126"/>
+  <testcase name="Report803DatetoDateWorks" classname="com.aqueel.project.ServerTest" time="0.124"/>
+  <testcase name="putOrderNotWorks" classname="com.aqueel.project.ServerTest" time="0.117"/>
+  <testcase name="getOrderWorks" classname="com.aqueel.project.ServerTest" time="0.123"/>
+  <testcase name="getRevenueReoprtWorks" classname="com.aqueel.project.ServerTest" time="0.118"/>
+  <testcase name="postMenuPriceWorksWell" classname="com.aqueel.project.ServerTest" time="0.118"/>
+  <testcase name="putIvalidMenuNotWorks" classname="com.aqueel.project.ServerTest" time="0.117"/>
+  <testcase name="putMenuWorks" classname="com.aqueel.project.ServerTest" time="0.127"/>
+  <testcase name="getCustomerWorks" classname="com.aqueel.project.ServerTest" time="0.117"/>
+  <testcase name="Report801Works" classname="com.aqueel.project.ServerTest" time="0.119"/>
+  <testcase name="Report802Works" classname="com.aqueel.project.ServerTest" time="0.12"/>
+  <testcase name="Report803Works" classname="com.aqueel.project.ServerTest" time="0.119"/>
+  <testcase name="Report804Works" classname="com.aqueel.project.ServerTest" time="0.118"/>
+  <testcase name="getMenuIDWorks" classname="com.aqueel.project.ServerTest" time="0.12"/>
+  <testcase name="getTodayReportWorks" classname="com.aqueel.project.ServerTest" time="0.118"/>
+  <testcase name="CustomernameWorks" classname="com.aqueel.project.ServerTest" time="0.114"/>
+  <testcase name="getRevReportFoundWorks" classname="com.aqueel.project.ServerTest" time="0.117"/>
+  <testcase name="getDeliveryReportWorks" classname="com.aqueel.project.ServerTest" time="0.121"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[535 [Thread-6] INFO org.eclipse.jetty.util.log - Logging initialized @1260ms
+601 [Thread-6] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+601 [Thread-6] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4560
+605 [Thread-6] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+656 [Thread-6] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@4cf1395c{HTTP/1.1,[http/1.1]}{0.0.0.0:4560}
+656 [Thread-6] INFO org.eclipse.jetty.server.Server - Started @1383ms
+5677 [Test worker] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+5683 [Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@4cf1395c{HTTP/1.1,[http/1.1]}{0.0.0.0:4560}
+5684 [Test worker] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+]]></system-err>
+</testsuite>

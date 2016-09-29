@@ -1,13 +1,11 @@
 package com.aqueel.project.Dao;
 
 import com.aqueel.project.Exc.DaoException;
-import com.aqueel.project.Models.Food;
 import com.aqueel.project.Models.Item;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

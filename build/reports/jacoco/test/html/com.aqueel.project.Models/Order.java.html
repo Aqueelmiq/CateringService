@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Delectable</a> &gt; <a href="index.source.html" class="el_package">com.aqueel.project.Models</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package com.aqueel.project.Models;
+
+import com.aqueel.project.Adapters.OrderAdapter;
+
+import java.security.PolicySpi;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * Created by aqueelmiqdad on 9/24/16.
+ */
+public class Order {
+
+    private int id;
+    private int customer_id;
+    private String note;
+    private double surcharge;
+    private String status;
+    private double amount;
+    private String order_date;
+    private String delivery_date;
+    private String delivery_address;
+
+
+<span class="fc" id="L25">    public Order(OrderAdapter o, double amount, double surcharge, int cid) {</span>
+<span class="fc" id="L26">        this.amount = amount;</span>
+<span class="fc" id="L27">        this.surcharge = surcharge;</span>
+<span class="fc" id="L28">        this.status = &quot;open&quot;;</span>
+<span class="fc" id="L29">        SimpleDateFormat s = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span>
+<span class="fc" id="L30">        this.order_date = s.format(new Date());</span>
+<span class="fc" id="L31">        delivery_date = o.getDelivery_date();</span>
+<span class="fc" id="L32">        this.note = o.getNote();</span>
+<span class="fc" id="L33">        this.customer_id = cid;</span>
+<span class="fc" id="L34">        this.delivery_address = o.getDelivery_address();</span>
+<span class="fc" id="L35">    }</span>
+
+<span class="fc" id="L37">    public Order(Customer customer, double amount, double surcharge, int cid, String delivery, String addr) {</span>
+<span class="fc" id="L38">        this.amount = amount;</span>
+<span class="fc" id="L39">        this.surcharge = surcharge;</span>
+<span class="fc" id="L40">        this.status = &quot;open&quot;;</span>
+<span class="fc" id="L41">        SimpleDateFormat s = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span>
+<span class="fc" id="L42">        this.order_date = s.format(new Date());</span>
+<span class="fc" id="L43">        delivery_date = delivery;</span>
+<span class="fc" id="L44">        this.note = &quot;none&quot;;</span>
+<span class="fc" id="L45">        this.customer_id = customer.getId();</span>
+<span class="fc" id="L46">        this.delivery_address = addr;</span>
+
+<span class="fc" id="L48">    }</span>
+
+    public String getNote() {
+<span class="fc" id="L51">        return note;</span>
+    }
+
+    public void setNote(String note) {
+<span class="fc" id="L55">        this.note = note;</span>
+<span class="fc" id="L56">    }</span>
+
+    public int getId() {
+<span class="fc" id="L59">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L63">        this.id = id;</span>
+<span class="fc" id="L64">    }</span>
+
+    public double getAmount() {
+<span class="fc" id="L67">        return amount;</span>
+    }
+
+    public void setAmount(double amount) {
+<span class="fc" id="L71">        this.amount = amount;</span>
+<span class="fc" id="L72">    }</span>
+
+    public double getSurcharge() {
+<span class="fc" id="L75">        return surcharge;</span>
+    }
+
+    public void setSurcharge(double surcharge) {
+<span class="fc" id="L79">        this.surcharge = surcharge;</span>
+<span class="fc" id="L80">    }</span>
+
+    public String getStatus() {
+<span class="fc" id="L83">        return status;</span>
+    }
+
+    public void setStatus(String status) {
+<span class="fc" id="L87">        this.status = status;</span>
+<span class="fc" id="L88">    }</span>
+
+
+    public String getOrder_date() {
+<span class="fc" id="L92">        return order_date;</span>
+    }
+
+    public void setOrder_date(String order_date) {
+<span class="fc" id="L96">        this.order_date = order_date;</span>
+<span class="fc" id="L97">    }</span>
+
+    public String getDelivery_date() {
+<span class="fc" id="L100">        return delivery_date;</span>
+    }
+
+    public void setDelivery_date(String delivery_date) {
+<span class="fc" id="L104">        this.delivery_date = delivery_date;</span>
+<span class="fc" id="L105">    }</span>
+
+    public int getCustomer_id() {
+<span class="fc" id="L108">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(int customer_id) {
+<span class="fc" id="L112">        this.customer_id = customer_id;</span>
+<span class="fc" id="L113">    }</span>
+
+    public String getDelivery_address() {
+<span class="fc" id="L116">        return delivery_address;</span>
+    }
+
+    public void setDelivery_address(String delivery_address) {
+<span class="fc" id="L120">        this.delivery_address = delivery_address;</span>
+<span class="fc" id="L121">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L125">        return &quot;Order{&quot; +</span>
+                &quot;id=&quot; + id +
+                &quot;, customer_id=&quot; + customer_id +
+                &quot;, note='&quot; + note + '\'' +
+                &quot;, surcharge=&quot; + surcharge +
+                &quot;, status='&quot; + status + '\'' +
+                &quot;, amount=&quot; + amount +
+                &quot;, order_date='&quot; + order_date + '\'' +
+                &quot;, delivery_date='&quot; + delivery_date + '\'' +
+                &quot;, delivery_address='&quot; + delivery_address + '\'' +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

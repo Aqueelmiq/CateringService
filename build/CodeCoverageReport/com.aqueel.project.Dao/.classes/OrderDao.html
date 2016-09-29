@@ -1,0 +1,73 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: OrderDao</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.aqueel.project.Dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: OrderDao (com.aqueel.project.Dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">OrderDao</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.aqueel.project.Dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.aqueel.project.Exc.DaoException;
+<i>4</i>&nbsp;import com.aqueel.project.Models.Order;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.Date;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * Created by aqueelmiqdad on 9/24/16.
+<i>11</i>&nbsp; */
+<i>12</i>&nbsp;public interface OrderDao {
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    List&lt;Order&gt; findAll() throws DaoException;
+<i>15</i>&nbsp;    int add(Order o) throws DaoException;
+<i>16</i>&nbsp;    Order find(int oid) throws DaoException;
+<i>17</i>&nbsp;    List&lt;Order&gt; findByDate(String date) throws DaoException;
+<i>18</i>&nbsp;    List&lt;Order&gt; findBetween(String start, String end) throws DaoException;
+<i>19</i>&nbsp;    List&lt;Order&gt; findByCustomer(int customer_id) throws DaoException;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    int update(int oid, int cid) throws DaoException;
+<i>22</i>&nbsp;    int update(int oid, double price) throws DaoException;
+<i>23</i>&nbsp;    int deliver(int oid) throws DaoException;
+<i>24</i>&nbsp;    int cancel(int oid) throws DaoException;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2016-09-28 20:04</div>
+</div>
+</body>
+</html>

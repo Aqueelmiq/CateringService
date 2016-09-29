@@ -2,22 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43baefd-6fb8-4e9a-b21d-e54098f77cfd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/Delectable.war" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/Dao/Sql2oCategoryDaoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/Dao/Sql2oCustomerDaoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/Dao/Sql2oExtrasDaoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/Dao/Sql2oFoodDaoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/Dao/Sql2oItemDaoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/Dao/Sql2oOrderDaoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/ServerTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/aqueel/project/ServerTest.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCategoryDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/Sql2oCategoryDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/Sql2oCustomerDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oExtrasDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/Sql2oExtrasDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oFoodDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/Sql2oFoodDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oItemDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/Sql2oItemDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oOrderDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/Sql2oOrderDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java" afterPath="$PROJECT_DIR$/src/test/java/ServerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Builder/ReportBuilder.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Builder/ReportBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/EmbeddedServer/Server.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/EmbeddedServer/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Main.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/ServerClass$1.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/ServerClass$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/ServerClass$2.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/ServerClass$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/ServerClass.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/ServerClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oCustomerDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oCustomerDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oExtrasDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oExtrasDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oItemDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oItemDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oOrderDao.class" afterPath="$PROJECT_DIR$/build/classes/main/com/aqueel/project/Dao/Sql2oOrderDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCustomerDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCustomerDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oExtrasDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oExtrasDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" />
     </list>
     <ignored path="Delect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,6 +87,9 @@
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/build/CodeCoverageReport" />
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -107,10 +125,6 @@
               <PATH_ELEMENT>
                 <option name="myItemId" value="Tasks" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="web application" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
               </PATH_ELEMENT>
             </PATH>
             <PATH>
@@ -162,37 +176,9 @@
                 <option name="myItemId" value="Tasks" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
               </PATH_ELEMENT>
-            </PATH>
-            <PATH>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="Delectable" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="Tasks" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
-              </PATH_ELEMENT>
               <PATH_ELEMENT>
                 <option name="myItemId" value="build" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
-              </PATH_ELEMENT>
-            </PATH>
-            <PATH>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="Delectable" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="Source Sets" />
-                <option name="myItemType" value="org.jetbrains.plugins.gradle.service.project.view.GradleViewContributor$SourceSetsNode" />
               </PATH_ELEMENT>
             </PATH>
           </tree_state>
@@ -205,111 +191,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Sql2oOrderDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oOrderDaoTest.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state relative-caret-position="315">
+              <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sql2oCategoryDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCategoryDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReportBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sql2oCustomerDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sql2oItemDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oItemDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="50" column="44" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="374" column="85" selection-start-line="374" selection-start-column="81" selection-end-line="374" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2471#2479#0" expanded="true" />
-                <element signature="e#4061#4067#0" expanded="true" />
-                <element signature="e#7791#7810#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Sql2oFoodDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oFoodDaoTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oFoodDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+            <state relative-caret-position="345">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="Sql2oItemDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state relative-caret-position="60">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="225" column="24" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="24" />
-              <folding>
-                <element signature="e#12231#12232#0" expanded="true" />
-                <element signature="e#12281#12282#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -531,7 +439,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2949808145000" />
+        <entry key="$PROJECT_DIR$" value="2949812911000" />
         <entry key="$PROJECT_DIR$/../giflib-hibernate" value="2940036783000" />
         <entry key="$USER_HOME$/giflib-hibernate" value="2940036066000" />
       </map>
@@ -695,12 +603,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/ExtrasDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/GlobalMethods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/CustomerDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCategoryDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oExtrasDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oExtrasDaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/MainTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/testing/ServletTest.java" />
@@ -715,13 +620,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/ItemDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/FoodDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/db/init.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/OrderAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/CategoryAdapter.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCategoryDaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oFoodDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCustomerDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/RevenueReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Models/Report.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Adapters/ItemAdapter.java" />
@@ -745,6 +647,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Builder/ReportBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/ServerClass.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Sql2oOrderDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oExtrasDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCustomerDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/aqueel/project/Sql2oFoodDaoTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
@@ -813,6 +721,120 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Delect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -822,16 +844,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build/CodeCoverageReport" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/aqueelmiqdad/IdeaProjects/Delect/src/test/java/com/aqueel/project/ServerTest.java" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.aqueel.project" />
       <recent name="com.aqueel.project.EmbeddedServer" />
       <recent name="com.aqueel.project.Dao" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -845,6 +872,24 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Delect [jacocoTestReport]">
+    <configuration default="false" name="Delect [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="false" name="Delect [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -863,7 +908,7 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="false" name="Delect [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration default="false" name="Delect [generateCoberturaReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -874,7 +919,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="test" />
+            <option value="generateCoberturaReport" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -899,7 +944,7 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="false" name="Delect [compileTestJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration default="false" name="Delect [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -910,25 +955,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="compileTestJava" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="false" name="Delect [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="testClasses" />
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -1350,19 +1377,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Gradle.Delect [build]" />
-      <item index="1" class="java.lang.String" itemvalue="Gradle.Delect [test]" />
-      <item index="2" class="java.lang.String" itemvalue="Gradle.Delect [jacocoTestReport]" />
-      <item index="3" class="java.lang.String" itemvalue="Gradle.Delect [compileTestJava]" />
-      <item index="4" class="java.lang.String" itemvalue="Gradle.Delect [testClasses]" />
+      <item index="0" class="java.lang.String" itemvalue="Gradle.Delect [clean]" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.Delect [build]" />
+      <item index="2" class="java.lang.String" itemvalue="Gradle.Delect [generateCoberturaReport]" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.Delect [jacocoTestReport]" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.Delect [test]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.Delect [testClasses]" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.Delect [compileTestJava]" />
-        <item index="2" class="java.lang.String" itemvalue="Gradle.Delect [jacocoTestReport]" />
-        <item index="3" class="java.lang.String" itemvalue="Gradle.Delect [test]" />
-        <item index="4" class="java.lang.String" itemvalue="Gradle.Delect [build]" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.Delect [test]" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.Delect [jacocoTestReport]" />
+        <item index="2" class="java.lang.String" itemvalue="Gradle.Delect [generateCoberturaReport]" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.Delect [build]" />
+        <item index="4" class="java.lang.String" itemvalue="Gradle.Delect [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -1385,7 +1412,7 @@
       <workItem from="1474951034327" duration="4004000" />
       <workItem from="1474989345505" duration="12630000" />
       <workItem from="1475032130165" duration="4000" />
-      <workItem from="1475073869040" duration="20543000" />
+      <workItem from="1475073869040" duration="24575000" />
     </task>
     <task id="LOCAL-00001" summary="Working Surcharge">
       <created>1474908596333</created>
@@ -1440,39 +1467,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Delect_[test] - 2016.09.28 at 18h 37m 35s.xml">
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 02m 04s.xml">
       <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Delect_[test] - 2016.09.28 at 18h 37m 50s.xml">
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 03m 34s.xml">
       <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Delect_[test] - 2016.09.28 at 18h 38m 07s.xml">
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 06m 15s.xml">
       <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Delect_[test] - 2016.09.28 at 18h 44m 39s.xml">
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 10m 49s.xml">
       <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Delect_[test] - 2016.09.28 at 18h 46m 30s.xml">
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 18m 22s.xml">
       <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Sql2oCustomerDaoTest - 2016.09.28 at 18h 20m 57s.xml">
-      <configuration name="Sql2oCustomerDaoTest" configurationId="JUnit" />
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 20m 06s.xml">
+      <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Sql2oCustomerDaoTest - 2016.09.28 at 18h 21m 22s.xml">
-      <configuration name="Sql2oCustomerDaoTest" configurationId="JUnit" />
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 20m 29s.xml">
+      <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Sql2oItemDaoTest - 2016.09.28 at 18h 19m 53s.xml">
-      <configuration name="Sql2oItemDaoTest" configurationId="JUnit" />
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 20m 49s.xml">
+      <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="Sql2oItemDaoTest - 2016.09.28 at 18h 20m 53s.xml">
-      <configuration name="Sql2oItemDaoTest" configurationId="JUnit" />
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 30m 55s.xml">
+      <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="com_aqueel_project_in_Delectable_test - 2016.09.28 at 18h 23m 09s.xml">
-      <configuration name="com.aqueel.project in Delectable_test" configurationId="JUnit" />
+    <history-entry file="Delect_[test] - 2016.09.28 at 19h 44m 29s.xml">
+      <configuration name="Delect [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80365000" />
+    <option name="totallyTimeSpent" value="84397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1645,32 +1672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
-          <folding>
-            <marker date="1475082580000" expanded="true" signature="762:958" ph="CREATE TABLE... ITEMS" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oExtrasDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="16" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCategoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1695,10 +1696,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1090#1091#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1722,10 +1720,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#592#593#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1733,11 +1728,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#341#342#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1825,9 +1816,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
-          <folding>
-            <element signature="e#487#488#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1839,85 +1828,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCustomerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oExtrasDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oFoodDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="38" column="97" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/ServerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="225" column="24" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="24" />
-          <folding>
-            <element signature="e#12231#12232#0" expanded="true" />
-            <element signature="e#12281#12282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oOrderDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oItemDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="50" column="44" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oFoodDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCategoryDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aqueel/project/Dao/Sql2oCustomerDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1934,9 +1848,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1944,19 +1856,112 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="374" column="85" selection-start-line="374" selection-start-column="81" selection-end-line="374" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oCategoryDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oCustomerDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oExtrasDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oItemDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oOrderDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oOrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oFoodDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oExtrasDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCustomerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oCategoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aqueel/project/Dao/Sql2oItemDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2471#2479#0" expanded="true" />
-            <element signature="e#4061#4067#0" expanded="true" />
-            <element signature="e#7791#7810#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Sql2oFoodDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+        <state relative-caret-position="315">
+          <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
           <folding />
         </state>
       </provider>

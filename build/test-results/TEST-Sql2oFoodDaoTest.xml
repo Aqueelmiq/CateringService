@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Sql2oFoodDaoTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-09-29T01:07:04" hostname="dhcp30.merunorth107.iit.edu" time="0.035">
+  <properties/>
+  <testcase name="findAll" classname="Sql2oFoodDaoTest" time="0.006"/>
+  <testcase name="update" classname="Sql2oFoodDaoTest" time="0.008"/>
+  <testcase name="findById" classname="Sql2oFoodDaoTest" time="0.016"/>
+  <testcase name="add" classname="Sql2oFoodDaoTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

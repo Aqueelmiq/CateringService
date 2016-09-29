@@ -1,0 +1,513 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ServerClass</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.aqueel.project</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ServerClass (com.aqueel.project)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ServerClass</td>
+<td class="coverageStat">
+  <span class="percent">
+    86.5%
+  </span>
+  <span class="absValue">
+    (32/ 37)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.4%
+  </span>
+  <span class="absValue">
+    (201/ 247)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ServerClass$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ServerClass$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    87.2%
+  </span>
+  <span class="absValue">
+    (34/ 39)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.5%
+  </span>
+  <span class="absValue">
+    (203/ 249)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.aqueel.project;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.aqueel.project.Adapters.*;
+<i>4</i>&nbsp;import com.aqueel.project.Builder.ReportBuilder;
+<i>5</i>&nbsp;import com.aqueel.project.Dao.*;
+<i>6</i>&nbsp;import com.aqueel.project.Exc.DaoException;
+<i>7</i>&nbsp;import com.aqueel.project.Models.*;
+<i>8</i>&nbsp;import com.google.gson.Gson;
+<i>9</i>&nbsp;import com.google.gson.reflect.TypeToken;
+<i>10</i>&nbsp;import spark.Request;
+<i>11</i>&nbsp;import spark.Response;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import java.lang.reflect.Type;
+<i>14</i>&nbsp;import java.text.SimpleDateFormat;
+<i>15</i>&nbsp;import java.util.*;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import static spark.Spark.get;
+<i>18</i>&nbsp;import static spark.Spark.post;
+<i>19</i>&nbsp;import static spark.Spark.put;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;/**
+<i>22</i>&nbsp; * Created by aqueelmiqdad on 9/27/16.
+<i>23</i>&nbsp; */
+<b class="nc"><i>24</i>&nbsp;public class ServerClass {</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    public static void getMenu(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
+<b class="fc"><i>27</i>&nbsp;        get(&quot;/menu&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="fc"><i>28</i>&nbsp;            res.status(200);</b>
+<b class="fc"><i>29</i>&nbsp;            List&lt;Food&gt; f = foodDao.findAll();</b>
+<b class="fc"><i>30</i>&nbsp;            List&lt;FoodAdapter&gt; foodAdapters = new ArrayList&lt;FoodAdapter&gt;();</b>
+<b class="fc"><i>31</i>&nbsp;            f.forEach( food -&gt; {</b>
+<b class="fc"><i>32</i>&nbsp;                List&lt;Category&gt; cat = new ArrayList&lt;Category&gt;();</b>
+<i>33</i>&nbsp;                try {
+<b class="fc"><i>34</i>&nbsp;                    cat = categoryDao.find(food.getId());</b>
+<b class="nc"><i>35</i>&nbsp;                } catch (DaoException e) {</b>
+<b class="nc"><i>36</i>&nbsp;                    e.printStackTrace();</b>
+<b class="fc"><i>37</i>&nbsp;                }</b>
+<b class="fc"><i>38</i>&nbsp;                List&lt;CategoryAdapter&gt; categoryAdapters = new ArrayList&lt;CategoryAdapter&gt;();</b>
+<b class="fc"><i>39</i>&nbsp;                cat.forEach( cats -&gt; {</b>
+<b class="nc"><i>40</i>&nbsp;                    categoryAdapters.add(new CategoryAdapter(cats.getName()));</b>
+<b class="nc"><i>41</i>&nbsp;                });</b>
+<b class="fc"><i>42</i>&nbsp;                foodAdapters.add(new FoodAdapter(food, categoryAdapters));</b>
+<b class="fc"><i>43</i>&nbsp;            });</b>
+<b class="fc"><i>44</i>&nbsp;            return foodAdapters;</b>
+<i>45</i>&nbsp;        }, gson::toJson);
+<b class="fc"><i>46</i>&nbsp;    }</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    public static void getMenuId(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
+<b class="fc"><i>49</i>&nbsp;        get(&quot;/menu/:id&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="fc"><i>50</i>&nbsp;            int id = Integer.parseInt(req.params(&quot;id&quot;));</b>
+<b class="fc"><i>51</i>&nbsp;            if(foodDao.findById(id) == null)</b>
+<b class="nc"><i>52</i>&nbsp;                res.status(404);</b>
+<i>53</i>&nbsp;            else
+<b class="fc"><i>54</i>&nbsp;                res.status(200);</b>
+<b class="fc"><i>55</i>&nbsp;            Food f = foodDao.findById(id);</b>
+<b class="fc"><i>56</i>&nbsp;            List&lt;Category&gt; categories = categoryDao.find(f.getId());</b>
+<b class="fc"><i>57</i>&nbsp;            List&lt;CategoryAdapter&gt; c = new ArrayList&lt;CategoryAdapter&gt;();</b>
+<b class="fc"><i>58</i>&nbsp;            categories.forEach( cat -&gt; {</b>
+<b class="nc"><i>59</i>&nbsp;                c.add(new CategoryAdapter(cat.getName()));</b>
+<b class="nc"><i>60</i>&nbsp;            });</b>
+<b class="fc"><i>61</i>&nbsp;            FoodAdapter rValue = new FoodAdapter(f, c);</b>
+<b class="fc"><i>62</i>&nbsp;            return rValue;</b>
+<i>63</i>&nbsp;        }, gson::toJson);
+<b class="fc"><i>64</i>&nbsp;    }</b>
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    public static void getReports(Gson gson) {
+<b class="fc"><i>67</i>&nbsp;        get(&quot;/report&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<i>68</i>&nbsp;
+<b class="fc"><i>69</i>&nbsp;            ArrayList&lt;Report&gt; reports = new ArrayList&lt;Report&gt;();</b>
+<b class="fc"><i>70</i>&nbsp;            reports.add(new Report(801, &quot;Orders to deliver today&quot;));</b>
+<b class="fc"><i>71</i>&nbsp;            reports.add(new Report(802, &quot;Orders to deliver tomorrow&quot;));</b>
+<b class="fc"><i>72</i>&nbsp;            reports.add(new Report(803, &quot;Revenue report&quot;));</b>
+<b class="fc"><i>73</i>&nbsp;            reports.add(new Report(804, &quot;Orders delivery report&quot;));</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;            res.status(200);</b>
+<b class="fc"><i>76</i>&nbsp;            return reports;</b>
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;        }, gson::toJson);
+<b class="fc"><i>79</i>&nbsp;    }</b>
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    public static void cancelOrder(Gson gson, OrderDao orderDao) {
+<b class="fc"><i>82</i>&nbsp;        post(&quot;/order/cancel/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<i>83</i>&nbsp;
+<b class="nc"><i>84</i>&nbsp;            if (req.body().isEmpty()) {</b>
+<b class="nc"><i>85</i>&nbsp;                res.status(204);</b>
+<b class="nc"><i>86</i>&nbsp;                return &quot;&quot;;</b>
+<b class="nc"><i>87</i>&nbsp;            }</b>
+<b class="nc"><i>88</i>&nbsp;            int id = Integer.parseInt(req.params(&quot;oid&quot;));</b>
+<i>89</i>&nbsp;            Order order = orderDao.find(id);
+<b class="nc"><i>90</i>&nbsp;            SimpleDateFormat df = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</b>
+<b class="nc"><i>91</i>&nbsp;            if(df.format(new Date()).equalsIgnoreCase(order.getDelivery_date())) {</b>
+<i>92</i>&nbsp;                return &quot;Cannot cancel today&#39;s order!&quot;;
+<b class="fc"><i>93</i>&nbsp;            }</b>
+<i>94</i>&nbsp;            orderDao.cancel(id);
+<i>95</i>&nbsp;            return &quot;Cancelled&quot;;
+<b class="fc"><i>96</i>&nbsp;        }, gson::toJson);</b>
+<b class="nc"><i>97</i>&nbsp;    }</b>
+<b class="nc"><i>98</i>&nbsp;</b>
+<b class="nc"><i>99</i>&nbsp;    public static void deliverOrder(Gson gson, OrderDao orderDao) {</b>
+<i>100</i>&nbsp;        post(&quot;/admin/deliver/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {
+<b class="fc"><i>101</i>&nbsp;            int id = Integer.parseInt(req.params(&quot;oid&quot;));</b>
+<i>102</i>&nbsp;            int i = orderDao.deliver(id);
+<i>103</i>&nbsp;            return &quot;&quot;;
+<b class="fc"><i>104</i>&nbsp;        }, gson::toJson);</b>
+<i>105</i>&nbsp;    }
+<b class="fc"><i>106</i>&nbsp;</b>
+<b class="fc"><i>107</i>&nbsp;    public static void putOrder(Gson gson, FoodDao foodDao, ExtrasDao extrasDao, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {</b>
+<b class="fc"><i>108</i>&nbsp;        put(&quot;/order&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="fc"><i>109</i>&nbsp;</b>
+<b class="fc"><i>110</i>&nbsp;            List&lt;Item&gt; items = new ArrayList&lt;Item&gt;();</b>
+<i>111</i>&nbsp;            OrderAdapter o = gson.fromJson(req.body(), OrderAdapter.class);
+<b class="fc"><i>112</i>&nbsp;            if(o.getOrder_detail().isEmpty()) {</b>
+<b class="fc"><i>113</i>&nbsp;                res.status(501);</b>
+<b class="fc"><i>114</i>&nbsp;                return &quot;&quot;;</b>
+<b class="fc"><i>115</i>&nbsp;            }</b>
+<b class="fc"><i>116</i>&nbsp;            Map&lt;String, Double&gt; amount = new HashMap();</b>
+<i>117</i>&nbsp;            Customer c = o.getCustomer(), d = customerDao.findByEmail(c.getEmail());
+<b class="fc"><i>118</i>&nbsp;            Calendar calendar = new GregorianCalendar();</b>
+<b class="fc"><i>119</i>&nbsp;            SimpleDateFormat df = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</b>
+<i>120</i>&nbsp;            calendar.setTime(df.parse(o.getDelivery_date()));
+<b class="nc"><i>121</i>&nbsp;            Order order;</b>
+<b class="fc"><i>122</i>&nbsp;            if(calendar.DAY_OF_WEEK == Calendar.SATURDAY || calendar.DAY_OF_WEEK == Calendar.SUNDAY)</b>
+<b class="fc"><i>123</i>&nbsp;                 order = new Order(o, 0, extrasDao.get(&quot;surcharge&quot;), 0);</b>
+<b class="fc"><i>124</i>&nbsp;            else</b>
+<i>125</i>&nbsp;                order = new Order(o, 0, 0, 0);
+<b class="fc"><i>126</i>&nbsp;            amount.put(&quot;total&quot;, (double) 0);</b>
+<b class="fc"><i>127</i>&nbsp;            for(Detail detail: o.getOrder_detail()) {</b>
+<b class="nc"><i>128</i>&nbsp;                Food f = null;</b>
+<b class="nc"><i>129</i>&nbsp;                try {</b>
+<i>130</i>&nbsp;                    f = foodDao.findById(detail.getId());
+<b class="nc"><i>131</i>&nbsp;                    if(f.getMin_qty() &gt; detail.getCount()) {</b>
+<b class="nc"><i>132</i>&nbsp;                        res.status(400);</b>
+<b class="fc"><i>133</i>&nbsp;                        return 0;</b>
+<i>134</i>&nbsp;                    }
+<b class="fc"><i>135</i>&nbsp;                } catch (DaoException e) {</b>
+<b class="fc"><i>136</i>&nbsp;                    e.printStackTrace();</b>
+<b class="fc"><i>137</i>&nbsp;                }</b>
+<b class="fc"><i>138</i>&nbsp;</b>
+<b class="fc"><i>139</i>&nbsp;                amount.put(&quot;total&quot;, amount.get(&quot;total&quot;) + f.getPrice()*detail.getCount());</b>
+<b class="nc"><i>140</i>&nbsp;                items.add(new Item(detail, f, -1));</b>
+<b class="nc"><i>141</i>&nbsp;            }</b>
+<i>142</i>&nbsp;            orderDao.add(order);
+<b class="fc"><i>143</i>&nbsp;            if(d == null) {</b>
+<b class="fc"><i>144</i>&nbsp;                customerDao.add(c);</b>
+<b class="fc"><i>145</i>&nbsp;                d = c;</b>
+<b class="fc"><i>146</i>&nbsp;            }</b>
+<b class="fc"><i>147</i>&nbsp;            order.setCustomer_id(d.getId());</b>
+<i>148</i>&nbsp;            order.setAmount(amount.get(&quot;total&quot;));
+<b class="fc"><i>149</i>&nbsp;            orderDao.update(order.getId(), amount.get(&quot;total&quot;));</b>
+<b class="fc"><i>150</i>&nbsp;            orderDao.update(order.getId(), d.getId());</b>
+<b class="nc"><i>151</i>&nbsp;            for (Item item: items) {</b>
+<b class="nc"><i>152</i>&nbsp;                try {</b>
+<b class="fc"><i>153</i>&nbsp;                    item.setOrder_id(order.getId());</b>
+<b class="fc"><i>154</i>&nbsp;                    itemDao.add(item);</b>
+<b class="fc"><i>155</i>&nbsp;                } catch (DaoException e) {</b>
+<b class="fc"><i>156</i>&nbsp;                    e.printStackTrace();</b>
+<b class="fc"><i>157</i>&nbsp;                }</b>
+<i>158</i>&nbsp;            }
+<b class="fc"><i>159</i>&nbsp;            Map&lt;String, String&gt; rValue = new HashMap();</b>
+<b class="fc"><i>160</i>&nbsp;            rValue.put(&quot;id&quot;, &quot;&quot; + order.getId());</b>
+<i>161</i>&nbsp;            rValue.put(&quot;cancel_url&quot;, &quot;http://localhost:4567/order/cancel/&quot; + order.getId());
+<i>162</i>&nbsp;
+<b class="fc"><i>163</i>&nbsp;            res.status(200);</b>
+<i>164</i>&nbsp;            return rValue;
+<i>165</i>&nbsp;
+<b class="fc"><i>166</i>&nbsp;        }, gson::toJson);</b>
+<i>167</i>&nbsp;    }
+<b class="fc"><i>168</i>&nbsp;</b>
+<b class="fc"><i>169</i>&nbsp;    public static void GetOrderId(Gson gson, OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao) {</b>
+<b class="fc"><i>170</i>&nbsp;        get(&quot;/order/:oid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<i>171</i>&nbsp;
+<i>172</i>&nbsp;            ArrayList&lt;FullOrderAdapter&gt; orderAdapters = new ArrayList&lt;FullOrderAdapter&gt;();
+<b class="fc"><i>173</i>&nbsp;            ArrayList&lt;ItemAdapter&gt; items = new ArrayList&lt;ItemAdapter&gt;();</b>
+<b class="fc"><i>174</i>&nbsp;            int id = Integer.parseInt(req.params(&quot;oid&quot;));</b>
+<b class="fc"><i>175</i>&nbsp;            try {</b>
+<b class="fc"><i>176</i>&nbsp;</b>
+<i>177</i>&nbsp;                Order order = orderDao.find(id);
+<b class="fc"><i>178</i>&nbsp;                if (order == null) {</b>
+<b class="fc"><i>179</i>&nbsp;                    res.status(404);</b>
+<b class="fc"><i>180</i>&nbsp;                    return null;</b>
+<b class="fc"><i>181</i>&nbsp;                }</b>
+<b class="fc"><i>182</i>&nbsp;                Customer c = customerDao.find(order.getCustomer_id());</b>
+<b class="fc"><i>183</i>&nbsp;                List&lt;Item&gt; parts = itemDao.find(order.getId());</b>
+<i>184</i>&nbsp;                parts.forEach( part -&gt; {
+<b class="fc"><i>185</i>&nbsp;                    items.add(new ItemAdapter(part, 1));</b>
+<b class="fc"><i>186</i>&nbsp;                });</b>
+<i>187</i>&nbsp;                orderAdapters.add(new FullOrderAdapter(order, c, items));
+<b class="nc"><i>188</i>&nbsp;</b>
+<b class="nc"><i>189</i>&nbsp;                res.status(200);</b>
+<b class="nc"><i>190</i>&nbsp;                return orderAdapters;</b>
+<i>191</i>&nbsp;
+<i>192</i>&nbsp;            } catch (DaoException ex) {
+<i>193</i>&nbsp;                res.status(404);
+<b class="fc"><i>194</i>&nbsp;                return &quot;&quot;;</b>
+<i>195</i>&nbsp;            }
+<i>196</i>&nbsp;
+<b class="fc"><i>197</i>&nbsp;        }, gson::toJson);</b>
+<b class="fc"><i>198</i>&nbsp;    }</b>
+<b class="fc"><i>199</i>&nbsp;</b>
+<b class="fc"><i>200</i>&nbsp;    public static void getOrder(Gson gson, OrderDao orderDao, CustomerDao customerDao) {</b>
+<b class="fc"><i>201</i>&nbsp;        get(&quot;/order&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="fc"><i>202</i>&nbsp;            String query = req.queryParams(&quot;date&quot;);</b>
+<b class="fc"><i>203</i>&nbsp;            ArrayList&lt;BasicOrderAdapter&gt; rValue = new ArrayList&lt;BasicOrderAdapter&gt;();</b>
+<b class="nc"><i>204</i>&nbsp;            if(query == null) {</b>
+<b class="nc"><i>205</i>&nbsp;                for(Order order: orderDao.findAll()){</b>
+<i>206</i>&nbsp;                    retreiveOrder(customerDao, res, rValue, order);
+<i>207</i>&nbsp;                }
+<b class="nc"><i>208</i>&nbsp;                res.status(200);</b>
+<b class="nc"><i>209</i>&nbsp;                return rValue;</b>
+<b class="nc"><i>210</i>&nbsp;            }</b>
+<b class="nc"><i>211</i>&nbsp;            else {</b>
+<b class="nc"><i>212</i>&nbsp;                for(Order order: orderDao.findByDate(query)){</b>
+<i>213</i>&nbsp;                    retreiveOrder(customerDao, res, rValue, order);
+<i>214</i>&nbsp;                }
+<i>215</i>&nbsp;                res.status(200);
+<b class="fc"><i>216</i>&nbsp;                return rValue;</b>
+<i>217</i>&nbsp;            }
+<i>218</i>&nbsp;
+<b class="fc"><i>219</i>&nbsp;        }, gson::toJson);</b>
+<i>220</i>&nbsp;    }
+<b class="fc"><i>221</i>&nbsp;</b>
+<b class="fc"><i>222</i>&nbsp;    public static void getCustomerId(Gson gson, OrderDao orderDao, CustomerDao customerDao) {</b>
+<b class="fc"><i>223</i>&nbsp;        get(&quot;/customer/:cid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="fc"><i>224</i>&nbsp;</b>
+<b class="fc"><i>225</i>&nbsp;            int id = Integer.parseInt(req.params(&quot;cid&quot;));</b>
+<i>226</i>&nbsp;            Customer customer = customerDao.find(id);
+<b class="fc"><i>227</i>&nbsp;            if(customer == null) {</b>
+<b class="fc"><i>228</i>&nbsp;                res.status(404);</b>
+<b class="fc"><i>229</i>&nbsp;                return &quot;&quot;;</b>
+<b class="fc"><i>230</i>&nbsp;            }</b>
+<b class="fc"><i>231</i>&nbsp;            ArrayList&lt;BasicOrderAdapter&gt; orderAdapters = new ArrayList&lt;BasicOrderAdapter&gt;();</b>
+<b class="fc"><i>232</i>&nbsp;            orderDao.findByCustomer(customer.getId()).forEach( order -&gt; {</b>
+<b class="fc"><i>233</i>&nbsp;                orderAdapters.add(new BasicOrderAdapter(order));</b>
+<i>234</i>&nbsp;            });
+<i>235</i>&nbsp;            CustomerAdapter rValue = new CustomerAdapter(customer, orderAdapters);
+<b class="fc"><i>236</i>&nbsp;            res.status(200);</b>
+<i>237</i>&nbsp;            return rValue;
+<i>238</i>&nbsp;
+<b class="fc"><i>239</i>&nbsp;        }, gson::toJson);</b>
+<b class="fc"><i>240</i>&nbsp;    }</b>
+<b class="fc"><i>241</i>&nbsp;</b>
+<b class="fc"><i>242</i>&nbsp;    public static void getCustomers(Gson gson, CustomerDao customerDao) {</b>
+<b class="fc"><i>243</i>&nbsp;        get(&quot;/customer&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<i>244</i>&nbsp;            String query = req.queryParams(&quot;key&quot;);
+<i>245</i>&nbsp;            if(query == null) {
+<b class="fc"><i>246</i>&nbsp;                res.status(200);</b>
+<b class="fc"><i>247</i>&nbsp;                return customerDao.findAll();</b>
+<i>248</i>&nbsp;            }
+<i>249</i>&nbsp;            else {
+<i>250</i>&nbsp;
+<b class="fc"><i>251</i>&nbsp;                List&lt;Customer&gt; customers = customerDao.find(query);</b>
+<i>252</i>&nbsp;                if(customers.isEmpty()) {
+<i>253</i>&nbsp;                    res.status(404);
+<b class="fc"><i>254</i>&nbsp;                    return &quot;No such Customer Found&quot;;</b>
+<i>255</i>&nbsp;                }
+<b class="fc"><i>256</i>&nbsp;                return customers;</b>
+<b class="fc"><i>257</i>&nbsp;            }</b>
+<b class="fc"><i>258</i>&nbsp;</b>
+<b class="fc"><i>259</i>&nbsp;        }, gson::toJson);</b>
+<i>260</i>&nbsp;    }
+<i>261</i>&nbsp;
+<b class="fc"><i>262</i>&nbsp;    public static void setSurcharge(Gson gson, ExtrasDao extrasDao) {</b>
+<i>263</i>&nbsp;        post(&quot;/admin/surcharge&quot;, &quot;application/json&quot;, (req, res) -&gt; {
+<i>264</i>&nbsp;
+<b class="fc"><i>265</i>&nbsp;            Type type = new TypeToken&lt;Map&lt;String, Double&gt;&gt;(){}.getType();</b>
+<b class="fc"><i>266</i>&nbsp;            Map&lt;String, Double&gt; changes = gson.fromJson(req.body(), type);</b>
+<b class="fc"><i>267</i>&nbsp;            extrasDao.update(&quot;surcharge&quot;, changes.get(&quot;surcharge&quot;));</b>
+<b class="fc"><i>268</i>&nbsp;            return changes;</b>
+<b class="fc"><i>269</i>&nbsp;</b>
+<b class="fc"><i>270</i>&nbsp;        }, gson::toJson);</b>
+<i>271</i>&nbsp;    }
+<i>272</i>&nbsp;
+<b class="fc"><i>273</i>&nbsp;    public static void getSurcharge(Gson gson, ExtrasDao extrasDao) {</b>
+<i>274</i>&nbsp;        get(&quot;/admin/surcharge&quot;, &quot;application/json&quot;, (req, res) -&gt; {
+<i>275</i>&nbsp;            Map&lt;String, Double&gt; rValue = new HashMap();
+<b class="fc"><i>276</i>&nbsp;            double sur = extrasDao.get(&quot;surcharge&quot;);</b>
+<b class="fc"><i>277</i>&nbsp;            rValue.put(&quot;surcharge&quot;, sur);</b>
+<b class="fc"><i>278</i>&nbsp;            res.status(200);</b>
+<b class="fc"><i>279</i>&nbsp;            return rValue;</b>
+<b class="fc"><i>280</i>&nbsp;</b>
+<b class="fc"><i>281</i>&nbsp;        }, gson::toJson);</b>
+<b class="fc"><i>282</i>&nbsp;    }</b>
+<b class="fc"><i>283</i>&nbsp;</b>
+<i>284</i>&nbsp;    public static void updateMenu(Gson gson, FoodDao foodDao) {
+<i>285</i>&nbsp;        post(&quot;/admin/menu/:mid&quot;, &quot;application/json&quot;, (req, res) -&gt; {
+<b class="fc"><i>286</i>&nbsp;            int id = Integer.parseInt(req.params(&quot;mid&quot;));</b>
+<b class="fc"><i>287</i>&nbsp;            Type type = new TypeToken&lt;Map&lt;String, Double&gt;&gt;() {}.getType();</b>
+<i>288</i>&nbsp;            Map&lt;String, Double&gt; changes = gson.fromJson(req.body(), type);
+<b class="fc"><i>289</i>&nbsp;            int status = foodDao.update(id, changes.get(&quot;price_per_person&quot;));</b>
+<i>290</i>&nbsp;            if(status &gt; 0) {
+<i>291</i>&nbsp;                res.status(200);
+<b class="fc"><i>292</i>&nbsp;                return foodDao.findById(id);</b>
+<i>293</i>&nbsp;            }
+<b class="fc"><i>294</i>&nbsp;            else</b>
+<b class="fc"><i>295</i>&nbsp;                res.status(404);</b>
+<b class="fc"><i>296</i>&nbsp;            return 0;</b>
+<b class="fc"><i>297</i>&nbsp;        }, gson::toJson);</b>
+<b class="fc"><i>298</i>&nbsp;    }</b>
+<b class="fc"><i>299</i>&nbsp;</b>
+<i>300</i>&nbsp;    public static void putMenu(Gson gson, FoodDao foodDao, CategoryDao categoryDao) {
+<b class="fc"><i>301</i>&nbsp;        put(&quot;/admin/menu&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="nc"><i>302</i>&nbsp;            try {</b>
+<b class="nc"><i>303</i>&nbsp;                FoodAdapter adp = gson.fromJson(req.body(), FoodAdapter.class);</b>
+<b class="fc"><i>304</i>&nbsp;                Food food = new Food(adp);</b>
+<b class="fc"><i>305</i>&nbsp;                foodDao.add(food);</b>
+<i>306</i>&nbsp;                List&lt;CategoryAdapter&gt; categories = adp.getCategories();
+<b class="fc"><i>307</i>&nbsp;                categories.forEach((category) -&gt; {</b>
+<b class="fc"><i>308</i>&nbsp;                    Category c = new Category(category.getName(), food.getId());</b>
+<b class="fc"><i>309</i>&nbsp;                    try {</b>
+<b class="fc"><i>310</i>&nbsp;                        categoryDao.add(c);</b>
+<i>311</i>&nbsp;                    } catch (DaoException e) {
+<b class="nc"><i>312</i>&nbsp;                        e.printStackTrace();</b>
+<b class="nc"><i>313</i>&nbsp;                    }</b>
+<b class="nc"><i>314</i>&nbsp;                });</b>
+<b class="fc"><i>315</i>&nbsp;</b>
+<b class="fc"><i>316</i>&nbsp;                Map&lt;String, Integer&gt; idMap = new HashMap();</b>
+<b class="fc"><i>317</i>&nbsp;                idMap.put(&quot;id&quot;, food.getId());</b>
+<i>318</i>&nbsp;                res.status(200);
+<i>319</i>&nbsp;                return idMap;
+<i>320</i>&nbsp;
+<b class="fc"><i>321</i>&nbsp;            }catch (IllegalStateException ex) {</b>
+<i>322</i>&nbsp;                res.status(400);
+<i>323</i>&nbsp;                return 0;
+<b class="fc"><i>324</i>&nbsp;            } catch (NullPointerException ec) {</b>
+<b class="fc"><i>325</i>&nbsp;                res.status(404);</b>
+<b class="fc"><i>326</i>&nbsp;                return 0;</b>
+<b class="fc"><i>327</i>&nbsp;            }</b>
+<b class="fc"><i>328</i>&nbsp;</b>
+<b class="fc"><i>329</i>&nbsp;        }, gson::toJson);</b>
+<i>330</i>&nbsp;    }
+<b class="fc"><i>331</i>&nbsp;</b>
+<b class="fc"><i>332</i>&nbsp;    public static Object switchReport(OrderDao orderDao, ItemDao itemDao, CustomerDao customerDao, Request req, Response res) throws DaoException {</b>
+<b class="fc"><i>333</i>&nbsp;        int id = Integer.parseInt(req.params(&quot;rid&quot;));</b>
+<b class="fc"><i>334</i>&nbsp;        String start = req.queryParams(&quot;start_date&quot;);</b>
+<b class="fc"><i>335</i>&nbsp;        String end = req.queryParams(&quot;end_date&quot;);</b>
+<i>336</i>&nbsp;        ReportBuilder rb = new ReportBuilder();
+<b class="fc"><i>337</i>&nbsp;        Report report = null;</b>
+<b class="fc"><i>338</i>&nbsp;        switch (id) {</b>
+<b class="fc"><i>339</i>&nbsp;            case 801:</b>
+<b class="fc"><i>340</i>&nbsp;                report = rb.deliveryToday()</b>
+<b class="fc"><i>341</i>&nbsp;                        .onOrders(orderDao,itemDao,customerDao)</b>
+<i>342</i>&nbsp;                        .get();
+<b class="fc"><i>343</i>&nbsp;                res.status(200);</b>
+<b class="fc"><i>344</i>&nbsp;                break;</b>
+<b class="fc"><i>345</i>&nbsp;            case 802:</b>
+<b class="fc"><i>346</i>&nbsp;                report = rb.deliveryTomorrow()</b>
+<b class="fc"><i>347</i>&nbsp;                        .onOrders(orderDao,itemDao,customerDao)</b>
+<b class="fc"><i>348</i>&nbsp;                        .get();</b>
+<b class="fc"><i>349</i>&nbsp;                res.status(200);</b>
+<i>350</i>&nbsp;                break;
+<b class="fc"><i>351</i>&nbsp;            case 803:</b>
+<b class="fc"><i>352</i>&nbsp;                report = rb.revenue()</b>
+<b class="fc"><i>353</i>&nbsp;                        .withStart(start)</b>
+<b class="fc"><i>354</i>&nbsp;                        .withEnd(end)</b>
+<b class="fc"><i>355</i>&nbsp;                        .onOrders(orderDao,itemDao,customerDao)</b>
+<b class="fc"><i>356</i>&nbsp;                        .get();</b>
+<b class="fc"><i>357</i>&nbsp;                res.status(200);</b>
+<i>358</i>&nbsp;                break;
+<b class="nc"><i>359</i>&nbsp;            case 804:</b>
+<i>360</i>&nbsp;                report = rb.delivery()
+<b class="fc"><i>361</i>&nbsp;                        .withStart(start)</b>
+<i>362</i>&nbsp;                        .withEnd(end)
+<i>363</i>&nbsp;                        .onOrders(orderDao,itemDao,customerDao)
+<i>364</i>&nbsp;                        .get();
+<i>365</i>&nbsp;                res.status(200);
+<i>366</i>&nbsp;                break;
+<i>367</i>&nbsp;            default:
+<b class="fc"><i>368</i>&nbsp;                res.status(404);</b>
+<b class="fc"><i>369</i>&nbsp;        }</b>
+<b class="nc"><i>370</i>&nbsp;        return report;</b>
+<b class="nc"><i>371</i>&nbsp;    }</b>
+<b class="nc"><i>372</i>&nbsp;</b>
+<b class="fc"><i>373</i>&nbsp;    //Utility Methods</b>
+<b class="fc"><i>374</i>&nbsp;</b>
+<i>375</i>&nbsp;    public static void retreiveOrder(CustomerDao customerDao, Response res, ArrayList&lt;BasicOrderAdapter&gt; rValue, Order order) {
+<i>376</i>&nbsp;        try {
+<i>377</i>&nbsp;            Customer c = customerDao.find(order.getCustomer_id());
+<i>378</i>&nbsp;            rValue.add(new BasicOrderAdapter(order, c.getEmail()));
+<i>379</i>&nbsp;        } catch (DaoException e) {
+<i>380</i>&nbsp;            res.status(404);
+<i>381</i>&nbsp;            e.printStackTrace();
+<i>382</i>&nbsp;        }
+<i>383</i>&nbsp;    }
+<i>384</i>&nbsp;
+<i>385</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2016-09-28 20:04</div>
+</div>
+</body>
+</html>

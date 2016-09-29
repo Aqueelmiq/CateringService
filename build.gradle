@@ -10,6 +10,7 @@ buildscript {
     }
 
 }
+
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: "jacoco"
@@ -17,11 +18,13 @@ apply plugin: 'com.bmuschko.tomcat'
 
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
 repositories {
     mavenCentral()
 }
+
 
 dependencies {
 
@@ -46,9 +49,12 @@ tomcatRunWar {
     contextPath = "/delectable"
 }
 jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'com/aqueel/project/Dao/**')
+        })
     }
 }
+test.finalizedBy jacocoTestReport
+
 

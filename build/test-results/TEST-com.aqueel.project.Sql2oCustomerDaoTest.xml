@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aqueel.project.Sql2oCustomerDaoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-09-29T00:59:46" hostname="dhcp30.merunorth107.iit.edu" time="0.033">
+  <properties/>
+  <testcase name="findQueryNull" classname="com.aqueel.project.Sql2oCustomerDaoTest" time="0.007"/>
+  <testcase name="findByEmailNull" classname="com.aqueel.project.Sql2oCustomerDaoTest" time="0.005"/>
+  <testcase name="findAll" classname="com.aqueel.project.Sql2oCustomerDaoTest" time="0.005"/>
+  <testcase name="add" classname="com.aqueel.project.Sql2oCustomerDaoTest" time="0.005"/>
+  <testcase name="find" classname="com.aqueel.project.Sql2oCustomerDaoTest" time="0.005"/>
+  <testcase name="findByEmail" classname="com.aqueel.project.Sql2oCustomerDaoTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

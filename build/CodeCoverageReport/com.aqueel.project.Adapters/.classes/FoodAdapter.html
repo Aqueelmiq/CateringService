@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: FoodAdapter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.aqueel.project.Adapters</a> ]
+</div>
+
+<h1>Coverage Summary for Class: FoodAdapter (com.aqueel.project.Adapters)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FoodAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (10/ 12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.aqueel.project.Adapters;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.aqueel.project.Models.Category;
+<i>4</i>&nbsp;import com.aqueel.project.Models.Food;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.ArrayList;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;import java.util.Map;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;/**
+<i>11</i>&nbsp; * Created by aqueelmiqdad on 9/24/16.
+<i>12</i>&nbsp; */
+<i>13</i>&nbsp;public class FoodAdapter {
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    private String name;
+<i>16</i>&nbsp;    private double price_per_person;
+<i>17</i>&nbsp;    private int minimum_order;
+<i>18</i>&nbsp;    private List&lt;CategoryAdapter&gt; categories;
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;    public FoodAdapter(Food f, List&lt;CategoryAdapter&gt; c) {</b>
+<b class="fc"><i>21</i>&nbsp;        this.name = f.getName();</b>
+<b class="fc"><i>22</i>&nbsp;        this.price_per_person = f.getPrice();</b>
+<b class="fc"><i>23</i>&nbsp;        this.minimum_order = f.getMin_qty();</b>
+<b class="fc"><i>24</i>&nbsp;        this.categories = c;</b>
+<b class="fc"><i>25</i>&nbsp;    }</b>
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    public String getName() {
+<b class="fc"><i>30</i>&nbsp;        return name;</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    public void setName(String name) {
+<b class="nc"><i>34</i>&nbsp;        this.name = name;</b>
+<b class="nc"><i>35</i>&nbsp;    }</b>
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    public double getPrice_per_person() {
+<b class="fc"><i>38</i>&nbsp;        return price_per_person;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    public int getMinimum_order() {
+<b class="fc"><i>42</i>&nbsp;        return minimum_order;</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public List&lt;CategoryAdapter&gt; getCategories() {
+<b class="fc"><i>46</i>&nbsp;        return categories;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;}
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2016-09-28 20:04</div>
+</div>
+</body>
+</html>

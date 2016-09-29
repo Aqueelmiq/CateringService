@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Server</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.aqueel.project.EmbeddedServer</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Server (com.aqueel.project.EmbeddedServer)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Server</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (3/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.7%
+  </span>
+  <span class="absValue">
+    (36/ 38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.aqueel.project.EmbeddedServer;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.aqueel.project.Dao.*;
+<i>4</i>&nbsp;import com.aqueel.project.Exc.DaoException;
+<i>5</i>&nbsp;import com.google.gson.Gson;
+<i>6</i>&nbsp;import org.sql2o.Connection;
+<i>7</i>&nbsp;import org.sql2o.Sql2o;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import static com.aqueel.project.ServerClass.*;
+<i>11</i>&nbsp;import static spark.Spark.*;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;/**
+<i>14</i>&nbsp; * Created by aqueelmiqdad on 9/24/16.
+<i>15</i>&nbsp; */
+<b class="nc"><i>16</i>&nbsp;public class Server {</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    public static void main(String[] args) throws DaoException {
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;        port(4567);</b>
+<b class="fc"><i>21</i>&nbsp;        String dataSource = &quot;jdbc:h2:~/app325.db&quot;;</b>
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;        if(args.length &gt; 0) {</b>
+<b class="fc"><i>24</i>&nbsp;            port(Integer.parseInt(args[0]));</b>
+<b class="fc"><i>25</i>&nbsp;            dataSource = args[1];</b>
+<i>26</i>&nbsp;        }
+<i>27</i>&nbsp;
+<b class="fc"><i>28</i>&nbsp;        String conString = dataSource + &quot;;INIT=RUNSCRIPT from &#39;classpath:db/init.sql&#39;&quot;;</b>
+<b class="fc"><i>29</i>&nbsp;        Sql2o sql2o = new Sql2o(conString, &quot;&quot;, &quot;&quot;);</b>
+<b class="fc"><i>30</i>&nbsp;        Gson gson = new Gson();</b>
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;        FoodDao foodDao = new Sql2oFoodDao(sql2o);</b>
+<b class="fc"><i>33</i>&nbsp;        CategoryDao categoryDao = new Sql2oCategoryDao(sql2o);</b>
+<b class="fc"><i>34</i>&nbsp;        ExtrasDao extrasDao = new Sql2oExtrasDao(sql2o);</b>
+<b class="fc"><i>35</i>&nbsp;        OrderDao orderDao = new Sql2oOrderDao(sql2o);</b>
+<b class="fc"><i>36</i>&nbsp;        ItemDao itemDao = new Sql2oItemDao(sql2o);</b>
+<b class="fc"><i>37</i>&nbsp;        CustomerDao customerDao = new Sql2oCustomerDao(sql2o);</b>
+<i>38</i>&nbsp;
+<b class="fc"><i>39</i>&nbsp;        Connection con = sql2o.open();</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;        /*
+<i>42</i>&nbsp;        *
+<i>43</i>&nbsp;        *   MENU
+<i>44</i>&nbsp;        *
+<i>45</i>&nbsp;        */
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;        //GET MENU (ALL) works
+<b class="fc"><i>48</i>&nbsp;        getMenu(gson, foodDao, categoryDao);</b>
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;        //GET MENU (ID) works
+<b class="fc"><i>51</i>&nbsp;        getMenuId(gson, foodDao, categoryDao);</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;        //Add food item works
+<b class="fc"><i>54</i>&nbsp;        putMenu(gson, foodDao, categoryDao);</b>
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;        //Update Food
+<b class="fc"><i>57</i>&nbsp;        updateMenu(gson, foodDao);</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;        /*
+<i>60</i>&nbsp;        *
+<i>61</i>&nbsp;        *   Surcharge
+<i>62</i>&nbsp;        *
+<i>63</i>&nbsp;        */
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;        //GET Surcharge
+<b class="fc"><i>66</i>&nbsp;        getSurcharge(gson, extrasDao);</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;        //Update Surcharge
+<b class="fc"><i>69</i>&nbsp;        setSurcharge(gson, extrasDao);</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;        /*
+<i>73</i>&nbsp;        *
+<i>74</i>&nbsp;        *   Customers
+<i>75</i>&nbsp;        *
+<i>76</i>&nbsp;        */
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;        //Get Customers
+<b class="fc"><i>80</i>&nbsp;        getCustomers(gson, customerDao);</b>
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;        //Get Customer By ID
+<b class="fc"><i>83</i>&nbsp;        getCustomerId(gson, orderDao, customerDao);</b>
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;        /*
+<i>87</i>&nbsp;        *
+<i>88</i>&nbsp;        *   Orders
+<i>89</i>&nbsp;        *
+<i>90</i>&nbsp;        */
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;        //Get Order
+<b class="fc"><i>94</i>&nbsp;        getOrder(gson, orderDao, customerDao);</b>
+<i>95</i>&nbsp;
+<i>96</i>&nbsp;        //GEt Specific Order
+<b class="fc"><i>97</i>&nbsp;        GetOrderId(gson, orderDao, itemDao, customerDao);</b>
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;        //Insert a new order
+<b class="fc"><i>101</i>&nbsp;        putOrder(gson, foodDao, extrasDao, orderDao, itemDao, customerDao);</b>
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;        //Deliver order
+<b class="fc"><i>104</i>&nbsp;        deliverOrder(gson, orderDao);</b>
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;        //Cancel order
+<b class="fc"><i>107</i>&nbsp;        cancelOrder(gson, orderDao);</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;        /*
+<i>111</i>&nbsp;        *
+<i>112</i>&nbsp;        *   Reports
+<i>113</i>&nbsp;        *
+<i>114</i>&nbsp;        */
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;        //GET Reports
+<b class="fc"><i>117</i>&nbsp;        getReports(gson);</b>
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;        //Get Specific Report
+<b class="fc"><i>120</i>&nbsp;        get(&quot;/report/:rid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="fc"><i>121</i>&nbsp;            return switchReport(orderDao, itemDao, customerDao, req, res);</b>
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;        }, gson::toJson);
+<i>124</i>&nbsp;
+<b class="fc"><i>125</i>&nbsp;        get(&quot;/items&quot;, &quot;application/json&quot;, (req, res) -&gt; {</b>
+<b class="nc"><i>126</i>&nbsp;            return itemDao.findAll();</b>
+<i>127</i>&nbsp;        }, gson::toJson);
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;
+<b class="fc"><i>130</i>&nbsp;        after((req, res) -&gt; {</b>
+<b class="fc"><i>131</i>&nbsp;            res.type(&quot;application/json&quot;);</b>
+<b class="fc"><i>132</i>&nbsp;        });</b>
+<i>133</i>&nbsp;
+<b class="fc"><i>134</i>&nbsp;    }</b>
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;
+<i>137</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2016-09-28 20:04</div>
+</div>
+</body>
+</html>

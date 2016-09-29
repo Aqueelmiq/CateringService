@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Delectable</a> &gt; <a href="index.source.html" class="el_package">com.aqueel.project</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package com.aqueel.project;
+
+
+import com.aqueel.project.Dao.*;
+import com.google.gson.Gson;
+import org.sql2o.Connection;
+import org.sql2o.Sql2o;
+import spark.servlet.SparkApplication;
+
+import static com.aqueel.project.ServerClass.*;
+import static com.aqueel.project.ServerClass.getReports;
+import static com.aqueel.project.ServerClass.switchReport;
+import static spark.Spark.*;
+
+/**
+ * Created by aqueelmiqdad on 9/24/16.
+ */
+<span class="nc" id="L18">public class Main implements SparkApplication {</span>
+
+    @Override
+    public void init() {
+
+<span class="nc" id="L23">        get(&quot;/&quot;, (request, response) -&gt; &quot;Aqueel Miqdad\n&quot; +</span>
+                &quot;CS-445 Project\n&quot; +
+                &quot;Delectable&quot;);
+
+<span class="nc" id="L27">        String dataSource = &quot;jdbc:h2:~/app0003.db&quot;;</span>
+
+<span class="nc" id="L29">        String conString = dataSource + &quot;;INIT=RUNSCRIPT from 'classpath:db/init.sql'&quot;;</span>
+<span class="nc" id="L30">        Sql2o sql2o = new Sql2o(conString, &quot;&quot;, &quot;&quot;);</span>
+<span class="nc" id="L31">        Gson gson = new Gson();</span>
+
+<span class="nc" id="L33">        FoodDao foodDao = new Sql2oFoodDao(sql2o);</span>
+<span class="nc" id="L34">        CategoryDao categoryDao = new Sql2oCategoryDao(sql2o);</span>
+<span class="nc" id="L35">        ExtrasDao extrasDao = new Sql2oExtrasDao(sql2o);</span>
+<span class="nc" id="L36">        OrderDao orderDao = new Sql2oOrderDao(sql2o);</span>
+<span class="nc" id="L37">        ItemDao itemDao = new Sql2oItemDao(sql2o);</span>
+<span class="nc" id="L38">        CustomerDao customerDao = new Sql2oCustomerDao(sql2o);</span>
+
+<span class="nc" id="L40">        Connection con = sql2o.open();</span>
+
+        /*
+        *
+        *   MENU
+        *
+        */
+
+        //GET MENU (ALL) works
+<span class="nc" id="L49">        getMenu(gson, foodDao, categoryDao);</span>
+
+        //GET MENU (ID) works
+<span class="nc" id="L52">        getMenuId(gson, foodDao, categoryDao);</span>
+
+        //Add food item works
+<span class="nc" id="L55">        putMenu(gson, foodDao, categoryDao);</span>
+
+        //Update Food
+<span class="nc" id="L58">        updateMenu(gson, foodDao);</span>
+
+        /*
+        *
+        *   Surcharge
+        *
+        */
+
+        //GET Surcharge
+<span class="nc" id="L67">        getSurcharge(gson, extrasDao);</span>
+
+        //Update Surcharge
+<span class="nc" id="L70">        setSurcharge(gson, extrasDao);</span>
+
+
+        /*
+        *
+        *   Customers
+        *
+        */
+
+
+        //Get Customers
+<span class="nc" id="L81">        getCustomers(gson, customerDao);</span>
+
+        //Get Customer By ID
+<span class="nc" id="L84">        getCustomerId(gson, orderDao, customerDao);</span>
+
+
+        /*
+        *
+        *   Orders
+        *
+        */
+
+
+        //Get Order
+<span class="nc" id="L95">        getOrder(gson, orderDao, customerDao);</span>
+
+        //GEt Specific Order
+<span class="nc" id="L98">        GetOrderId(gson, orderDao, itemDao, customerDao);</span>
+
+
+        //Insert a new order
+<span class="nc" id="L102">        putOrder(gson, foodDao, extrasDao, orderDao, itemDao, customerDao);</span>
+
+        //Deliver order
+<span class="nc" id="L105">        deliverOrder(gson, orderDao);</span>
+
+        //Cancel order
+<span class="nc" id="L108">        cancelOrder(gson, orderDao);</span>
+
+
+        /*
+        *
+        *   Reports
+        *
+        */
+
+        //GET Reports
+<span class="nc" id="L118">        getReports(gson);</span>
+
+        //Get Specific Report
+<span class="nc" id="L121">        get(&quot;/report/:rid&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="nc" id="L122">            return switchReport(orderDao, itemDao, customerDao, req, res);</span>
+
+        }, gson::toJson);
+
+<span class="nc" id="L126">        get(&quot;/items&quot;, &quot;application/json&quot;, (req, res) -&gt; {</span>
+<span class="nc" id="L127">            return itemDao.findAll();</span>
+        }, gson::toJson);
+
+
+<span class="nc" id="L131">        after((req, res) -&gt; {</span>
+<span class="nc" id="L132">            res.type(&quot;application/json&quot;);</span>
+<span class="nc" id="L133">        });</span>
+<span class="nc" id="L134">    }</span>
+
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
